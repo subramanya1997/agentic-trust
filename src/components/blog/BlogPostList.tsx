@@ -1,12 +1,10 @@
 "use client";
 
+import React from 'react';
 import {
   Table,
   TableBody,
-  // TableCaption, // No longer used
   TableCell,
-  TableHead,
-  TableHeader,
   TableRow,
 } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
@@ -62,7 +60,7 @@ export const BlogPostList = ({ posts }: BlogPostListProps) => {
             Articles Coming Soon
           </h3>
           <p className="text-sm text-gray-600">
-            We're preparing insightful content about AI agent infrastructure, MCP servers, and production best practices. 
+            We&apos;re preparing insightful content about AI agent infrastructure, MCP servers, and production best practices. 
             Check back in June 2025!
           </p>
         </div>

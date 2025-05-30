@@ -1,5 +1,6 @@
+import React from 'react';
 import Link from "next/link";
-import { Facebook, Twitter, Linkedin, Github } from 'lucide-react';
+import { Linkedin, Github } from 'lucide-react';
 
 // FooterLink component is not used, can be removed if desired, but kept for now.
 // const FooterLink = ({ href, children }: { href: string, children: React.ReactNode }) => (
@@ -11,28 +12,6 @@ import { Facebook, Twitter, Linkedin, Github } from 'lucide-react';
 // );
 
 export const Footer = () => {
-  // linkSections array is not directly used for rendering the main columns anymore, 
-  // but can be kept for reference or future use if structure changes.
-  const linkSections = [
-    {
-      title: "Product",
-      links: [
-        { href: "#features", label: "Features" },
-        { href: "/blog", label: "Blog" },
-      ]
-    },
-    // Developers section removed
-    // Company section removed
-    {
-      title: "Legal",
-      links: [
-        { href: "/privacy", label: "Privacy Policy" },
-        { href: "/terms", label: "Terms of Service" },
-        { href: "/responsible-disclosure", label: "Responsible Disclosure" },
-      ]
-    }
-  ];
-
   return (
     <footer className="bg-gray-900 text-gray-300 py-12 sm:py-16 border-t border-gray-800">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">

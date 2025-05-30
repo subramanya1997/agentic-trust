@@ -1,4 +1,4 @@
-import { Database, Server, Lock, Bot, Globe, ShoppingCart, Headphones, ChartBar } from 'lucide-react';
+import { Database, Server, Lock, Bot, Globe, ShoppingCart, ChartBar } from 'lucide-react';
 import { UnifiedContextRouterConfig } from './UnifiedContextRouterPreview';
 
 // Example 1: E-commerce platform with multiple agent types

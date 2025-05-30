@@ -272,7 +272,7 @@ const TraceabilityPreview = () => (
               </div>
               <div className="flex items-center text-xs sm:text-sm">
                 <span className="text-gray-500 w-16 sm:w-20 flex-shrink-0">Query:</span>
-                <span className="text-gray-900 font-mono text-[10px] sm:text-xs break-all">"latest AI news 2024"</span>
+                <span className="text-gray-900 font-mono text-[10px] sm:text-xs break-all">&ldquo;latest AI news 2024&rdquo;</span>
               </div>
               <div className="flex items-center text-xs sm:text-sm">
                 <span className="text-gray-500 w-16 sm:w-20 flex-shrink-0">Duration:</span>

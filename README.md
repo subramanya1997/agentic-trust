@@ -1,134 +1,157 @@
-# AgenticTrust Website
+# Agentic Trust
 
-A modern, professional website for AgenticTrust - an AI governance and trust platform. Built with Next.js 14, TypeScript, Tailwind CSS, and shadcn/ui components.
+The unified MCP server platform for production AI agents. Enterprise-grade authentication, monitoring, and deployment in minutes.
 
-## 🚀 Features
+![Agentic Trust](https://agentictrust.com/opengraph-image)
 
-- **Modern Design**: Clean, professional design inspired by leading SaaS platforms
-- **Responsive**: Fully responsive design that works on all devices
-- **Fast Performance**: Built with Next.js 14 for optimal performance
-- **Type Safe**: Written in TypeScript for better development experience
-- **Accessible**: Built with accessibility in mind using shadcn/ui components
-- **SEO Optimized**: Structured for search engine optimization
+## 🚀 Overview
+
+Agentic Trust is a comprehensive platform that simplifies the deployment and management of MCP (Model Context Protocol) servers for AI agents in production environments. We provide a unified infrastructure that handles authentication, monitoring, deployment, and security - allowing teams to focus on building great AI experiences.
+
+## ✨ Key Features
+
+- **🔐 Enterprise Authentication**: Built-in auth for MCP servers with SSO support
+- **📊 Real-time Monitoring**: Track performance, usage, and health metrics
+- **🚀 One-Click Deployment**: Deploy MCP servers to production in minutes
+- **🛡️ Security First**: End-to-end encryption and compliance-ready infrastructure
+- **🔄 Auto-scaling**: Handle any load with automatic scaling
+- **📱 Fully Responsive**: Works seamlessly on desktop, tablet, and mobile devices
+- **🎨 Dynamic Social Images**: Auto-generated Open Graph and Twitter images
+- **📝 Blog (Coming June 2025)**: Technical insights and best practices
 
 ## 🛠️ Tech Stack
 
-- **Framework**: Next.js 14 with App Router
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **UI Components**: shadcn/ui
+- **Framework**: [Next.js 15](https://nextjs.org/) with TypeScript
+- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
+- **UI Components**: [shadcn/ui](https://ui.shadcn.com/)
+- **Animations**: Framer Motion
 - **Icons**: Lucide React
-- **Deployment**: Ready for Vercel deployment
+- **Font**: Geist (Sans & Mono)
 
-## 📁 Project Structure
-
-```
-agentic-trust/
-├── src/
-│   ├── app/
-│   │   ├── about/
-│   │   │   └── page.tsx          # About page
-│   │   ├── contact/
-│   │   │   └── page.tsx          # Contact page
-│   │   ├── globals.css           # Global styles
-│   │   ├── layout.tsx            # Root layout
-│   │   └── page.tsx              # Home page
-│   ├── components/
-│   │   └── ui/                   # shadcn/ui components
-│   └── lib/
-│       └── utils.ts              # Utility functions
-├── public/                       # Static assets
-├── components.json               # shadcn/ui configuration
-├── tailwind.config.js           # Tailwind configuration
-├── tsconfig.json                # TypeScript configuration
-└── package.json                 # Dependencies and scripts
-```
-
-## 🎨 Pages
-
-### Home Page (`/`)
-- Hero section with compelling value proposition
-- Features showcase with 6 key capabilities
-- Industry solutions (Financial Services, Healthcare, Technology)
-- Customer testimonials
-- Call-to-action sections
-
-### About Page (`/about`)
-- Company mission, vision, and values
-- Company story and background
-- Team member profiles
-- Call-to-action for careers and trials
-
-### Contact Page (`/contact`)
-- Multiple contact options (Sales, Support, Partnership)
-- Contact form with validation
-- Company contact information
-- FAQ section
-- Quick response options
-
-## 🚀 Getting Started
+## 🏃‍♂️ Getting Started
 
 ### Prerequisites
 
-- Node.js 18+ 
-- npm or yarn
+- Node.js 18.0 or higher
+- npm or yarn package manager
 
 ### Installation
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
+git clone https://github.com/yourusername/agentic-trust.git
 cd agentic-trust
 ```
 
 2. Install dependencies:
 ```bash
 npm install
+# or
+yarn install
 ```
 
 3. Run the development server:
 ```bash
 npm run dev
+# or
+yarn dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser
 
-## 📦 Available Scripts
+### Building for Production
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
-
-## 🎨 Design System
-
-The website uses a consistent design system with:
-
-- **Colors**: Blue and purple gradient theme
-- **Typography**: Clean, modern font hierarchy
-- **Spacing**: Consistent spacing using Tailwind's spacing scale
-- **Components**: Reusable shadcn/ui components
-- **Icons**: Lucide React icons for consistency
-
-## 🔧 Customization
-
-### Adding New Pages
-
-1. Create a new directory in `src/app/`
-2. Add a `page.tsx` file with your component
-3. Update navigation links in existing pages
-
-### Modifying Styles
-
-- Global styles: Edit `src/app/globals.css`
-- Component styles: Use Tailwind classes
-- Theme colors: Update `tailwind.config.js`
-
-### Adding Components
-
-Use shadcn/ui CLI to add new components:
 ```bash
-npx shadcn@latest add [component-name]
+npm run build
+npm start
+# or
+yarn build
+yarn start
+```
+
+## 📁 Project Structure
+
+```
+agentic-trust/
+├── public/              # Static assets
+│   ├── favicon.svg      # Site favicon
+│   ├── manifest.json    # PWA manifest
+│   └── robots.txt       # SEO robots file
+├── src/
+│   ├── app/            # Next.js app directory
+│   │   ├── layout.tsx  # Root layout
+│   │   ├── page.tsx    # Home page
+│   │   ├── blog/       # Blog section
+│   │   └── *.tsx       # Dynamic social images
+│   ├── components/     # React components
+│   │   ├── landing/    # Landing page sections
+│   │   ├── blog/       # Blog components
+│   │   └── ui/         # Reusable UI components
+│   ├── data/          # Static data
+│   └── lib/           # Utility functions
+├── package.json
+├── tsconfig.json
+└── tailwind.config.ts
+```
+
+## 🎨 Features
+
+### Responsive Design
+- Mobile-first approach with breakpoints for all screen sizes
+- Hidden navigation elements on mobile with hamburger menu support
+- Responsive typography and spacing
+- Optimized UnifiedContextRouterPreview for desktop viewing
+
+### Dynamic Social Media Images
+- Automatically generated Open Graph images (1200x630)
+- Twitter card images (512x512)
+- Monochromatic dark gray themes with random variations
+- Blog-specific social images with "Coming June 2025" badge
+
+### SEO Optimization
+- Dynamic sitemap generation
+- Robots.txt configuration
+- Meta tags optimization
+- PWA support with manifest.json
+- Proper favicon configuration
+
+### Landing Page Sections
+1. **Hero Section** - Eye-catching introduction with animated elements
+2. **Benefits Section** - Key platform benefits
+3. **Features Section** - Detailed platform capabilities with tabs
+4. **Target Audience** - Who should use Agentic Trust
+5. **FAQ Section** - Common questions and answers
+6. **Final CTA** - Newsletter signup
+
+### Blog (Coming June 2025)
+- Modern blog layout with category filtering
+- Featured post section
+- Author avatars and metadata
+- Responsive table view for blog posts
+- "Coming Soon" state with early access signup
+
+## 🔧 Configuration
+
+### Environment Variables
+
+Create a `.env.local` file in the root directory:
+
+```env
+# Add your environment variables here
+NEXT_PUBLIC_SITE_URL=https://agentictrust.com
+```
+
+### Metadata Configuration
+
+Update the metadata in `src/app/layout.tsx`:
+
+```typescript
+export const metadata: Metadata = {
+  metadataBase: new URL('https://agentictrust.com'),
+  title: "Agentic Trust",
+  description: "Your description here",
+  // ... other metadata
+};
 ```
 
 ## 🚀 Deployment
@@ -136,8 +159,8 @@ npx shadcn@latest add [component-name]
 ### Vercel (Recommended)
 
 1. Push your code to GitHub
-2. Connect your repository to Vercel
-3. Deploy automatically on every push
+2. Import the project in Vercel
+3. Deploy with one click
 
 ### Other Platforms
 
@@ -145,35 +168,20 @@ The project can be deployed to any platform that supports Next.js:
 - Netlify
 - AWS Amplify
 - Railway
-- DigitalOcean App Platform
-
-## 📝 Content Management
-
-To update content:
-
-1. **Text Content**: Edit the JSX directly in page components
-2. **Images**: Add to `public/` directory and reference in components
-3. **Styling**: Use Tailwind classes or update global CSS
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test thoroughly
-5. Submit a pull request
+- Self-hosted with Docker
 
 ## 📄 License
 
-This project is licensed under the MIT License.
+This project is proprietary software. All rights reserved.
 
-## 🆘 Support
+## 🤝 Contributing
 
-For support or questions:
-- Create an issue in the repository
-- Contact the development team
-- Check the documentation
+We're not currently accepting external contributions, but feel free to report issues or suggest features.
+
+## 📞 Contact
+
+For enterprise inquiries: enterprise@agentictrust.com
 
 ---
 
-Built with ❤️ using Next.js, TypeScript, and shadcn/ui
+Built with ❤️ by the Agentic Trust team
