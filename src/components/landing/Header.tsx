@@ -11,7 +11,7 @@ export const Header = () => {
         <nav className="flex flex-1 items-center justify-center space-x-6 text-sm font-medium text-gray-600">
           <Link href="#features" className="hover:text-gray-900 transition-colors">Features</Link>
           <Link href="#faq" className="hover:text-gray-900 transition-colors">FAQ</Link>
-          <Link href="#documentation" className="hover:text-gray-900 transition-colors">Documentation</Link>
+          <Link href="/blog" className="hover:text-gray-900 transition-colors">Blog</Link>
         </nav>
         <div className="flex items-center space-x-4">
           <Button variant="default" className="bg-black text-white hover:bg-gray-800 px-4 py-2 text-sm rounded-md">

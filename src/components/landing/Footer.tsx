@@ -15,16 +15,16 @@ export const Footer = () => {
       title: "Product",
       links: [
         { href: "#features", label: "Features" },
+        { href: "/blog", label: "Blog" },
         { href: "#solutions", label: "Solutions (Coming Soon)" },
         { href: "#pricing", label: "Pricing (Coming Soon)" },
-        { href: "/docs", label: "Documentation" },
       ]
     },
     {
       title: "Developers",
       links: [
-        { href: "/docs/api", label: "API Reference" },
-        { href: "/docs/quickstart", label: "Quickstart Guide" },
+        { href: "/api", label: "API Reference (Coming Soon)" },
+        { href: "/quickstart", label: "Quickstart Guide (Coming Soon)" },
         { href: "https://github.com/your-org/agentic-trust", label: "GitHub" , external: true},
         { href: "#status", label: "System Status (Coming Soon)" },
       ]
@@ -32,10 +32,9 @@ export const Footer = () => {
     {
       title: "Company",
       links: [
-        { href: "/about", label: "About Us" },
-        { href: "/blog", label: "Blog (Coming Soon)" },
-        { href: "/careers", label: "Careers (Coming Soon)" },
-        { href: "/contact", label: "Contact Us" },
+        // { href: "/about", label: "About Us" }, // Removed
+        // { href: "/careers", label: "Careers (Coming Soon)" }, // Removed
+        // { href: "/contact", label: "Contact Us" }, // Removed
       ]
     },
     {
@@ -70,6 +69,11 @@ export const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link href="/blog" className="text-sm hover:text-white transition-colors">
+                  Blog
+                </Link>
+              </li>
+              <li>
                 <Link href="#solutions" className="text-sm hover:text-white transition-colors">
                   Solutions (Coming Soon)
                 </Link>
@@ -77,11 +81,6 @@ export const Footer = () => {
               <li>
                 <Link href="#pricing" className="text-sm hover:text-white transition-colors">
                   Pricing (Coming Soon)
-                </Link>
-              </li>
-              <li>
-                <Link href="/docs" className="text-sm hover:text-white transition-colors">
-                  Documentation
                 </Link>
               </li>
             </ul>
@@ -93,12 +92,12 @@ export const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <Link href="/api" className="text-sm hover:text-white transition-colors">
-                  API Reference
+                  API Reference (Coming Soon)
                 </Link>
               </li>
               <li>
                 <Link href="/quickstart" className="text-sm hover:text-white transition-colors">
-                  Quickstart Guide
+                  Quickstart Guide (Coming Soon)
                 </Link>
               </li>
               <li>
@@ -118,26 +117,7 @@ export const Footer = () => {
           <div>
             <h4 className="text-white font-semibold mb-4 uppercase text-xs tracking-wider">Company</h4>
             <ul className="space-y-2">
-              <li>
-                <Link href="/about" className="text-sm hover:text-white transition-colors">
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link href="/blog" className="text-sm hover:text-white transition-colors">
-                  Blog (Coming Soon)
-                </Link>
-              </li>
-              <li>
-                <Link href="/careers" className="text-sm hover:text-white transition-colors">
-                  Careers (Coming Soon)
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-sm hover:text-white transition-colors">
-                  Contact Us
-                </Link>
-              </li>
+              {/* About Us, Careers, Contact Us links removed */}
             </ul>
           </div>
         </div>
@@ -172,9 +152,7 @@ export const Footer = () => {
             <Link href="https://github.com" className="hover:text-white transition-colors">
               <Github className="w-5 h-5" />
             </Link>
-            <Link href="/contact" className="text-xs hover:text-white transition-colors">
-              Contact
-            </Link>
+            {/* Contact link removed from bottom bar */}
             <span className="text-xs">made by lemia</span>
           </div>
         </div>
