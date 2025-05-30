@@ -68,8 +68,8 @@ export const HeroSection = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 relative z-10">
         <div className="flex flex-col items-center">
           {/* Top: Hero Text */}
-          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12 md:mb-16">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+          <div className="text-center max-w-3xl mx-auto mb-4 sm:mb-6 md:mb-8">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
               Build production-ready{' '}
               <span className="text-orange-500 inline-block">MCP servers</span>{' '}
               in minutes

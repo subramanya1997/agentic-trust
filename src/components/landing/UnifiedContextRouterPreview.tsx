@@ -76,16 +76,28 @@ export const UnifiedContextRouterPreview = ({ config = defaultConfig }: { config
   const [currentFlowStatus, setCurrentFlowStatus] = useState<'positive' | 'negative' | null>(null);
 
   useEffect(() => {
+    // Reset states when config changes
+    setInteractingAgent(null);
+    setBridgeActive(false);
+    setActiveInstances([]);
+    setCurrentFlowStatus(null);
+    
     const agentsCount = config.agents.length;
     let currentAgentIndex = 0;
 
     const sequence = async () => {
       const agentIndex = currentAgentIndex % agentsCount;
+      // Early exit if agent doesn't exist
+      if (!config.agents[agentIndex]) return;
+      
       const agent = config.agents[agentIndex];
       
       setInteractingAgent(agentIndex);
       setCurrentFlowStatus(agent.flowType);
       await new Promise(resolve => setTimeout(resolve, 100)); // Brief pause to set agent
+      
+      // Check if still valid after async wait
+      if (!config.agents[agentIndex]) return;
       
       // Animate line to bridge
       await new Promise(resolve => setTimeout(resolve, 700)); // Duration of line animation to bridge
@@ -95,7 +107,9 @@ export const UnifiedContextRouterPreview = ({ config = defaultConfig }: { config
 
       if (agent.flowType === 'positive') {
         // For positive flow, connect to configured instances
-        setActiveInstances(agent.connectsTo);
+        // Validate all instance indices exist
+        const validInstances = agent.connectsTo.filter(i => i < config.mcpInstances.length);
+        setActiveInstances(validInstances);
         await new Promise(resolve => setTimeout(resolve, 700)); // Duration of line animation from bridge
       } else {
         // For negative flow, bridge blocks the connection
@@ -116,15 +130,55 @@ export const UnifiedContextRouterPreview = ({ config = defaultConfig }: { config
 
     const intervalId = setInterval(sequence, 4200); // Total duration: 100 + 700 + 700 + 700 + 1000 + 500
     sequence(); // Start immediately
-
-    return () => clearInterval(intervalId);
+    
+    return () => {
+      clearInterval(intervalId);
+      // Clean up states on unmount or config change
+      setInteractingAgent(null);
+      setBridgeActive(false);
+      setActiveInstances([]);
+      setCurrentFlowStatus(null);
+    };
   }, [config]); // Re-run effect when config changes
 
   const { agents, mcpInstances } = config;
 
   return (
-    <div className="relative w-full py-6 sm:py-8 md:py-12 lg:py-16">
-      <div className="flex items-center justify-center">
+    <div className="w-full">
+      {/* Access Notes Section - Moved to top */}
+      <div className="mb-3 sm:mb-4 flex justify-center px-4 mb-8">
+        <div className="max-w-2xl w-full text-center h-10 sm:h-12 flex items-center justify-center">
+          <div className={`
+            transition-all duration-300
+            ${interactingAgent !== null && interactingAgent < agents.length ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}
+          `}>
+            {interactingAgent !== null && interactingAgent < agents.length && agents[interactingAgent] && (
+              <div className={`
+                inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm
+                ${currentFlowStatus === 'positive' 
+                  ? 'bg-green-100 text-green-800 border border-green-200' 
+                  : 'bg-red-100 text-red-800 border border-red-200'}
+              `}>
+                <div className={`
+                  w-2 h-2 rounded-full
+                  ${currentFlowStatus === 'positive' ? 'bg-green-500' : 'bg-red-500'}
+                `}></div>
+                <span className="font-medium">
+                  {agents[interactingAgent].name}:
+                </span>
+                <span>
+                  {agents[interactingAgent].note || 
+                    (currentFlowStatus === 'positive' 
+                      ? 'Authorized access granted' 
+                      : 'Access denied by security policy')}
+                </span>
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+      
+      <div className="flex items-center justify-center mt-8">
         <div className="relative flex flex-col md:flex-row items-center justify-center gap-6 sm:gap-8 md:gap-12 lg:gap-16 px-2 md:overflow-visible">
           
           <div className="flex flex-col items-center md:items-start w-full">
@@ -192,7 +246,6 @@ export const UnifiedContextRouterPreview = ({ config = defaultConfig }: { config
                                   ${bridgeActive && currentFlowStatus === 'positive' ? 'rotate-[20deg] scale-110' : 
                                    bridgeActive && currentFlowStatus === 'negative' ? 'opacity-70' : ''}`} />
                 <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold">AgenticTrust</div>
-                <div className="text-xs sm:text-sm opacity-90">MCP Bridge</div>
               </div>
               
               <div className="mt-4 sm:mt-5 md:mt-6 flex flex-col gap-2 sm:gap-2.5 md:gap-3">
@@ -223,7 +276,10 @@ export const UnifiedContextRouterPreview = ({ config = defaultConfig }: { config
             <div className="relative flex flex-row md:flex-col gap-2.5 sm:gap-3 md:space-y-0 md:gap-4 overflow-x-auto md:overflow-visible w-full pb-2 md:pb-0">
               {mcpInstances.map((mcp, index) => {
                 const isActive = activeInstances.includes(index) && bridgeActive && currentFlowStatus === 'positive';
-                const isTargeted = interactingAgent !== null && agents[interactingAgent].connectsTo.includes(index);
+                const isTargeted = interactingAgent !== null && 
+                                 interactingAgent < agents.length && 
+                                 agents[interactingAgent] && 
+                                 agents[interactingAgent].connectsTo.includes(index);
                 const isDenied = isTargeted && currentFlowStatus === 'negative' && bridgeActive;
                 
                 let lineColor = 'bg-gray-300';
@@ -357,39 +413,6 @@ export const UnifiedContextRouterPreview = ({ config = defaultConfig }: { config
                 );
               })}
             </div>
-          </div>
-        </div>
-      </div>
-      
-      {/* Access Notes Section */}
-      <div className="mt-6 sm:mt-8 flex justify-center px-4">
-        <div className="max-w-2xl w-full text-center h-10 sm:h-12 flex items-center justify-center">
-          <div className={`
-            transition-all duration-300
-            ${interactingAgent !== null ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}
-          `}>
-            {interactingAgent !== null && agents[interactingAgent] && (
-              <div className={`
-                inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm
-                ${currentFlowStatus === 'positive' 
-                  ? 'bg-green-100 text-green-800 border border-green-200' 
-                  : 'bg-red-100 text-red-800 border border-red-200'}
-              `}>
-                <div className={`
-                  w-2 h-2 rounded-full
-                  ${currentFlowStatus === 'positive' ? 'bg-green-500' : 'bg-red-500'}
-                `}></div>
-                <span className="font-medium">
-                  {agents[interactingAgent].name}:
-                </span>
-                <span>
-                  {agents[interactingAgent].note || 
-                    (currentFlowStatus === 'positive' 
-                      ? 'Authorized access granted' 
-                      : 'Access denied by security policy')}
-                </span>
-              </div>
-            )}
           </div>
         </div>
       </div>
