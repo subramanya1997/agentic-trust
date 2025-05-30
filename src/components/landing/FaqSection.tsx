@@ -57,16 +57,16 @@ export const FaqSection = () => {
   ];
 
   return (
-    <section id="faq" className="py-20 md:py-28 bg-gray-50">
-      <div className="container mx-auto px-4 md:px-6 max-w-6xl">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+    <section id="faq" className="py-16 sm:py-20 md:py-28 bg-gray-50">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl">
+        <div className="text-center mb-10 sm:mb-12 md:mb-16">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
             Frequently Asked Questions
           </h2>
-          <p className="text-lg text-gray-600 mt-4">Your questions about AgenticTrust, answered.</p>
+          <p className="text-base sm:text-lg text-gray-600 mt-3 sm:mt-4">Your questions about AgenticTrust, answered.</p>
         </div>
         
-        <div className="grid md:grid-cols-2 md:items-start gap-x-8 gap-y-6">
+        <div className="grid md:grid-cols-2 md:items-start gap-x-6 sm:gap-x-8 gap-y-4 sm:gap-y-6">
           {faqItems.map((item, index) => (
             <div 
               key={index} 
@@ -74,15 +74,15 @@ export const FaqSection = () => {
             >
               <button
                 onClick={() => toggleItem(index)}
-                className="w-full px-6 py-5 text-left flex items-start justify-between focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 rounded-t-lg"
+                className="w-full px-4 sm:px-6 py-4 sm:py-5 text-left flex items-start justify-between focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 rounded-t-lg"
                 aria-expanded={openItems.has(index)}
                 aria-controls={`faq-answer-${index}`}
               >
-                <h3 className="text-base font-semibold text-gray-800 pr-4">
+                <h3 className="text-sm sm:text-base font-semibold text-gray-800 pr-3 sm:pr-4">
                   {item.question}
                 </h3>
                 <ChevronDown 
-                  className={`w-5 h-5 text-gray-400 flex-shrink-0 transition-transform duration-200 transform ${
+                  className={`w-4 h-4 sm:w-5 sm:h-5 text-gray-400 flex-shrink-0 transition-transform duration-200 transform ${
                     openItems.has(index) ? 'rotate-180 text-orange-500' : ''
                   }`} 
                   aria-hidden="true"
@@ -95,21 +95,12 @@ export const FaqSection = () => {
                   openItems.has(index) ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
                 }`}
               >
-                <div className="px-6 pb-5 pt-1 text-gray-600 leading-relaxed">
+                <div className="px-4 sm:px-6 pb-4 sm:pb-5 pt-1 text-sm sm:text-base text-gray-600 leading-relaxed">
                   {item.answer}
                 </div>
               </div>
             </div>
           ))}
-        </div>
-        
-        <div className="mt-16 text-center">
-          <p className="text-gray-700">
-            Can't find the answer you're looking for? Reach out to our{' '}
-            <a href="/contact" className="text-orange-600 hover:text-orange-700 font-medium underline">
-              support team
-            </a>.
-          </p>
         </div>
       </div>
     </section>
