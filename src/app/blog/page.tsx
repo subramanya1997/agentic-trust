@@ -6,18 +6,56 @@ import { CategoryTabs } from "@/components/blog/CategoryTabs";
 import { BlogPostList } from "@/components/blog/BlogPostList";
 import { blogPosts, categories } from "@/data/blogPosts";
 import { useState } from "react";
-import { Bell, Sparkles } from "lucide-react";
+import { Bell, Sparkles, Check, AlertCircle } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { submitEmailToGoogleForm } from "@/lib/googleFormSubmit";
 
 export default function BlogPage() {
   const [email, setEmail] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState("");
   
   // Filter posts (will be empty for now)
   const filteredPosts = selectedCategory === "All" 
     ? blogPosts 
     : blogPosts.filter(post => post.category === selectedCategory);
+
+  // Handle email subscription
+  const handleSubscribe = async () => {
+    if (!email) {
+      setSubmitStatus('error');
+      setErrorMessage('Please enter your email address');
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+    setErrorMessage('');
+
+    try {
+      const result = await submitEmailToGoogleForm(email);
+      
+      if (result.success) {
+        setSubmitStatus('success');
+        setEmail(''); // Clear the email field
+        // Reset success message after 5 seconds
+        setTimeout(() => {
+          setSubmitStatus('idle');
+        }, 5000);
+      } else {
+        setSubmitStatus('error');
+        setErrorMessage(result.error || 'Failed to subscribe. Please try again.');
+      }
+    } catch {
+      setSubmitStatus('error');
+      setErrorMessage('An unexpected error occurred. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="min-h-screen bg-gray-50 text-gray-800 font-sans">
@@ -49,7 +87,7 @@ export default function BlogPage() {
                 {/* Title */}
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight">
                   Insights from the Future of AI Infrastructure
-                </h1>
+          </h1>
                 
                 {/* Description */}
                 <p className="text-lg text-gray-600 mb-8 leading-relaxed">
@@ -67,18 +105,58 @@ export default function BlogPage() {
                       placeholder="Enter your email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
+                      onKeyPress={(e) => {
+                        if (e.key === 'Enter') {
+                          handleSubscribe();
+                        }
+                      }}
                       className="flex-1 h-11"
+                      disabled={isSubmitting}
                     />
                     <Button 
-                      className="bg-orange-500 hover:bg-orange-600 text-white font-semibold h-11 px-6"
+                      className="bg-orange-500 hover:bg-orange-600 text-white font-semibold h-11 px-6 disabled:opacity-50 disabled:cursor-not-allowed"
+                      onClick={handleSubscribe}
+                      disabled={isSubmitting}
                     >
-                      <Bell className="w-4 h-4 mr-2" />
-                      Subscribe
+                      {isSubmitting ? (
+                        <>
+                          <div className="w-4 h-4 mr-2 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                          Subscribing...
+                        </>
+                      ) : submitStatus === 'success' ? (
+                        <>
+                          <Check className="w-4 h-4 mr-2" />
+                          Subscribed!
+                        </>
+                      ) : (
+                        <>
+                          <Bell className="w-4 h-4 mr-2" />
+                          Subscribe
+                        </>
+                      )}
                     </Button>
                   </div>
-                  <p className="text-sm text-gray-500">
-                    Join developers getting updates on AI agent infrastructure
-                  </p>
+                  
+                  {/* Status Messages */}
+                  {submitStatus === 'success' && (
+                                          <p className="text-sm text-green-600 flex items-center gap-2">
+                        <Check className="w-4 h-4" />
+                        Successfully subscribed! We&apos;ll notify you when we launch.
+                      </p>
+                  )}
+                  
+                  {submitStatus === 'error' && errorMessage && (
+                    <p className="text-sm text-red-600 flex items-center gap-2">
+                      <AlertCircle className="w-4 h-4" />
+                      {errorMessage}
+                    </p>
+                  )}
+                  
+                  {submitStatus === 'idle' && (
+                    <p className="text-sm text-gray-500">
+                      Join developers getting updates on AI agent infrastructure
+                    </p>
+                  )}
                 </div>
               </div>
               
@@ -117,8 +195,8 @@ export default function BlogPage() {
                         <p className="text-xs text-gray-600">Scaling AI agents from MVP to enterprise</p>
                       </div>
                     </div>
-                  </div>
-                  
+        </div>
+
                   {/* Preview Card 3 */}
                   <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 shadow-lg transform rotate-1 hover:rotate-0 transition-transform">
                     <div className="flex items-start gap-3">

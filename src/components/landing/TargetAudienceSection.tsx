@@ -38,14 +38,14 @@ export const TargetAudienceSection = () => {
     {
       title: "Startups",
       icon: Zap,
-      description: "Fast-moving companies integrating AI agents who can&apos;t afford to build infrastructure from scratch",
+      description: "Fast-moving companies integrating AI agents who can't afford to build infrastructure from scratch",
       iconBg: "bg-purple-50",
       accentColor: "purple"
     },
     {
       title: "Enterprises",
       icon: Building2,
-      description: "Large organizations requiring enterprise-grade security, compliance, and control over their AI agents&apos; behavior",
+      description: "Large organizations requiring enterprise-grade security, compliance, and control over their AI agents behavior",
       iconBg: "bg-orange-50",
       accentColor: "orange"
     }

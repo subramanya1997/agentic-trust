@@ -33,9 +33,11 @@ export const Header = () => {
           <Link href="/blog" className="hover:text-gray-900 transition-colors">Blog</Link>
         </nav>
         <div className="flex items-center space-x-2 md:space-x-4">
-          <Button variant="default" className="bg-black text-white hover:bg-gray-800 px-3 sm:px-4 py-2 text-sm rounded-md">
-            Book a Call
-          </Button>
+          <Link href="https://calendly.com/subramanya1997/introduction" target="_blank" rel="noopener noreferrer">
+            <Button variant="default" className="bg-black text-white hover:bg-gray-800 px-3 sm:px-4 py-2 text-sm rounded-md">
+              Book a Call
+            </Button>
+          </Link>
           {/* Placeholder for Hamburger Menu for mobile */}
           <div className="md:hidden">
             {/* <Button variant="ghost" size="icon">

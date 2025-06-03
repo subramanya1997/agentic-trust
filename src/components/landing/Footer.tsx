@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from "next/link";
-import { Linkedin, Github } from 'lucide-react';
 
 // FooterLink component is not used, can be removed if desired, but kept for now.
 // const FooterLink = ({ href, children }: { href: string, children: React.ReactNode }) => (
@@ -90,22 +89,14 @@ export const Footer = () => {
         {/* Bottom Bar - Keep this part as is */}
         <div className="mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center text-xs sm:text-sm text-gray-500">
           <p className="text-center md:text-left mb-3 md:mb-0">© 2025 Agentic Trust Technologies Inc. All rights reserved.</p>
-          <div className="flex items-center space-x-3 sm:space-x-4">
-            <Link href="https://linkedin.com" className="hover:text-white transition-colors">
-              <Linkedin className="w-4 h-4 sm:w-5 sm:h-5" />
-            </Link>
-            <Link href="https://github.com" className="hover:text-white transition-colors">
-              <Github className="w-4 h-4 sm:w-5 sm:h-5" />
-            </Link>
-            <a 
-              href="https://subramanya.ai" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="text-[10px] sm:text-xs hover:text-white transition-colors"
-            >
-              made by subramanya
-            </a>
-          </div>
+          <a 
+            href="https://subramanya.ai" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="text-[10px] sm:text-xs hover:text-white transition-colors"
+          >
+            made by subramanya
+          </a>
         </div>
       </div>
     </footer>
