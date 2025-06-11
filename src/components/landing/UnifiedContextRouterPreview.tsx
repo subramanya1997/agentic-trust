@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Briefcase, Cloud, FileText, Shield, Gauge, Filter, Activity, Combine } from 'lucide-react';
 import React from 'react';
 
@@ -75,6 +75,12 @@ export const UnifiedContextRouterPreview = ({ config = defaultConfig }: { config
   const [activeInstances, setActiveInstances] = useState<number[]>([]);
   const [currentFlowStatus, setCurrentFlowStatus] = useState<'positive' | 'negative' | null>(null);
 
+  // Refs for auto-scrolling the horizontal container
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const agentsColRef = useRef<HTMLDivElement | null>(null);
+  const bridgeRef = useRef<HTMLDivElement | null>(null);
+  const instancesColRef = useRef<HTMLDivElement | null>(null);
+
   useEffect(() => {
     // Reset states when config changes
     setInteractingAgent(null);
@@ -141,12 +147,29 @@ export const UnifiedContextRouterPreview = ({ config = defaultConfig }: { config
     };
   }, [config]); // Re-run effect when config changes
 
+  // Auto-scroll to keep active section in view on small screens
+  useEffect(() => {
+    let target: HTMLElement | null = null;
+    if (bridgeActive && activeInstances.length === 0 && bridgeRef.current) {
+      target = bridgeRef.current;
+    } else if (activeInstances.length > 0 && instancesColRef.current) {
+      target = instancesColRef.current;
+    } else if (interactingAgent !== null && agentsColRef.current) {
+      target = agentsColRef.current;
+    }
+
+    if (target && containerRef.current) {
+      // Smoothly center the target column
+      target.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    }
+  }, [interactingAgent, bridgeActive, activeInstances]);
+
   const { agents, mcpInstances } = config;
 
   return (
     <div className="w-full">
       {/* Access Notes Section - Moved to top */}
-      <div className="mb-3 sm:mb-4 flex justify-center px-4 mb-8">
+      <div className="mb-3 sm:mb-4 flex justify-center px-4">
         <div className="max-w-2xl w-full text-center h-10 sm:h-12 flex items-center justify-center">
           <div className={`
             transition-all duration-300
@@ -178,12 +201,14 @@ export const UnifiedContextRouterPreview = ({ config = defaultConfig }: { config
         </div>
       </div>
       
-      <div className="flex items-center justify-center mt-8">
-        <div className="relative flex flex-col md:flex-row items-center justify-center gap-6 sm:gap-8 md:gap-12 lg:gap-16 px-2 md:overflow-visible">
+      <div className="flex items-center justify-center">
+        {/* Horizontal flow container with scroll on small screens */}
+        <div ref={containerRef} className="relative flex flex-row items-center gap-6 sm:gap-8 md:gap-12 lg:gap-16 px-2 overflow-x-auto scroll-snap-x mandatory md:overflow-visible py-2">
           
-          <div className="flex flex-col items-center md:items-start w-full">
+          <div ref={agentsColRef} className="flex flex-col items-center md:items-center min-w-max flex-shrink-0 snap-start">
             <div className="text-xs sm:text-sm md:text-base font-semibold text-gray-500 uppercase tracking-wider mb-3 sm:mb-4 md:mb-6 opacity-90 text-center md:text-left">AI Agents</div>
-            <div className="relative flex flex-row md:flex-col gap-2.5 sm:gap-3 md:space-y-0 md:gap-4 overflow-x-auto md:overflow-visible w-full pb-2 md:pb-0">
+            {/* Mobile: vertical list; Desktop (md+) keeps column layout */}
+            <div className="relative flex flex-col md:flex-col gap-2.5 sm:gap-3 md:gap-4 w-full">
               {agents.map((agent, index) => {
                 const isActive = interactingAgent === index;
                 let lineColor = 'bg-gray-300';
@@ -199,8 +224,8 @@ export const UnifiedContextRouterPreview = ({ config = defaultConfig }: { config
                   <div 
                     key={agent.name} 
                     className={`
-                      relative bg-white/95 backdrop-blur-sm rounded-xl px-4 py-2.5 sm:px-5 sm:py-3 md:px-6 md:py-4 text-xs sm:text-sm md:text-base font-medium text-gray-800 
-                      flex items-center gap-2 sm:gap-3 min-w-[160px] sm:min-w-[200px] md:min-w-[240px] border-2 shadow-lg 
+                      relative bg-white/95 backdrop-blur-sm rounded-xl px-3 py-2 sm:px-4 sm:py-3 md:px-5 md:py-4 text-xs sm:text-sm md:text-base font-medium text-gray-800 
+                      flex items-center gap-2 sm:gap-3 w-[140px] sm:w-[180px] md:w-[220px] border-2 shadow-lg 
                       transition-all duration-300 ease-in-out flex-shrink-0 md:flex-shrink-1
                       ${interactingAgent === index && currentFlowStatus === 'positive' ? 'border-orange-500 scale-105 shadow-orange-300/50' : 
                         interactingAgent === index && currentFlowStatus === 'negative' ? 'border-red-500 scale-105 shadow-red-300/50' : 'border-gray-200/70'}
@@ -227,7 +252,7 @@ export const UnifiedContextRouterPreview = ({ config = defaultConfig }: { config
             </div>
           </div>
 
-          <div className="relative z-10 my-4 md:my-0">
+          <div ref={bridgeRef} className="relative z-10 my-4 md:my-0 min-w-max flex-shrink-0 snap-start">
             <div className={`absolute -top-6 sm:-top-7 left-1/2 -translate-x-1/2 z-10 transition-all duration-300 ${bridgeActive ? 'scale-110' : ''}`}>
               <div className={`bg-gradient-to-r text-white px-3 py-1 sm:px-4 sm:py-1.5 rounded-full text-xs sm:text-sm font-semibold shadow-lg whitespace-nowrap flex items-center gap-1.5 sm:gap-2 
                               ${currentFlowStatus === 'negative' && bridgeActive ? 'from-red-500 to-red-700' : 'from-blue-600 to-purple-600'}`}>
@@ -271,9 +296,10 @@ export const UnifiedContextRouterPreview = ({ config = defaultConfig }: { config
             </div>
           </div>
 
-          <div className="flex flex-col items-center md:items-end w-full">
+          <div ref={instancesColRef} className="flex flex-col items-center md:items-end min-w-max flex-shrink-0 snap-start">
             <div className="text-xs sm:text-sm md:text-base font-semibold text-gray-500 uppercase tracking-wider mb-3 sm:mb-4 md:mb-6 opacity-90 text-center md:text-left">MCP Instances</div>
-            <div className="relative flex flex-row md:flex-col gap-2.5 sm:gap-3 md:space-y-0 md:gap-4 overflow-x-auto md:overflow-visible w-full pb-2 md:pb-0">
+            {/* Mobile: vertical list; Desktop keeps column layout */}
+            <div className="relative flex flex-col md:flex-col gap-2.5 sm:gap-3 md:gap-4 w-full">
               {mcpInstances.map((mcp, index) => {
                 const isActive = activeInstances.includes(index) && bridgeActive && currentFlowStatus === 'positive';
                 const isTargeted = interactingAgent !== null && 
@@ -373,7 +399,7 @@ export const UnifiedContextRouterPreview = ({ config = defaultConfig }: { config
                     key={mcp.name} 
                     className={`
                       relative bg-white/95 backdrop-blur-sm rounded-xl border-2 px-3 py-3 sm:p-4 md:p-5 
-                      shadow-lg transition-all duration-300 ease-in-out min-w-[180px] sm:min-w-[220px] md:min-w-[260px]
+                      shadow-lg transition-all duration-300 ease-in-out w-[140px] sm:w-[180px] md:w-[220px]
                       flex-shrink-0 md:flex-shrink-1
                       ${borderClass} ${shadowClass} ${scaleClass}
                     `}

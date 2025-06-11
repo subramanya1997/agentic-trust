@@ -109,8 +109,8 @@ export const HeroSection = () => {
               </div>
             </div>
           </div>
-          {/* UnifiedContextRouterPreview - Hidden on mobile for better UX */}
-          <div className="hidden sm:block w-full">
+          {/* UnifiedContextRouterPreview - Responsive */}
+          <div className="w-full overflow-x-auto sm:overflow-visible">
             <UnifiedContextRouterPreview config={configurations[configIndex].config} />
           </div>
         </div>
