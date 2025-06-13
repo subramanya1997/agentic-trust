@@ -159,8 +159,12 @@ export const UnifiedContextRouterPreview = ({ config = defaultConfig }: { config
     }
 
     if (target && containerRef.current) {
-      // Smoothly center the target column
-      target.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+      // Smoothly center the target column HORIZONTALLY without affecting page's vertical scroll
+      const container = containerRef.current;
+      const targetCenter = target.offsetLeft + target.offsetWidth / 2;
+      const containerCenter = container.clientWidth / 2;
+      const newScrollLeft = targetCenter - containerCenter;
+      container.scrollTo({ left: newScrollLeft, behavior: 'smooth' });
     }
   }, [interactingAgent, bridgeActive, activeInstances]);
 

@@ -1,18 +1,19 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { UnifiedContextRouterPreview } from './UnifiedContextRouterPreview';
 import { ecommerceConfig, devOpsConfig, simpleConfig } from './example-config';
 import type { UnifiedContextRouterConfig } from './UnifiedContextRouterPreview';
+import Image from 'next/image';
 
 export const HeroSection = () => {
-  // Array of all available configurations including the default
-  const configurations: { config?: UnifiedContextRouterConfig; name: string }[] = [
+  // Array of all available configurations including the default. Wrapped in useMemo to keep reference stable between renders.
+  const configurations = useMemo<{ config?: UnifiedContextRouterConfig; name: string }[]>(() => ([
     { config: undefined, name: 'default' }, // undefined will use the default config
     { config: ecommerceConfig, name: 'ecommerce' },
     { config: devOpsConfig, name: 'devops' },
     { config: simpleConfig, name: 'simple' }
-  ];
+  ]), []);
 
   // State to track current configuration index
   const [configIndex, setConfigIndex] = useState(0);
@@ -100,9 +101,11 @@ export const HeroSection = () => {
               <div className="flex items-center justify-center">
                 {/* Combined Logo */}
                 <div className="relative group">
-                  <img 
+                  <Image
                     src="/logos/cisco-ucb-umass.png"
                     alt="Cisco, UMass Amherst, and UC Berkeley"
+                    width={160}
+                    height={32}
                     className="h-5 sm:h-6 md:h-8 w-auto opacity-70 group-hover:opacity-80 transition-opacity duration-200 filter grayscale contrast-0 brightness-0"
                   />
                 </div>
