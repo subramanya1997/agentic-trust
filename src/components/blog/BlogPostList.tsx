@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Link from 'next/link';
 import {
   Table,
   TableBody,
@@ -21,6 +22,7 @@ interface BlogPost {
   authors: Author[];
   category: string;
   date: string;
+  slug?: string;
 }
 
 interface BlogPostListProps {
@@ -79,10 +81,19 @@ export const BlogPostList = ({ posts }: BlogPostListProps) => {
                 className="group cursor-pointer hover:bg-gray-50/50 transition-colors duration-150 border-gray-200"
               >
                 <TableCell className="px-6 py-5 whitespace-normal">
-                              <h3 className="text-sm sm:text-base font-semibold text-gray-800 group-hover:text-brand transition-colors flex items-center gap-1.5">
-              {post.title}
-              <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity duration-150 text-brand" />
-                  </h3>
+                  {post.slug ? (
+                    <Link href={`/blog/${post.slug}`}>
+                      <h3 className="text-sm sm:text-base font-semibold text-gray-800 group-hover:text-brand transition-colors flex items-center gap-1.5">
+                        {post.title}
+                        <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity duration-150 text-brand" />
+                      </h3>
+                    </Link>
+                  ) : (
+                    <h3 className="text-sm sm:text-base font-semibold text-gray-800 group-hover:text-brand transition-colors flex items-center gap-1.5">
+                      {post.title}
+                      <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity duration-150 text-brand" />
+                    </h3>
+                  )}
                 </TableCell>
                 <TableCell className="px-3 py-5 text-right">
                   <div 

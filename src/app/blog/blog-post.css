@@ -1,0 +1,499 @@
+/* Additional blog post styling */
+.prose pre {
+  margin: 1.5em 0 !important;
+  border-radius: 6px !important;
+  overflow-x: auto !important;
+  white-space: pre !important;
+  background-color: #f6f8fa !important;
+  padding: 1em !important;
+  border: 1px solid #e1e4e8;
+}
+
+.prose pre code {
+  background-color: transparent !important;
+  padding: 0 !important;
+  border-width: 0 !important;
+  font-size: 0.875em !important;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace !important;
+  white-space: pre !important;
+}
+
+.prose code {
+  font-size: 0.875em;
+}
+
+.prose h2 {
+  margin-top: 2em;
+  margin-bottom: 1em;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid #e1e4e8;
+  font-weight: 600;
+}
+
+.prose h3 {
+  margin-top: 1.5em;
+  margin-bottom: 0.75em;
+  font-weight: 600;
+}
+
+.prose ul,
+.prose ol {
+  margin: 1em 0;
+}
+
+.prose li {
+  margin: 0.5em 0;
+}
+
+.prose blockquote {
+  border-left: 4px solid #e5e7eb;
+  padding-left: 1em;
+  margin: 1.5em 0;
+  color: #6b7280;
+  font-style: italic;
+}
+
+/* Mermaid specific styling */
+.mermaid {
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex;
+  justify-content: center;
+  overflow: visible;
+}
+
+.mermaid svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Syntax highlighting theme */
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em;
+  background: #f6f8fa;
+  color: #24292e;
+  border-radius: 6px;
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: #6a737d;
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-subst {
+  color: #d73a49;
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag .hljs-attr {
+  color: #005cc5;
+}
+
+.hljs-string,
+.hljs-doctag {
+  color: #032f62;
+}
+
+.hljs-title,
+.hljs-section,
+.hljs-selector-id {
+  color: #6f42c1;
+  font-weight: bold;
+}
+
+.hljs-subst {
+  font-weight: normal;
+}
+
+.hljs-type,
+.hljs-class .hljs-title {
+  color: #22863a;
+  font-weight: bold;
+}
+
+.hljs-tag,
+.hljs-name,
+.hljs-attribute {
+  color: #22863a;
+  font-weight: normal;
+}
+
+.hljs-regexp,
+.hljs-link {
+  color: #032f62;
+}
+
+.hljs-symbol,
+.hljs-bullet {
+  color: #6f42c1;
+}
+
+.hljs-built_in,
+.hljs-builtin-name {
+  color: #d73a49;
+}
+
+.hljs-meta {
+  color: #005cc5;
+  font-weight: bold;
+}
+
+.hljs-deletion {
+  background: #ffeef0;
+}
+
+.hljs-addition {
+  background: #f0fff4;
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}
+
+/* ASCII art and diagrams */
+pre code:not(.hljs) {
+  background: #f8f9fa;
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  padding: 16px;
+  overflow-x: auto;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+/* Tables */
+.blog-content table {
+  border-collapse: collapse !important;
+  width: 100% !important;
+  margin: 2em 0 !important;
+  overflow: visible !important;
+  display: table !important;
+  font-size: 0.875rem !important;
+}
+
+.blog-content thead {
+  border-bottom: 2px solid #e5e7eb !important;
+}
+
+.blog-content th,
+.blog-content td {
+  border: 1px solid #e5e7eb !important;
+  padding: 0.75rem 1rem !important;
+  text-align: left !important;
+  vertical-align: top !important;
+}
+
+.blog-content th {
+  background-color: #f9fafb !important;
+  font-weight: 600 !important;
+  color: #374151 !important;
+}
+
+.blog-content tr {
+  border-bottom: 1px solid #e5e7eb !important;
+}
+
+.blog-content tbody tr:nth-child(even) {
+  background-color: #f9fafb !important;
+}
+
+.blog-content tbody tr:hover {
+  background-color: #f3f4f6 !important;
+}
+
+/* Override all possible Tailwind prose table styles */
+.blog-content .prose table,
+.blog-content .prose thead,
+.blog-content .prose tbody,
+.blog-content .prose tr,
+.blog-content .prose th,
+.blog-content .prose td {
+  all: revert !important;
+}
+
+/* Then apply our custom styles */
+.blog-content .prose table {
+  border-collapse: collapse !important;
+  width: 100% !important;
+  margin: 2em 0 !important;
+}
+
+.blog-content .prose th,
+.blog-content .prose td {
+  border: 1px solid #e5e7eb !important;
+  padding: 0.75rem 1rem !important;
+}
+
+/* Reference Links Styling */
+.reference-link {
+  color: #2563eb !important;
+  text-decoration: none !important;
+  font-weight: 500 !important;
+  border-bottom: 1px dotted #2563eb !important;
+  transition: all 0.2s ease !important;
+}
+
+.reference-link:hover {
+  color: #1d4ed8 !important;
+  border-bottom-style: solid !important;
+}
+
+.reference-source {
+  color: #6b7280 !important;
+  text-decoration: none !important;
+  font-size: 0.875rem !important;
+  display: block !important;
+  margin: 0.5rem 0 !important;
+  transition: color 0.2s ease !important;
+}
+
+.reference-source:hover {
+  color: #2563eb !important;
+  text-decoration: underline !important;
+}
+
+/* Reference styles */
+.blog-content a.reference-link {
+  color: #0ea5e9 !important;
+  text-decoration: none !important;
+  font-weight: 600 !important;
+  transition: color 0.2s ease !important;
+  font-size: 0.9em !important;
+  vertical-align: super !important;
+}
+
+.blog-content a.reference-link:hover {
+  color: #0284c7 !important;
+  text-decoration: underline !important;
+}
+
+.blog-content a.reference-source {
+  color: #0ea5e9 !important;
+  text-decoration: none !important;
+  display: block !important;
+  margin: 4px 0 !important;
+  word-break: break-all !important;
+}
+
+.blog-content a.reference-source:hover {
+  text-decoration: underline !important;
+}
+
+/* Ensure headings have proper spacing for the fixed navigation */
+.blog-content h2[id],
+.blog-content h3[id],
+.blog-content h4[id] {
+  scroll-margin-top: 100px !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .blog-content {
+    max-width: 100% !important;
+  }
+}
+
+/* Mermaid diagram styles */
+/* Replace previous .mermaid-wrapper and .mermaid styles with this new structure */
+
+.blog-content pre.mermaid-container {
+  display: block !important;
+  width: 100% !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  background-color: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0.25em 0 !important;
+}
+
+/* Custom scrollbar for the pre container */
+.blog-content pre.mermaid-container::-webkit-scrollbar {
+  height: 12px !important;
+}
+.blog-content pre.mermaid-container::-webkit-scrollbar-track {
+  background: #f3f4f6 !important;
+  border-radius: 6px !important;
+}
+.blog-content pre.mermaid-container::-webkit-scrollbar-thumb {
+  background: #d1d5db !important;
+  border-radius: 6px !important;
+}
+.blog-content pre.mermaid-container::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af !important;
+}
+
+/* Styles for the inner mermaid div */
+.blog-content pre.mermaid-container .mermaid {
+  text-align: left !important;
+  display: inline-block !important;
+  min-width: max-content !important;
+}
+
+/* Styles for the SVG element itself */
+.blog-content pre.mermaid-container .mermaid svg {
+  height: auto !important;
+  width: auto !important;
+  min-width: max-content !important;
+}
+
+.blog-content .mermaid text {
+  font-size: 16px !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif !important;
+  fill: #374151 !important;
+}
+
+.blog-content .mermaid .nodeLabel {
+  font-size: 16px !important;
+  line-height: 1.4 !important;
+  color: #374151 !important;
+  padding: 8px !important;
+}
+
+/* Add padding to the node boxes */
+.blog-content .mermaid .node rect,
+.blog-content .mermaid .node circle,
+.blog-content .mermaid .node polygon {
+  rx: 4 !important;
+}
+
+.blog-content .mermaid .label {
+  padding: 8px !important;
+}
+
+.blog-content .mermaid .cluster rect {
+  rx: 4 !important;
+}
+
+/* Ensure HTML labels have padding */
+.blog-content .mermaid foreignObject > div {
+  padding: 8px !important;
+}
+
+/* Style for the actual node containers */
+.blog-content .mermaid .nodes .node {
+  padding: 0 !important;
+}
+
+.blog-content .mermaid .node .label-container {
+  padding: 8px !important;
+}
+
+/* Additional selectors for different Mermaid versions */
+.blog-content .mermaid .node div {
+  padding: 8px !important;
+}
+
+.blog-content .mermaid g.label {
+  padding: 8px !important;
+}
+
+/* Ensure spans inside nodes have proper spacing */
+.blog-content .mermaid .node span {
+  display: inline-block !important;
+  padding: 8px 12px !important;
+}
+
+.blog-content .mermaid .edgeLabel {
+  display: none !important; /* Hide edge labels by default */
+}
+
+/* Hide empty edge labels and edgePaths text elements */
+.blog-content .mermaid .edgePaths text:empty,
+.blog-content .mermaid .edgeLabel .label:empty,
+.blog-content .mermaid .edgeLabel foreignObject:empty {
+  display: none !important;
+}
+
+/* Only show edge labels that have actual content */
+.blog-content .mermaid .edgeLabel:not(:empty) .label:not(:empty) {
+  font-size: 14px !important;
+  background-color: rgba(255, 255, 255, 0.8) !important;
+  padding: 1px 3px !important;
+  border-radius: 3px !important;
+  display: block !important;
+}
+
+/* Mermaid wrapper styling */
+.blog-content .mermaid-wrapper {
+  display: block !important;
+  width: 100% !important;
+  overflow: visible !important;
+  background-color: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0.25em 0 !important;
+  position: relative !important;
+}
+
+/* Mermaid diagram styling */
+.blog-content .mermaid {
+  text-align: center !important;
+  display: block !important;
+  width: 100% !important;
+}
+
+.blog-content .mermaid svg {
+  display: inline-block !important;
+  height: auto !important;
+  max-width: 100% !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .blog-content {
+    max-width: 100% !important;
+  }
+  
+  .blog-content .mermaid text,
+  .blog-content .mermaid .nodeLabel {
+    font-size: 14px !important;
+    padding: 6px !important;
+  }
+  
+  pre.mermaid-container {
+    min-height: auto !important;
+  }
+  
+  pre.mermaid-container .mermaid {
+    min-height: auto !important;
+  }
+}
+
+/* Responsive tables */
+.blog-content table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+}
+
+@media (max-width: 768px) {
+  .blog-content table {
+    display: block !important;
+    overflow-x: auto !important;
+    white-space: nowrap !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .blog-content thead {
+    display: block !important;
+  }
+
+  .blog-content tbody {
+    display: inline-block !important;
+  }
+} 

@@ -4,12 +4,12 @@ import { Header } from "@/components/landing/Header";
 import { Footer } from "@/components/landing/Footer";
 import { CategoryTabs } from "@/components/blog/CategoryTabs";
 import { BlogPostList } from "@/components/blog/BlogPostList";
-import { blogPosts, categories } from "@/data/blogPosts";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Bell, Sparkles, Check, AlertCircle } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { submitEmailToGoogleForm } from "@/lib/googleFormSubmit";
+import { BlogPost } from "./blog-data";
 
 export default function BlogPage() {
   const [email, setEmail] = useState("");
@@ -17,8 +17,35 @@ export default function BlogPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState("");
+  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
+  const [categories, setCategories] = useState<string[]>(['All']);
+  const [isLoading, setIsLoading] = useState(true);
   
-  // Filter posts (will be empty for now)
+  // Fetch blog posts from API
+  useEffect(() => {
+    const fetchBlogPosts = async () => {
+      try {
+        setIsLoading(true);
+        const response = await fetch('/api/blog-posts');
+        if (!response.ok) throw new Error('Failed to fetch blog posts');
+        
+        const data = await response.json();
+        setBlogPosts(data.blogPosts || []);
+        setCategories(data.categories || ['All']);
+      } catch (error) {
+        console.error('Error fetching blog posts:', error);
+        // Keep empty arrays on error
+        setBlogPosts([]);
+        setCategories(['All']);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchBlogPosts();
+  }, []);
+  
+  // Filter posts based on selected category
   const filteredPosts = selectedCategory === "All" 
     ? blogPosts 
     : blogPosts.filter(post => post.category === selectedCategory);
@@ -87,7 +114,7 @@ export default function BlogPage() {
                 {/* Title */}
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight">
                   Insights from the Future of AI Infrastructure
-          </h1>
+                </h1>
                 
                 {/* Description */}
                 <p className="text-lg text-gray-600 mb-8 leading-relaxed">
@@ -139,7 +166,7 @@ export default function BlogPage() {
                   
                   {/* Status Messages */}
                   {submitStatus === 'success' && (
-                                                              <p className="text-sm text-success-foreground flex items-center gap-2">
+                    <p className="text-sm text-success-foreground flex items-center gap-2">
                       <Check className="w-4 h-4" />
                       Successfully subscribed! We&apos;ll notify you when we launch.
                     </p>
@@ -195,7 +222,7 @@ export default function BlogPage() {
                         <p className="text-xs text-gray-600">Scaling AI agents from MVP to enterprise</p>
                       </div>
                     </div>
-        </div>
+                  </div>
 
                   {/* Preview Card 3 */}
                   <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 shadow-lg transform rotate-1 hover:rotate-0 transition-transform">
@@ -216,14 +243,22 @@ export default function BlogPage() {
         </div>
 
         {/* Category Tabs */}
-        <CategoryTabs 
-          categories={categories}
-          selectedCategory={selectedCategory}
-          onCategoryChange={setSelectedCategory}
-        />
+        {!isLoading && (
+          <CategoryTabs 
+            categories={categories}
+            selectedCategory={selectedCategory}
+            onCategoryChange={setSelectedCategory}
+          />
+        )}
 
         {/* Blog Posts List */}
-        <BlogPostList posts={filteredPosts} />
+        {isLoading ? (
+          <div className="flex justify-center items-center py-12">
+            <div className="w-8 h-8 border-4 border-brand border-t-transparent rounded-full animate-spin" />
+          </div>
+        ) : (
+          <BlogPostList posts={filteredPosts} />
+        )}
       </main>
       <Footer />
     </div>
