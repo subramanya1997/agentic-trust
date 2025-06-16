@@ -33,11 +33,13 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.3.2",
-    "gifencoder": "^2.0.1",
-    "pngjs": "^7.0.0",
-    "puppeteer": "^24.10.1",
     "tailwindcss": "^4",
     "tw-animate-css": "^1.3.0",
     "typescript": "^5"
+  },
+  "optionalDependencies": {
+    "gifencoder": "^2.0.1",
+    "pngjs": "^7.0.0",
+    "puppeteer": "^24.10.1"
   }
 }
