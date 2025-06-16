@@ -1,5 +1,5 @@
 import React from 'react';
-import { Zap, Users, LucideProps, User, Building2 } from 'lucide-react';
+import { Zap, LucideProps, User, Building2 } from 'lucide-react';
 
 interface Audience {
   title: string;

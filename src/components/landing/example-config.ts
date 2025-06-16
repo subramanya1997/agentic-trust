@@ -1,4 +1,4 @@
-import { Database, Server, Lock, Bot, Globe, ShoppingCart, ChartBar } from 'lucide-react';
+import { Database, Server, Lock, Globe, ShoppingCart, ChartBar } from 'lucide-react';
 import { BridgeDemoConfig } from './BridgeDemo';
 
 // Example 1: E-commerce platform with multiple agent types
