@@ -6,6 +6,8 @@ import { TableOfContents } from "@/components/blog/TableOfContents";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+import Script from "next/script";
+import { generateBlogPostingSchema, generateBreadcrumbSchema, absoluteOgImage, absoluteUrl, SITE_CONFIG } from "@/lib/seo";
 
 interface BlogPageProps {
   params: Promise<{
@@ -21,8 +23,38 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
     notFound();
   }
 
+  // Generate structured data
+  const blogPostingSchema = generateBlogPostingSchema({
+    title: post.title,
+    description: post.description,
+    date: post.date,
+    authors: post.authors,
+    coverImage: post.coverImage,
+    slug: post.slug,
+  });
+
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Blog", url: "/blog" },
+    { name: post.title, url: `/blog/${post.slug}` },
+  ]);
+
   return (
     <div className="min-h-screen bg-gray-50 text-gray-800 font-sans">
+      <Script
+        id={`blog-posting-schema-${post.slug}`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(blogPostingSchema),
+        }}
+      />
+      <Script
+        id={`breadcrumb-schema-${post.slug}`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema),
+        }}
+      />
       <Header />
       <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-7xl mx-auto">
@@ -58,7 +90,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
 
             {/* Date, read time, and tags */}
             <div className="flex items-center gap-4 text-sm text-gray-500 mb-4 flex-wrap">
-              <time>
+              <time dateTime={new Date(post.date + 'T12:00:00').toISOString()}>
                 {new Date(post.date + 'T12:00:00').toLocaleDateString('en-US', {
                   year: 'numeric',
                   month: 'long',
@@ -143,28 +175,33 @@ export async function generateMetadata({ params }: BlogPageProps) {
     return {};
   }
   
+  const publishedTime = new Date(post.date + 'T12:00:00').toISOString();
+  
   return {
     title: `${post.title} | Agentic Trust Blog`,
     description: post.description,
     authors: post.authors?.map(author => ({ name: author.name })),
+    keywords: [post.category, 'AI agents', 'MCP servers', 'infrastructure', ...post.title.split(' ')].filter(Boolean),
     openGraph: {
       title: post.title,
       description: post.description,
       type: 'article',
-      publishedTime: post.date,
+      publishedTime,
+      modifiedTime: publishedTime,
       authors: post.authors?.map(a => a.name),
       tags: post.category ? [post.category] : undefined,
-      siteName: 'Agentic Trust',
+      siteName: SITE_CONFIG.name,
+      url: absoluteUrl(`/blog/${slug}`),
       images: post.coverImage ? [
         {
-          url: post.coverImage,
+          url: absoluteOgImage(post.coverImage),
           width: 1200,
           height: 630,
           alt: post.title,
         }
       ] : [
         {
-          url: '/blog/opengraph-image',
+          url: absoluteOgImage('/blog/opengraph-image'),
           width: 1200,
           height: 630,
           alt: post.title,
@@ -175,12 +212,15 @@ export async function generateMetadata({ params }: BlogPageProps) {
       card: 'summary_large_image',
       title: post.title,
       description: post.description,
-      images: post.coverImage ? [post.coverImage] : ['/blog/twitter-image'],
-      creator: '@agentictrust',
-      site: '@agentictrust',
+      site: SITE_CONFIG.twitterHandle,
+      creator: SITE_CONFIG.twitterHandle,
+      images: post.coverImage ? [absoluteOgImage(post.coverImage)] : [absoluteOgImage('/blog/twitter-image')],
     },
     alternates: {
-      canonical: `/blog/${slug}`,
+      canonical: absoluteUrl(`/blog/${slug}`),
+    },
+    other: {
+      'twitter:image:alt': post.title,
     },
   };
 } 

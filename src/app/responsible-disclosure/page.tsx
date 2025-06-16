@@ -1,11 +1,14 @@
 import { Header } from "@/components/landing/Header";
 import { Footer } from "@/components/landing/Footer";
 import { Metadata } from "next";
+import { generateMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Responsible Disclosure - Agentic Trust",
-  description: "Responsible Disclosure Policy for Agentic Trust - Report security vulnerabilities safely and responsibly.",
-};
+export const metadata: Metadata = generateMetadata({
+  title: "Responsible Disclosure Policy | Agentic Trust",
+  description: "Responsible Disclosure Policy for Agentic Trust - Report security vulnerabilities safely and responsibly to help us protect our MCP server infrastructure.",
+  path: "/responsible-disclosure",
+  keywords: ["security", "responsible disclosure", "vulnerability reporting", "bug bounty", "security research", "AgenticTrust"],
+});
 
 export default function ResponsibleDisclosurePage() {
   return (

@@ -1,30 +1,13 @@
 import type { Metadata } from "next";
+import { generateMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Blog | Agentic Trust",
+export const metadata: Metadata = generateMetadata({
+  title: "Blog - Insights on AI Agent Infrastructure | Agentic Trust",
   description: "Insights and updates on AI agent infrastructure, MCP servers, deployment strategies, and production best practices from the Agentic Trust team.",
-  keywords: ["AI agents", "MCP servers", "infrastructure", "deployment", "best practices", "AgenticTrust"],
-  openGraph: {
-    title: "Blog | Agentic Trust",
-    description: "Insights and updates on AI agent infrastructure, MCP servers, and production best practices.",
-    type: "website",
-    siteName: "Agentic Trust",
-    images: [
-      {
-        url: '/blog/opengraph-image',
-        width: 1200,
-        height: 630,
-        alt: 'Agentic Trust Blog - AI Infrastructure Insights',
-      }
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Blog | Agentic Trust",
-    description: "Insights and updates on AI agent infrastructure and MCP servers.",
-    images: ['/blog/twitter-image'],
-  },
-};
+  path: "/blog",
+  image: "/blog/opengraph-image",
+  keywords: ["AI agents blog", "MCP servers", "infrastructure insights", "deployment guides", "best practices", "AgenticTrust", "AI development"],
+});
 
 export default function BlogLayout({
   children,

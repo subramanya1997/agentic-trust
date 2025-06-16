@@ -1,16 +1,21 @@
 {
-  "name": "Agentic Trust",
+  "name": "Agentic Trust - Enterprise MCP Server Infrastructure",
   "short_name": "Agentic Trust",
-  "description": "The unified MCP server platform for production AI agents",
+  "description": "The unified MCP server platform for production AI agents. Enterprise-grade authentication, monitoring, and deployment in minutes.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#f97316",
+  "orientation": "portrait-primary",
+  "categories": ["business", "developer", "productivity"],
+  "lang": "en-US",
+  "dir": "ltr",
   "icons": [
     {
       "src": "/icon.svg",
       "sizes": "any",
-      "type": "image/svg+xml"
+      "type": "image/svg+xml",
+      "purpose": "any"
     },
     {
       "src": "/favicon.svg",
@@ -18,5 +23,15 @@
       "type": "image/svg+xml",
       "purpose": "maskable"
     }
-  ]
+  ],
+  "screenshots": [
+    {
+      "src": "/opengraph-image",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "label": "Agentic Trust Platform Overview"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
 } 

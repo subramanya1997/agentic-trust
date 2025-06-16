@@ -1,11 +1,14 @@
 import { Header } from "@/components/landing/Header";
 import { Footer } from "@/components/landing/Footer";
 import { Metadata } from "next";
+import { generateMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Terms of Service - Agentic Trust",
-  description: "Terms of Service for Agentic Trust - Read our terms and conditions for using our platform and services.",
-};
+export const metadata: Metadata = generateMetadata({
+  title: "Terms of Service | Agentic Trust",
+  description: "Terms of Service for Agentic Trust - Read our terms and conditions for using our MCP server platform and AI infrastructure services.",
+  path: "/terms",
+  keywords: ["terms of service", "legal terms", "MCP server terms", "AI infrastructure", "service agreement", "AgenticTrust"],
+});
 
 export default function TermsOfServicePage() {
   return (

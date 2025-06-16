@@ -1,11 +1,14 @@
 import { Header } from "@/components/landing/Header";
 import { Footer } from "@/components/landing/Footer";
 import { Metadata } from "next";
+import { generateMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy - Agentic Trust",
-  description: "Privacy Policy for Agentic Trust - Learn how we collect, use, and protect your data.",
-};
+export const metadata: Metadata = generateMetadata({
+  title: "Privacy Policy | Agentic Trust",
+  description: "Privacy Policy for Agentic Trust - Learn how we collect, use, and protect your data when using our MCP server platform.",
+  path: "/privacy",
+  keywords: ["privacy policy", "data protection", "MCP server privacy", "AI infrastructure", "AgenticTrust"],
+});
 
 export default function PrivacyPolicyPage() {
   return (
