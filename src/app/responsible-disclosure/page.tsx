@@ -49,7 +49,7 @@ export default function ResponsibleDisclosurePage() {
           <section className="mb-12">
             <h2 className="text-2xl font-semibold text-gray-900 mb-4">How to Report a Vulnerability</h2>
             
-            <div className="bg-orange-50 border-l-4 border-orange-400 p-6 mb-6">
+            <div className="bg-brand/5 border-l-4 border-brand p-6 mb-6">
               <p className="text-gray-700 font-semibold mb-2">Important:</p>
               <p className="text-gray-700">
                 Please report security vulnerabilities to us privately through secure channels on our website.

@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
 
-export const alt = 'Agentic Trust - Enterprise MCP Server Infrastructure';
+export const alt = 'Agentic Trust - Terms of Service';
 export const size = {
   width: 1200,
   height: 630,
@@ -65,28 +65,28 @@ export default async function Image() {
           {/* Title */}
           <div 
             style={{ 
-              fontSize: 72, 
+              fontSize: 56, 
               fontWeight: 600,
               color: '#ffffff',
               textAlign: 'center',
               letterSpacing: '-1px',
             }}
           >
-            Agentic Trust
+            Agentic Trust | Terms of Service
           </div>
           
           {/* Subtitle */}
           <div 
             style={{ 
-              fontSize: 24, 
+              fontSize: 22, 
               color: 'rgba(255, 255, 255, 0.7)',
               textAlign: 'center',
               fontWeight: 400,
-              maxWidth: 700,
+              maxWidth: 650,
               lineHeight: 1.4,
             }}
           >
-            The unified MCP server platform for production AI agents
+            Clear and transparent terms for using Agentic Trust
           </div>
         </div>
       </div>

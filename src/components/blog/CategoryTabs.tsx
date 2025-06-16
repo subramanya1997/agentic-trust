@@ -16,7 +16,7 @@ export const CategoryTabs = ({ categories, selectedCategory, onCategoryChange }:
             onClick={() => onCategoryChange(category)}
             className={`px-4 py-2 text-sm font-medium transition-colors ${
               selectedCategory === category
-                ? "text-orange-600 border-b-2 border-orange-600"
+                ? "text-brand border-b-2 border-brand"
                 : "text-gray-600 hover:text-gray-900"
             }`}
           >

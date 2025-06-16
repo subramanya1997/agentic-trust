@@ -27,22 +27,22 @@ interface BlogPostListProps {
   posts: BlogPost[];
 }
 
-// Define category colors
+// Define category colors using stone theme
 const categoryColors: Record<string, { bg: string; text: string; border: string }> = {
-  "Engineering": { bg: "bg-blue-50", text: "text-blue-700", border: "border-blue-200" },
-  "Product": { bg: "bg-purple-50", text: "text-purple-700", border: "border-purple-200" },
-  "Security": { bg: "bg-red-50", text: "text-red-700", border: "border-red-200" },
-  "Company": { bg: "bg-green-50", text: "text-green-700", border: "border-green-200" },
-  "Launch Week": { bg: "bg-orange-50", text: "text-orange-700", border: "border-orange-200" },
+  "Engineering": { bg: "bg-muted", text: "text-foreground", border: "border-border" },
+  "Product": { bg: "bg-secondary", text: "text-secondary-foreground", border: "border-border" },
+  "Security": { bg: "bg-accent", text: "text-accent-foreground", border: "border-border" },
+  "Company": { bg: "bg-muted", text: "text-muted-foreground", border: "border-border" },
+  "Launch Week": { bg: "bg-brand/10", text: "text-brand", border: "border-brand/20" },
 };
 
-// Avatar background colors
+// Avatar background colors using stone variations
 const avatarColors = [
-  "bg-gradient-to-br from-purple-500 to-pink-500",
-  "bg-gradient-to-br from-blue-500 to-cyan-500",
-  "bg-gradient-to-br from-green-500 to-emerald-500",
-  "bg-gradient-to-br from-orange-500 to-red-500",
-  "bg-gradient-to-br from-indigo-500 to-purple-500",
+  "bg-gradient-to-br from-primary to-muted-foreground",
+  "bg-gradient-to-br from-secondary to-accent",
+  "bg-gradient-to-br from-muted to-secondary",
+  "bg-gradient-to-br from-brand to-brand/60",
+  "bg-gradient-to-br from-accent to-muted",
 ];
 
 const getAvatarColor = (index: number) => avatarColors[index % avatarColors.length];
@@ -53,8 +53,8 @@ export const BlogPostList = ({ posts }: BlogPostListProps) => {
     return (
       <div className="bg-white/50 backdrop-blur-sm rounded-lg border border-gray-200 p-12 text-center">
         <div className="max-w-md mx-auto">
-          <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <ArrowUpRight className="w-8 h-8 text-orange-500" />
+                  <div className="w-16 h-16 bg-brand/10 rounded-full flex items-center justify-center mx-auto mb-4">
+          <ArrowUpRight className="w-8 h-8 text-brand" />
           </div>
           <h3 className="text-lg font-semibold text-gray-900 mb-2">
             Articles Coming Soon
@@ -79,9 +79,9 @@ export const BlogPostList = ({ posts }: BlogPostListProps) => {
                 className="group cursor-pointer hover:bg-gray-50/50 transition-colors duration-150 border-gray-200"
               >
                 <TableCell className="px-6 py-5 whitespace-normal">
-                  <h3 className="text-sm sm:text-base font-semibold text-gray-800 group-hover:text-orange-600 transition-colors flex items-center gap-1.5">
-                    {post.title}
-                    <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity duration-150 text-orange-600" />
+                              <h3 className="text-sm sm:text-base font-semibold text-gray-800 group-hover:text-brand transition-colors flex items-center gap-1.5">
+              {post.title}
+              <ArrowUpRight className="w-3.5 h-3.5 opacity-0 group-hover:opacity-100 transition-opacity duration-150 text-brand" />
                   </h3>
                 </TableCell>
                 <TableCell className="px-3 py-5 text-right">

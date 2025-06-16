@@ -74,7 +74,7 @@ export const FaqSection = () => {
             >
               <button
                 onClick={() => toggleItem(index)}
-                className="w-full px-4 sm:px-6 py-4 sm:py-5 text-left flex items-start justify-between focus:outline-none focus-visible:ring-2 focus-visible:ring-orange-500 focus-visible:ring-offset-2 rounded-t-lg"
+                className="w-full px-4 sm:px-6 py-4 sm:py-5 text-left flex items-start justify-between focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 rounded-t-lg"
                 aria-expanded={openItems.has(index)}
                 aria-controls={`faq-answer-${index}`}
               >
@@ -83,7 +83,7 @@ export const FaqSection = () => {
                 </h3>
                 <ChevronDown 
                   className={`w-4 h-4 sm:w-5 sm:h-5 text-gray-400 flex-shrink-0 transition-transform duration-200 transform ${
-                    openItems.has(index) ? 'rotate-180 text-orange-500' : ''
+                    openItems.has(index) ? 'rotate-180 text-brand' : ''
                   }`} 
                   aria-hidden="true"
                 />

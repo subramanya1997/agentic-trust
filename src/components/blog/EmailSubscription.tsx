@@ -77,7 +77,7 @@ export function EmailSubscription({
           disabled={isSubmitting}
         />
         <Button 
-          className={`bg-orange-500 hover:bg-orange-600 text-white font-semibold disabled:opacity-50 disabled:cursor-not-allowed ${
+          className={`bg-brand hover:bg-brand/90 text-brand-foreground font-semibold disabled:opacity-50 disabled:cursor-not-allowed ${
             isCompact ? 'h-10 px-4' : 'h-11 px-6'
           }`}
           onClick={handleSubscribe}
@@ -104,14 +104,14 @@ export function EmailSubscription({
       
       {/* Status Messages */}
       {submitStatus === 'success' && (
-        <p className={`text-green-600 flex items-center gap-2 ${isCompact ? 'text-xs' : 'text-sm'}`}>
+        <p className={`text-success-foreground flex items-center gap-2 ${isCompact ? 'text-xs' : 'text-sm'}`}>
           <Check className="w-4 h-4" />
           Successfully subscribed! We&apos;ll notify you when we launch.
         </p>
       )}
       
       {submitStatus === 'error' && errorMessage && (
-        <p className={`text-red-600 flex items-center gap-2 ${isCompact ? 'text-xs' : 'text-sm'}`}>
+        <p className={`text-destructive flex items-center gap-2 ${isCompact ? 'text-xs' : 'text-sm'}`}>
           <AlertCircle className="w-4 h-4" />
           {errorMessage}
         </p>

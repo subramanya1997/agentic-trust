@@ -1,14 +1,14 @@
 "use client";
 
 import React, { useState, useEffect, useMemo } from 'react';
-import { UnifiedContextRouterPreview } from './UnifiedContextRouterPreview';
+import { BridgeDemo } from './BridgeDemo';
 import { ecommerceConfig, devOpsConfig, simpleConfig } from './example-config';
-import type { UnifiedContextRouterConfig } from './UnifiedContextRouterPreview';
+import type { BridgeDemoConfig } from './BridgeDemo';
 import Image from 'next/image';
 
 export const HeroSection = () => {
   // Array of all available configurations including the default. Wrapped in useMemo to keep reference stable between renders.
-  const configurations = useMemo<{ config?: UnifiedContextRouterConfig; name: string }[]>(() => ([
+  const configurations = useMemo<{ config?: BridgeDemoConfig; name: string }[]>(() => ([
     { config: undefined, name: 'default' }, // undefined will use the default config
     { config: ecommerceConfig, name: 'ecommerce' },
     { config: devOpsConfig, name: 'devops' },
@@ -43,27 +43,27 @@ export const HeroSection = () => {
   }, [configIndex, configurations]);
 
   return (
-    <section className="bg-gradient-to-b from-blue-50/30 via-white to-gray-50/50 min-h-[70vh] sm:min-h-[80vh] md:min-h-[90vh] flex items-center relative overflow-hidden">
+    <section className="bg-gradient-to-b from-muted/30 via-background to-muted/20 min-h-[70vh] sm:min-h-[80vh] md:min-h-[90vh] flex items-center relative overflow-hidden">
       {/* Animated background circles */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Large circle - top left */}
-        <div className="absolute -top-24 -left-24 w-64 h-64 sm:w-96 sm:h-96 bg-orange-200 rounded-full mix-blend-multiply filter blur-xl opacity-10 sm:opacity-20 animate-pulse"></div>
+        {/* Large circle - top left - Brand color for logo consistency */}
+        <div className="absolute -top-24 -left-24 w-64 h-64 sm:w-96 sm:h-96 bg-brand/20 rounded-full mix-blend-multiply filter blur-xl opacity-10 sm:opacity-20 animate-pulse"></div>
         
         {/* Medium circle - top right */}
-        <div className="absolute -top-12 -right-12 w-48 h-48 sm:w-72 sm:h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-10 sm:opacity-20 animate-pulse [animation-delay:2000ms]"></div>
+        <div className="absolute -top-12 -right-12 w-48 h-48 sm:w-72 sm:h-72 bg-muted rounded-full mix-blend-multiply filter blur-xl opacity-10 sm:opacity-20 animate-pulse [animation-delay:2000ms]"></div>
         
         {/* Small circle - bottom left (hidden on xs, less blur) */}
-        <div className="hidden sm:block absolute -bottom-8 left-20 w-64 h-64 bg-purple-200 rounded-full mix-blend-multiply filter blur-lg sm:blur-xl opacity-20 animate-pulse [animation-delay:4000ms]"></div>
+        <div className="hidden sm:block absolute -bottom-8 left-20 w-64 h-64 bg-secondary rounded-full mix-blend-multiply filter blur-lg sm:blur-xl opacity-20 animate-pulse [animation-delay:4000ms]"></div>
         
         {/* Medium circle - bottom right (smaller on xs) */}
-        <div className="absolute bottom-10 right-10 w-48 h-48 sm:w-80 sm:h-80 bg-green-200 rounded-full mix-blend-multiply filter blur-xl opacity-10 sm:opacity-20 animate-pulse [animation-delay:3000ms]"></div>
+        <div className="absolute bottom-10 right-10 w-48 h-48 sm:w-80 sm:h-80 bg-accent rounded-full mix-blend-multiply filter blur-xl opacity-10 sm:opacity-20 animate-pulse [animation-delay:3000ms]"></div>
         
         {/* Extra circle - center (hidden on xs) */}
-        <div className="hidden sm:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-yellow-200 rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse [animation-delay:1000ms]"></div>
+        <div className="hidden sm:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-muted rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-pulse [animation-delay:1000ms]"></div>
         
         {/* Additional floating circles for depth (hidden on xs) */}
-        <div className="hidden md:block absolute top-1/4 left-1/4 w-48 h-48 bg-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-15 animate-pulse [animation-delay:1500ms]"></div>
-        <div className="hidden md:block absolute bottom-1/3 right-1/3 w-56 h-56 bg-indigo-200 rounded-full mix-blend-multiply filter blur-xl opacity-15 animate-pulse [animation-delay:2500ms]"></div>
+        <div className="hidden md:block absolute top-1/4 left-1/4 w-48 h-48 bg-secondary/80 rounded-full mix-blend-multiply filter blur-xl opacity-15 animate-pulse [animation-delay:1500ms]"></div>
+        <div className="hidden md:block absolute bottom-1/3 right-1/3 w-56 h-56 bg-accent/80 rounded-full mix-blend-multiply filter blur-xl opacity-15 animate-pulse [animation-delay:2500ms]"></div>
       </div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 relative z-10">
@@ -71,29 +71,13 @@ export const HeroSection = () => {
           {/* Top: Hero Text */}
           <div className="text-center max-w-3xl mx-auto mb-4 sm:mb-6 md:mb-8">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
-              Build production-ready{' '}
-              <span className="text-orange-500 inline-block">MCP servers</span>{' '}
+              Build secure, reliable{' '}
+              <span className="text-brand inline-block">MCP servers</span>{' '}
               in minutes
             </h1>
             <p className="text-lg md:text-xl lg:text-2xl text-gray-600 mt-6">
-              Focus on your agent logic. We handle authentication, security, rate limiting, and infrastructure.
+              Focus on your agent logic. We handle authentication, security, rate limiting, and server management.
             </p>
-            
-            {/* Key benefits */}
-            <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 justify-center items-center text-xs sm:text-sm md:text-base">
-              <div className="flex items-center gap-1.5 sm:gap-2">
-                <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-500 rounded-full"></div>
-                <span className="text-gray-700">One unified endpoint</span>
-              </div>
-              <div className="flex items-center gap-1.5 sm:gap-2">
-                <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-500 rounded-full"></div>
-                <span className="text-gray-700">No version management</span>
-              </div>
-              <div className="flex items-center gap-1.5 sm:gap-2">
-                <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-green-500 rounded-full"></div>
-                <span className="text-gray-700">Enterprise-ready from day 1</span>
-              </div>
-            </div>
             
             {/* Built by engineers section */}
             <div className="mt-8 sm:mt-10 flex flex-col items-center">
@@ -112,9 +96,9 @@ export const HeroSection = () => {
               </div>
             </div>
           </div>
-          {/* UnifiedContextRouterPreview - Responsive */}
+          {/* BridgeDemo - Responsive */}
           <div className="w-full overflow-x-auto sm:overflow-visible">
-            <UnifiedContextRouterPreview config={configurations[configIndex].config} />
+            <BridgeDemo config={configurations[configIndex].config} />
           </div>
         </div>
       </div>

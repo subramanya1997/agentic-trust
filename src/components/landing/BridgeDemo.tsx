@@ -12,7 +12,7 @@ import React from 'react';
 // text-blue-600 text-purple-600 text-green-600 text-orange-600 text-red-600
 // text-blue-700 text-purple-700 text-green-700 text-orange-700 text-red-700
 
-// Configuration for the unified context router visualization
+// Configuration for the bridge demo visualization
 export interface AgentConfig {
   name: string;
   status: 'active' | 'idle';
@@ -28,13 +28,13 @@ export interface MCPInstanceConfig {
   color: 'blue' | 'purple' | 'green' | 'orange' | 'red';
 }
 
-export interface UnifiedContextRouterConfig {
+export interface BridgeDemoConfig {
   agents: AgentConfig[];
   mcpInstances: MCPInstanceConfig[];
 }
 
 // Default configuration
-export const defaultConfig: UnifiedContextRouterConfig = {
+export const defaultConfig: BridgeDemoConfig = {
   agents: [
     { name: 'Sales Agent', status: 'active', flowType: 'positive', connectsTo: [0], note: 'Authorized to access customer and product data' },
     { name: 'Support Agent', status: 'active', flowType: 'positive', connectsTo: [0, 1], note: 'Full access for customer support operations' },
@@ -42,34 +42,31 @@ export const defaultConfig: UnifiedContextRouterConfig = {
   ],
   mcpInstances: [
     { name: 'Internal Services', icon: Briefcase, desc: 'CRM, ERP, etc.', color: 'blue' },
-    { name: 'Cloud Services', icon: Cloud, desc: 'GitHub, Stripe, etc.', color: 'purple' },
-    { name: 'Knowledge Base', icon: FileText, desc: 'Docs, FAQs, etc.', color: 'green' }
+    { name: 'Cloud Services', icon: Cloud, desc: 'GitHub, Stripe, etc.', color: 'orange' },
+    { name: 'Knowledge Base', icon: FileText, desc: 'Docs, FAQs, etc.', color: 'purple' }
   ]
 };
 
 /* Example of custom configuration:
-import { Database, Server, Lock, Bot, Globe } from 'lucide-react';
+import { Database, Server, Lock } from 'lucide-react';
 
-const customConfig: UnifiedContextRouterConfig = {
+const customConfig: BridgeDemoConfig = {
   agents: [
     { name: 'Customer Bot', status: 'active', flowType: 'positive', connectsTo: [0, 2] },
-    { name: 'Admin Agent', status: 'active', flowType: 'positive', connectsTo: [0, 1, 2, 3] },
-    { name: 'Data Processor', status: 'active', flowType: 'positive', connectsTo: [1] },
-    { name: 'External Bot', status: 'idle', flowType: 'negative', connectsTo: [4] }
+    { name: 'Admin Agent', status: 'active', flowType: 'positive', connectsTo: [0, 1, 2] },
+    { name: 'External Bot', status: 'idle', flowType: 'negative', connectsTo: [1] }
   ],
   mcpInstances: [
     { name: 'Database', icon: Database, desc: 'PostgreSQL, Redis', color: 'blue' },
-    { name: 'API Server', icon: Server, desc: 'REST, GraphQL', color: 'green' },
-    { name: 'Auth Service', icon: Lock, desc: 'OAuth, JWT', color: 'purple' },
-    { name: 'AI Models', icon: Bot, desc: 'GPT, Claude', color: 'orange' },
-    { name: 'External APIs', icon: Globe, desc: 'Third-party', color: 'red' }
+    { name: 'API Server', icon: Server, desc: 'REST, GraphQL', color: 'orange' },
+    { name: 'Auth Service', icon: Lock, desc: 'OAuth, JWT', color: 'purple' }
   ]
 };
 
-// Usage: <UnifiedContextRouterPreview config={customConfig} />
+// Usage: <BridgeDemo config={customConfig} />
 */
 
-export const UnifiedContextRouterPreview = ({ config = defaultConfig }: { config?: UnifiedContextRouterConfig }) => {
+export const BridgeDemo = ({ config = defaultConfig }: { config?: BridgeDemoConfig }) => {
   const [interactingAgent, setInteractingAgent] = useState<number | null>(null);
   const [bridgeActive, setBridgeActive] = useState(false);
   const [activeInstances, setActiveInstances] = useState<number[]>([]);
@@ -181,18 +178,15 @@ export const UnifiedContextRouterPreview = ({ config = defaultConfig }: { config
           `}>
             {interactingAgent !== null && interactingAgent < agents.length && agents[interactingAgent] && (
               <div className={`
-                inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs sm:text-sm
+                inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-[10px] sm:text-xs
                 ${currentFlowStatus === 'positive' 
                   ? 'bg-green-100 text-green-800 border border-green-200' 
-                  : 'bg-red-100 text-red-800 border border-red-200'}
+                  : 'bg-gray-100 text-gray-800 border border-gray-200'}
               `}>
                 <div className={`
-                  w-2 h-2 rounded-full
-                  ${currentFlowStatus === 'positive' ? 'bg-green-500' : 'bg-red-500'}
+                  w-1.5 h-1.5 rounded-full
+                  ${currentFlowStatus === 'positive' ? 'bg-green-500' : 'bg-gray-500'}
                 `}></div>
-                <span className="font-medium">
-                  {agents[interactingAgent].name}:
-                </span>
                 <span>
                   {agents[interactingAgent].note || 
                     (currentFlowStatus === 'positive' 
@@ -210,7 +204,7 @@ export const UnifiedContextRouterPreview = ({ config = defaultConfig }: { config
         <div ref={containerRef} className="relative flex flex-row items-center gap-6 sm:gap-8 md:gap-12 lg:gap-16 px-2 overflow-x-auto scroll-snap-x mandatory md:overflow-visible py-2">
           
           <div ref={agentsColRef} className="flex flex-col items-center md:items-center min-w-max flex-shrink-0 snap-start">
-            <div className="text-xs sm:text-sm md:text-base font-semibold text-gray-500 uppercase tracking-wider mb-3 sm:mb-4 md:mb-6 opacity-90 text-center md:text-left">AI Agents</div>
+            <div className="text-[10px] sm:text-xs md:text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2 sm:mb-3 md:mb-4 opacity-90 text-center md:text-left">AI Agents</div>
             {/* Mobile: vertical list; Desktop (md+) keeps column layout */}
             <div className="relative flex flex-col md:flex-col gap-2.5 sm:gap-3 md:gap-4 w-full">
               {agents.map((agent, index) => {
@@ -219,35 +213,35 @@ export const UnifiedContextRouterPreview = ({ config = defaultConfig }: { config
                 let nodeColor = 'bg-gray-300';
                 
                 if (isActive && currentFlowStatus === 'positive') {
-                  lineColor = nodeColor = 'bg-orange-500';
+                  lineColor = nodeColor = 'bg-brand';
                 } else if (isActive && currentFlowStatus === 'negative') {
-                  lineColor = nodeColor = 'bg-red-500';
+                  lineColor = nodeColor = 'bg-gray-500';
                 }
                 
                 return (
                   <div 
                     key={agent.name} 
                     className={`
-                      relative bg-white/95 backdrop-blur-sm rounded-xl px-3 py-2 sm:px-4 sm:py-3 md:px-5 md:py-4 text-xs sm:text-sm md:text-base font-medium text-gray-800 
-                      flex items-center gap-2 sm:gap-3 w-[140px] sm:w-[180px] md:w-[220px] border-2 shadow-lg 
+                      relative bg-white/95 backdrop-blur-sm rounded-xl px-2.5 py-2 sm:px-3 sm:py-2.5 md:px-4 md:py-3 text-[10px] sm:text-xs md:text-sm font-medium text-gray-800 
+                      flex items-center gap-1.5 sm:gap-2 w-[120px] sm:w-[150px] md:w-[180px] border-2 shadow-lg 
                       transition-all duration-300 ease-in-out flex-shrink-0 md:flex-shrink-1
-                      ${interactingAgent === index && currentFlowStatus === 'positive' ? 'border-orange-500 scale-105 shadow-orange-300/50' : 
-                        interactingAgent === index && currentFlowStatus === 'negative' ? 'border-red-500 scale-105 shadow-red-300/50' : 'border-gray-200/70'}
+                      ${interactingAgent === index && currentFlowStatus === 'positive' ? 'border-brand scale-105 shadow-brand/50' : 
+                        interactingAgent === index && currentFlowStatus === 'negative' ? 'border-gray-400 scale-105 shadow-gray-300/50' : 'border-gray-200/70'}
                     `}
                   >
                     <div className={`
-                      w-2 h-2 sm:w-2.5 sm:h-2.5 md:w-3 md:h-3 rounded-full flex-shrink-0 transition-all duration-300
-                      ${interactingAgent === index && currentFlowStatus === 'positive' ? 'bg-orange-500 animate-pulse' : 
-                        interactingAgent === index && currentFlowStatus === 'negative' ? 'bg-red-500 animate-pulse' : 
-                        (agent.status === 'active' ? 'bg-emerald-500' : 'bg-gray-400')}
+                      w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-2.5 md:h-2.5 rounded-full flex-shrink-0 transition-all duration-300
+                      ${interactingAgent === index && currentFlowStatus === 'positive' ? 'bg-brand animate-pulse' : 
+                        interactingAgent === index && currentFlowStatus === 'negative' ? 'bg-gray-500 animate-pulse' : 
+                        (agent.status === 'active' ? 'bg-green-500' : 'bg-gray-400')}
                     `}></div>
                     <span>{agent.name}</span>
                     
                     {/* Connection line extending from agent card */}
                     <div className={`hidden md:block absolute top-1/2 -translate-y-1/2 left-full ${isActive ? '' : 'opacity-60'}`}>
                       <div className="flex items-center">
-                        <div className={`w-2 h-2 rounded-full ${nodeColor} -ml-1`}></div>
-                        <div className={`w-16 md:w-20 lg:w-24 h-0.5 ${lineColor}`}></div>
+                        <div className={`w-1.5 h-1.5 rounded-full ${nodeColor} -ml-0.5`}></div>
+                        <div className={`w-12 md:w-16 lg:w-20 h-0.5 ${lineColor}`}></div>
                       </div>
                     </div>
                   </div>
@@ -257,27 +251,25 @@ export const UnifiedContextRouterPreview = ({ config = defaultConfig }: { config
           </div>
 
           <div ref={bridgeRef} className="relative z-10 my-4 md:my-0 min-w-max flex-shrink-0 snap-start">
-            <div className={`absolute -top-6 sm:-top-7 left-1/2 -translate-x-1/2 z-10 transition-all duration-300 ${bridgeActive ? 'scale-110' : ''}`}>
-              <div className={`bg-gradient-to-r text-white px-3 py-1 sm:px-4 sm:py-1.5 rounded-full text-xs sm:text-sm font-semibold shadow-lg whitespace-nowrap flex items-center gap-1.5 sm:gap-2 
-                              ${currentFlowStatus === 'negative' && bridgeActive ? 'from-red-500 to-red-700' : 'from-blue-600 to-purple-600'}`}>
-                <Shield className={`w-3.5 h-3.5 sm:w-4 sm:h-4 transition-colors duration-300 
-                                  ${bridgeActive && currentFlowStatus === 'positive' ? 'text-yellow-300' : 
-                                   bridgeActive && currentFlowStatus === 'negative' ? 'text-white animate-ping opacity-75' : 'text-white'}`} />
+            <div className={`absolute -top-5 sm:-top-6 left-1/2 -translate-x-1/2 z-10 transition-all duration-300 ${bridgeActive ? 'scale-110' : ''}`}>
+              <div className={`bg-gradient-to-r text-white px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-xs font-semibold shadow-lg whitespace-nowrap flex items-center gap-1 sm:gap-1.5 
+                              ${currentFlowStatus === 'negative' && bridgeActive ? 'from-gray-600 to-gray-700' : 'from-gray-700 to-gray-800'}`}>
+                <Shield className={`w-3 h-3 sm:w-3.5 sm:h-3.5 transition-colors duration-300 ${bridgeActive && currentFlowStatus === 'positive' ? 'text-brand' : 'text-white'}`} />
                 Identity & Security
               </div>
             </div>
             
-            <div className={`relative bg-gradient-to-br text-white rounded-xl sm:rounded-2xl md:rounded-3xl p-4 sm:p-6 md:p-8 lg:p-10 shadow-xl transition-all duration-300 ease-in-out 
-                            ${bridgeActive && currentFlowStatus === 'positive' ? 'from-orange-500 to-red-600 scale-105 shadow-orange-400/60' : 
-                             bridgeActive && currentFlowStatus === 'negative' ? 'from-gray-600 to-gray-800 scale-100 shadow-red-400/50' : 'from-orange-500 to-red-600'}`}>
+            <div className={`relative bg-gradient-to-br rounded-xl sm:rounded-2xl md:rounded-3xl p-3 sm:p-4 md:p-6 lg:p-8 shadow-xl transition-all duration-300 ease-in-out border
+                            ${bridgeActive && currentFlowStatus === 'positive' ? 'from-gray-50 to-gray-100 scale-105 shadow-lg border-gray-300 ring-2 ring-brand/20' : 
+                             bridgeActive && currentFlowStatus === 'negative' ? 'from-gray-100 to-gray-200 scale-100 shadow-md border-gray-400' : 'from-white to-gray-50 border-gray-200'}`}>
               <div className="text-center">
-                <Combine className={`w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 mx-auto mb-2 sm:mb-3 md:mb-4 transition-transform duration-300 
+                <Combine className={`w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 mx-auto mb-1.5 sm:mb-2 md:mb-3 transition-transform duration-300 text-brand
                                   ${bridgeActive && currentFlowStatus === 'positive' ? 'rotate-[20deg] scale-110' : 
                                    bridgeActive && currentFlowStatus === 'negative' ? 'opacity-70' : ''}`} />
-                <div className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold">AgenticTrust</div>
+                <div className="text-xs sm:text-sm md:text-base lg:text-lg font-bold text-gray-900">AgenticTrust</div>
               </div>
               
-              <div className="mt-4 sm:mt-5 md:mt-6 flex flex-col gap-2 sm:gap-2.5 md:gap-3">
+              <div className="mt-3 sm:mt-4 md:mt-5 flex flex-col gap-1.5 sm:gap-2 md:gap-2.5">
                 {[
                   { icon: Shield, label: 'Authentication' },
                   { icon: Gauge, label: 'Rate Limiting' },
@@ -286,14 +278,14 @@ export const UnifiedContextRouterPreview = ({ config = defaultConfig }: { config
                 ].map((feature) => (
                   <div 
                     key={feature.label}
-                    className={`backdrop-blur-sm rounded-md px-3 py-2 sm:px-4 sm:py-2.5 text-xs sm:text-sm flex items-center gap-2 sm:gap-2.5 transition-all duration-300 
-                                  ${bridgeActive && currentFlowStatus === 'positive' ? 'bg-white/30' : 
-                                   bridgeActive && currentFlowStatus === 'negative' ? 'bg-white/10 opacity-70' : 'bg-white/20'}`}
+                    className={`backdrop-blur-sm rounded-md px-2 py-1.5 sm:px-3 sm:py-2 text-[10px] sm:text-xs flex items-center gap-1.5 sm:gap-2 transition-all duration-300 
+                                  ${bridgeActive && currentFlowStatus === 'positive' ? 'bg-brand/10 border border-brand/20' : 
+                                   bridgeActive && currentFlowStatus === 'negative' ? 'bg-gray-200/50' : 'bg-gray-100'}`}
                   >
-                    {React.createElement(feature.icon, { className: `w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 transition-colors duration-300 
-                                                      ${bridgeActive && currentFlowStatus === 'positive' ? 'text-yellow-300' : 
-                                                       bridgeActive && currentFlowStatus === 'negative' ? 'text-gray-300' : 'text-white'}` })}
-                    <span>{feature.label}</span>
+                    {React.createElement(feature.icon, { className: `w-3 h-3 sm:w-3.5 sm:h-3.5 md:w-4 md:h-4 transition-colors duration-300 
+                                                      ${bridgeActive && currentFlowStatus === 'positive' ? 'text-brand' : 
+                                                       bridgeActive && currentFlowStatus === 'negative' ? 'text-gray-500' : 'text-gray-600'}` })}
+                    <span className="text-gray-700 font-medium">{feature.label}</span>
                   </div>
                 ))}
               </div>
@@ -301,7 +293,7 @@ export const UnifiedContextRouterPreview = ({ config = defaultConfig }: { config
           </div>
 
           <div ref={instancesColRef} className="flex flex-col items-center md:items-end min-w-max flex-shrink-0 snap-start">
-            <div className="text-xs sm:text-sm md:text-base font-semibold text-gray-500 uppercase tracking-wider mb-3 sm:mb-4 md:mb-6 opacity-90 text-center md:text-left">MCP Instances</div>
+            <div className="text-[10px] sm:text-xs md:text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2 sm:mb-3 md:mb-4 opacity-90 text-center md:text-left">MCP Instances</div>
             {/* Mobile: vertical list; Desktop keeps column layout */}
             <div className="relative flex flex-col md:flex-col gap-2.5 sm:gap-3 md:gap-4 w-full">
               {mcpInstances.map((mcp, index) => {
@@ -316,7 +308,7 @@ export const UnifiedContextRouterPreview = ({ config = defaultConfig }: { config
                 let nodeColor = 'bg-gray-300';
                 
                 if (isActive) {
-                  lineColor = nodeColor = 'bg-blue-500';
+                  lineColor = nodeColor = 'bg-brand';
                 }
                 
                 // Determine border and shadow classes based on active state and color
@@ -355,46 +347,30 @@ export const UnifiedContextRouterPreview = ({ config = defaultConfig }: { config
                 
                 // Handle denied state
                 if (isDenied) {
-                  borderClass = 'border-red-500';
-                  shadowClass = 'shadow-red-300/50';
-                  iconBgClass = 'bg-red-100';
-                  iconColorClass = 'text-red-600';
-                  descColorClass = 'text-red-600';
+                  borderClass = 'border-gray-400';
+                  shadowClass = 'shadow-gray-300/50';
+                  iconBgClass = 'bg-gray-100';
+                  iconColorClass = 'text-gray-600';
+                  descColorClass = 'text-gray-600';
                   scaleClass = 'scale-95';
                 }
                 
                 // Handle active/successful connection state
                 if (isActive) {
-                  shadowClass = 'shadow-lg';
-                  iconColorClass = 'text-white';
+                  borderClass = 'border-brand';
+                  shadowClass = 'shadow-lg shadow-brand/50';
                   scaleClass = 'scale-105';
-                  
-                  // Use explicit classes for each color when active
+                  descColorClass = 'text-brand font-medium';
+                  // Keep the original icon background color but make it more vibrant
                   if (mcp.color === 'blue') {
-                    borderClass = 'border-blue-500';
-                    shadowClass += ' shadow-blue-300/50';
                     iconBgClass = 'bg-blue-500';
-                    descColorClass = 'text-blue-700 font-medium';
+                    iconColorClass = 'text-white';
                   } else if (mcp.color === 'purple') {
-                    borderClass = 'border-purple-500';
-                    shadowClass += ' shadow-purple-300/50';
                     iconBgClass = 'bg-purple-500';
-                    descColorClass = 'text-purple-700 font-medium';
-                  } else if (mcp.color === 'green') {
-                    borderClass = 'border-green-500';
-                    shadowClass += ' shadow-green-300/50';
-                    iconBgClass = 'bg-green-500';
-                    descColorClass = 'text-green-700 font-medium';
+                    iconColorClass = 'text-white';
                   } else if (mcp.color === 'orange') {
-                    borderClass = 'border-orange-500';
-                    shadowClass += ' shadow-orange-300/50';
                     iconBgClass = 'bg-orange-500';
-                    descColorClass = 'text-orange-700 font-medium';
-                  } else if (mcp.color === 'red') {
-                    borderClass = 'border-red-500';
-                    shadowClass += ' shadow-red-300/50';
-                    iconBgClass = 'bg-red-500';
-                    descColorClass = 'text-red-700 font-medium';
+                    iconColorClass = 'text-white';
                   }
                 }
                 
@@ -402,8 +378,8 @@ export const UnifiedContextRouterPreview = ({ config = defaultConfig }: { config
                   <div 
                     key={mcp.name} 
                     className={`
-                      relative bg-white/95 backdrop-blur-sm rounded-xl border-2 px-3 py-3 sm:p-4 md:p-5 
-                      shadow-lg transition-all duration-300 ease-in-out w-[140px] sm:w-[180px] md:w-[220px]
+                      relative bg-white/95 backdrop-blur-sm rounded-xl border-2 px-2.5 py-2.5 sm:p-3 md:p-4 
+                      shadow-lg transition-all duration-300 ease-in-out w-[120px] sm:w-[150px] md:w-[180px]
                       flex-shrink-0 md:flex-shrink-1
                       ${borderClass} ${shadowClass} ${scaleClass}
                     `}
@@ -411,18 +387,18 @@ export const UnifiedContextRouterPreview = ({ config = defaultConfig }: { config
                     {/* Connection line extending from bridge to instance */}
                     <div className={`hidden md:block absolute top-1/2 -translate-y-1/2 right-full ${isActive ? '' : 'opacity-60'}`}>
                       <div className="flex items-center">
-                        <div className={`w-16 md:w-20 lg:w-24 h-0.5 ${lineColor}`}></div>
-                        <div className={`w-2 h-2 rounded-full ${nodeColor} -mr-1`}></div>
+                        <div className={`w-12 md:w-16 lg:w-20 h-0.5 ${lineColor}`}></div>
+                        <div className={`w-1.5 h-1.5 rounded-full ${nodeColor} -mr-0.5`}></div>
                       </div>
                     </div>
                     
-                    <div className="flex items-center gap-2 sm:gap-3">
-                      <div className={`p-2 rounded-lg transition-colors duration-300 ${iconBgClass}`}>
-                        {React.createElement(mcp.icon, { className: `w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 transition-colors duration-300 ${iconColorClass}` })}
+                    <div className="flex items-center gap-1.5 sm:gap-2">
+                      <div className={`p-1.5 rounded-lg transition-colors duration-300 ${iconBgClass}`}>
+                        {React.createElement(mcp.icon, { className: `w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5 transition-colors duration-300 ${iconColorClass}` })}
                       </div>
                       <div>
-                        <div className="text-xs sm:text-sm md:text-base font-semibold text-gray-800">{mcp.name}</div>
-                        <div className={`text-[10px] sm:text-xs transition-colors duration-300 ${descColorClass}`}>
+                        <div className="text-[10px] sm:text-xs md:text-sm font-semibold text-gray-800">{mcp.name}</div>
+                        <div className={`text-[8px] sm:text-[10px] transition-colors duration-300 ${descColorClass}`}>
                           {mcp.desc}
                         </div>
                       </div>
@@ -431,9 +407,9 @@ export const UnifiedContextRouterPreview = ({ config = defaultConfig }: { config
                     {/* Denied overlay indicator */}
                     {isDenied && (
                       <div className="absolute inset-0 flex items-center justify-center rounded-xl">
-                        <div className="absolute inset-0 bg-red-50/50 rounded-xl"></div>
-                        <div className="relative bg-red-100 rounded-full p-1">
-                          <svg className="w-4 h-4 sm:w-5 sm:h-5 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <div className="absolute inset-0 bg-gray-50/50 rounded-xl"></div>
+                        <div className="relative bg-gray-100 rounded-full p-0.5">
+                          <svg className="w-3 h-3 sm:w-4 sm:h-4 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                           </svg>
                         </div>
@@ -448,4 +424,4 @@ export const UnifiedContextRouterPreview = ({ config = defaultConfig }: { config
       </div>
     </div>
   );
-}; 
+};

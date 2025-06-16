@@ -52,7 +52,7 @@ export const FinalCtaSection = () => {
             Stop Building Infrastructure.
           </h2>
           <h3 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-6 sm:mb-8">
-            <span className="text-orange-500">Start Shipping Agents.</span>
+            <span className="text-brand">Start Shipping Agents.</span>
           </h3>
           <p className="text-base sm:text-lg text-gray-300 mb-8 sm:mb-12 leading-relaxed">
             Join teams building the next generation of AI agents.<br />
@@ -71,12 +71,12 @@ export const FinalCtaSection = () => {
                   handleSubscribe();
                 }
               }}
-              className="flex-1 py-4 sm:py-5 px-3 sm:px-4 text-sm sm:text-base rounded-lg bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:ring-2 focus:ring-orange-500 focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex-1 py-4 sm:py-5 px-3 sm:px-4 text-sm sm:text-base rounded-lg bg-gray-800 border-gray-700 text-white placeholder-gray-400 focus:ring-2 focus:ring-brand focus:border-transparent disabled:opacity-50 disabled:cursor-not-allowed"
               disabled={isSubmitting}
             />
             <Button 
               size="lg"
-              className="bg-orange-500 hover:bg-orange-600 text-white font-semibold py-4 sm:py-5 px-6 sm:px-8 text-sm sm:text-base rounded-lg shadow-md hover:shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="bg-brand hover:bg-brand/90 text-brand-foreground font-semibold py-4 sm:py-5 px-6 sm:px-8 text-sm sm:text-base rounded-lg shadow-md hover:shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
               onClick={handleSubscribe}
               disabled={isSubmitting}
             >
@@ -98,14 +98,14 @@ export const FinalCtaSection = () => {
           
           {/* Status Messages */}
           {submitStatus === 'success' && (
-            <p className="mt-4 text-sm text-green-400 flex items-center justify-center gap-2">
+            <p className="mt-4 text-sm text-success flex items-center justify-center gap-2">
               <Check className="w-4 h-4" />
               Successfully subscribed! We&apos;ll notify you when early access opens.
             </p>
           )}
           
           {submitStatus === 'error' && errorMessage && (
-            <p className="mt-4 text-sm text-red-400 flex items-center justify-center gap-2">
+            <p className="mt-4 text-sm text-destructive flex items-center justify-center gap-2">
               <AlertCircle className="w-4 h-4" />
               {errorMessage}
             </p>

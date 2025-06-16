@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import {
   Shield, Filter, Gauge, FileText, BarChart3, Cloud, Key, CheckCircle, XCircle, Activity, Server, Lock
-  // Note: Combine, Briefcase, Workflow, Database are NOT needed here as they are for UnifiedContextRouterPreview
+  // Note: Combine, Briefcase, Workflow, Database are NOT needed here as they are for BridgeDemo
 } from 'lucide-react';
 
 interface TabProps {
@@ -35,7 +35,7 @@ const RateLimitingPreview = () => (
               <span className="text-xs sm:text-sm font-mono text-gray-600">8,472 / 10,000</span>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-2">
-              <div className="bg-orange-500 h-2 rounded-full" style={{ width: '84.7%' }}></div>
+              <div className="bg-brand h-2 rounded-full" style={{ width: '84.7%' }}></div>
             </div>
           </div>
           <div>
@@ -44,7 +44,7 @@ const RateLimitingPreview = () => (
               <span className="text-xs sm:text-sm font-mono text-gray-600">2,150 / 5,000</span>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-2">
-              <div className="bg-blue-500 h-2 rounded-full" style={{ width: '43%' }}></div>
+              <div className="bg-info h-2 rounded-full" style={{ width: '43%' }}></div>
             </div>
           </div>
           <div>
@@ -53,7 +53,7 @@ const RateLimitingPreview = () => (
               <span className="text-xs sm:text-sm font-mono text-gray-600">45,200 / 100,000</span>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-2">
-              <div className="bg-green-500 h-2 rounded-full" style={{ width: '45.2%' }}></div>
+              <div className="bg-success h-2 rounded-full" style={{ width: '45.2%' }}></div>
             </div>
           </div>
         </div>
@@ -70,10 +70,10 @@ const RateLimitingPreview = () => (
             </div>
             <p className="text-[10px] sm:text-xs text-gray-500">Basic rate limiting, 100 RPM max</p>
           </div>
-          <div className="border border-blue-200 rounded-lg p-2 sm:p-3 bg-blue-50">
+          <div className="border border-info/20 rounded-lg p-2 sm:p-3 bg-info/5">
             <div className="flex items-center justify-between mb-1 sm:mb-2">
               <span className="text-xs sm:text-sm font-semibold text-gray-700">Growth Tier</span>
-              <span className="text-[10px] sm:text-xs bg-blue-100 text-blue-700 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded">50K req/day</span>
+              <span className="text-[10px] sm:text-xs bg-info/10 text-info-foreground px-1.5 sm:px-2 py-0.5 sm:py-1 rounded">50K req/day</span>
             </div>
             <p className="text-[10px] sm:text-xs text-gray-600">Enhanced limits, 500 RPM max, burst support</p>
           </div>
@@ -89,9 +89,9 @@ const RateLimitingPreview = () => (
     </div>
     
     {/* Backend Resource Protection */}
-    <div className="bg-orange-50 border border-orange-200 rounded-lg p-4 sm:p-6">
+    <div className="bg-brand/5 border border-brand/20 rounded-lg p-4 sm:p-6">
       <div className="flex items-start">
-        <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-orange-600 mt-0.5 mr-2 sm:mr-3 flex-shrink-0" />
+        <Shield className="w-4 h-4 sm:w-5 sm:h-5 text-brand mt-0.5 mr-2 sm:mr-3 flex-shrink-0" />
         <div>
           <h4 className="text-xs sm:text-sm font-semibold text-gray-900 mb-0.5 sm:mb-1">Backend Resource Protection</h4>
           <p className="text-xs sm:text-sm text-gray-600">Automatic circuit breakers prevent backend overload. Rate limits are enforced at the gateway level, ensuring your services remain stable even under heavy load.</p>
@@ -114,27 +114,27 @@ const ToolFilteringPreview = () => (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
           <div className="flex items-center justify-between p-2 sm:p-3 border border-gray-200 rounded-lg">
             <span className="text-xs sm:text-sm font-medium text-gray-700">web_search</span>
-            <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" />
+            <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-success flex-shrink-0" />
           </div>
           <div className="flex items-center justify-between p-2 sm:p-3 border border-gray-200 rounded-lg">
             <span className="text-xs sm:text-sm font-medium text-gray-700">file_write</span>
-            <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" />
+            <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-success flex-shrink-0" />
           </div>
           <div className="flex items-center justify-between p-2 sm:p-3 border border-gray-200 rounded-lg">
             <span className="text-xs sm:text-sm font-medium text-gray-700">api_call</span>
-            <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 flex-shrink-0" />
+            <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-success flex-shrink-0" />
           </div>
           <div className="flex items-center justify-between p-2 sm:p-3 border border-gray-200 rounded-lg opacity-60">
             <span className="text-xs sm:text-sm font-medium text-gray-700">database_write</span>
-            <XCircle className="w-4 h-4 sm:w-5 sm:h-5 text-red-500 flex-shrink-0" />
+            <XCircle className="w-4 h-4 sm:w-5 sm:h-5 text-destructive flex-shrink-0" />
           </div>
           <div className="flex items-center justify-between p-2 sm:p-3 border border-gray-200 rounded-lg opacity-60">
             <span className="text-xs sm:text-sm font-medium text-gray-700">email_send</span>
-            <XCircle className="w-4 h-4 sm:w-5 sm:h-5 text-red-500 flex-shrink-0" />
+            <XCircle className="w-4 h-4 sm:w-5 sm:h-5 text-destructive flex-shrink-0" />
           </div>
           <div className="flex items-center justify-between p-2 sm:p-3 border border-gray-200 rounded-lg opacity-60">
             <span className="text-xs sm:text-sm font-medium text-gray-700">system_exec</span>
-            <XCircle className="w-4 h-4 sm:w-5 sm:h-5 text-red-500 flex-shrink-0" />
+            <XCircle className="w-4 h-4 sm:w-5 sm:h-5 text-destructive flex-shrink-0" />
           </div>
         </div>
       </div>
@@ -160,17 +160,17 @@ const ToolFilteringPreview = () => (
           <tbody className="divide-y divide-gray-200">
             <tr className="hover:bg-gray-50">
               <td className="py-3 sm:py-4 px-3 sm:px-6 text-xs sm:text-sm font-medium text-gray-900 whitespace-nowrap">john@acme.com</td>
-              <td className="py-3 sm:py-4 px-3 sm:px-6 text-center"><CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 mx-auto" /></td>
-              <td className="py-3 sm:py-4 px-3 sm:px-6 text-center"><CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 mx-auto" /></td>
-              <td className="py-3 sm:py-4 px-3 sm:px-6 text-center"><CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 mx-auto" /></td>
-              <td className="py-3 sm:py-4 px-3 sm:px-6 text-center"><XCircle className="w-4 h-4 sm:w-5 sm:h-5 text-red-500 mx-auto" /></td>
+              <td className="py-3 sm:py-4 px-3 sm:px-6 text-center"><CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-success mx-auto" /></td>
+              <td className="py-3 sm:py-4 px-3 sm:px-6 text-center"><CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-success mx-auto" /></td>
+              <td className="py-3 sm:py-4 px-3 sm:px-6 text-center"><CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-success mx-auto" /></td>
+              <td className="py-3 sm:py-4 px-3 sm:px-6 text-center"><XCircle className="w-4 h-4 sm:w-5 sm:h-5 text-destructive mx-auto" /></td>
             </tr>
             <tr className="hover:bg-gray-50">
               <td className="py-3 sm:py-4 px-3 sm:px-6 text-xs sm:text-sm font-medium text-gray-900 whitespace-nowrap">sarah@tech.io</td>
-              <td className="py-3 sm:py-4 px-3 sm:px-6 text-center"><CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 mx-auto" /></td>
-              <td className="py-3 sm:py-4 px-3 sm:px-6 text-center"><XCircle className="w-4 h-4 sm:w-5 sm:h-5 text-red-500 mx-auto" /></td>
-              <td className="py-3 sm:py-4 px-3 sm:px-6 text-center"><CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-green-500 mx-auto" /></td>
-              <td className="py-3 sm:py-4 px-3 sm:px-6 text-center"><XCircle className="w-4 h-4 sm:w-5 sm:h-5 text-red-500 mx-auto" /></td>
+              <td className="py-3 sm:py-4 px-3 sm:px-6 text-center"><CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-success mx-auto" /></td>
+              <td className="py-3 sm:py-4 px-3 sm:px-6 text-center"><XCircle className="w-4 h-4 sm:w-5 sm:h-5 text-destructive mx-auto" /></td>
+              <td className="py-3 sm:py-4 px-3 sm:px-6 text-center"><CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-success mx-auto" /></td>
+              <td className="py-3 sm:py-4 px-3 sm:px-6 text-center"><XCircle className="w-4 h-4 sm:w-5 sm:h-5 text-destructive mx-auto" /></td>
             </tr>
           </tbody>
         </table>
@@ -187,20 +187,20 @@ const AuthenticationPreview = () => (
       <div className="bg-white p-4 sm:p-6 rounded-lg border border-gray-200">
         <div className="flex items-center justify-between mb-3 sm:mb-4">
           <h3 className="text-xs sm:text-sm font-semibold text-gray-700">OAuth Providers</h3>
-          <Shield className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-500 flex-shrink-0" />
+          <Shield className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-info flex-shrink-0" />
         </div>
         <div className="space-y-1.5 sm:space-y-2">
           <div className="flex items-center justify-between">
             <span className="text-xs sm:text-sm text-gray-600">Google OAuth</span>
-            <span className="text-[10px] sm:text-xs bg-green-100 text-green-700 px-1.5 py-0.5 rounded-full">Active</span>
+            <span className="text-[10px] sm:text-xs bg-success/10 text-success-foreground px-1.5 py-0.5 rounded-full">Active</span>
           </div>
           <div className="flex items-center justify-between">
             <span className="text-xs sm:text-sm text-gray-600">GitHub OAuth</span>
-            <span className="text-[10px] sm:text-xs bg-green-100 text-green-700 px-1.5 py-0.5 rounded-full">Active</span>
+            <span className="text-[10px] sm:text-xs bg-success/10 text-success-foreground px-1.5 py-0.5 rounded-full">Active</span>
           </div>
           <div className="flex items-center justify-between">
             <span className="text-xs sm:text-sm text-gray-600">Azure AD</span>
-            <span className="text-[10px] sm:text-xs bg-green-100 text-green-700 px-1.5 py-0.5 rounded-full">Active</span>
+            <span className="text-[10px] sm:text-xs bg-success/10 text-success-foreground px-1.5 py-0.5 rounded-full">Active</span>
           </div>
         </div>
       </div>
@@ -209,7 +209,7 @@ const AuthenticationPreview = () => (
       <div className="bg-white p-4 sm:p-6 rounded-lg border border-gray-200">
         <div className="flex items-center justify-between mb-3 sm:mb-4">
           <h3 className="text-xs sm:text-sm font-semibold text-gray-700">API Keys</h3>
-          <Key className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-green-500 flex-shrink-0" />
+          <Key className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-success flex-shrink-0" />
         </div>
         <div className="space-y-1.5 sm:space-y-2">
           <div className="text-[10px] sm:text-xs font-mono bg-gray-50 p-1.5 sm:p-2 rounded break-all">sk-prod-***************mXk</div>
@@ -222,12 +222,12 @@ const AuthenticationPreview = () => (
       <div className="bg-white p-4 sm:p-6 rounded-lg border border-gray-200">
         <div className="flex items-center justify-between mb-3 sm:mb-4">
           <h3 className="text-xs sm:text-sm font-semibold text-gray-700">Sticky Sessions</h3>
-          <Lock className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-purple-500 flex-shrink-0" />
+          <Lock className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-muted-foreground flex-shrink-0" />
         </div>
         <div className="space-y-1 sm:space-y-2">
           <div className="text-xl sm:text-2xl font-semibold text-gray-900">Active</div>
           <div className="text-[10px] sm:text-xs text-gray-500">Session persistence enabled</div>
-          <div className="text-[10px] sm:text-xs text-purple-600 mt-1 sm:mt-2">Fully managed per request</div>
+          <div className="text-[10px] sm:text-xs text-muted-foreground mt-1 sm:mt-2">Fully managed per request</div>
         </div>
       </div>
     </div>
@@ -372,7 +372,7 @@ const UsageTrackingPreview = () => (
               <span className="text-xs sm:text-sm font-mono text-gray-600">25%</span>
             </div>
             <div className="w-full bg-gray-200 rounded-full h-2">
-              <div className="bg-purple-500 h-2 rounded-full" style={{ width: '25%' }}></div>
+              <div className="bg-muted-foreground h-2 rounded-full" style={{ width: '25%' }}></div>
             </div>
           </div>
         </div>
@@ -380,9 +380,9 @@ const UsageTrackingPreview = () => (
     </div>
     
     {/* Analytics & Billing Integration */}
-    <div className="bg-gradient-to-r from-purple-50 to-blue-50 border border-purple-200 rounded-lg p-4 sm:p-6">
+    <div className="bg-gradient-to-r from-muted/50 to-secondary/50 border border-secondary/20 rounded-lg p-4 sm:p-6">
       <div className="flex items-start">
-        <BarChart3 className="w-4 h-4 sm:w-5 sm:h-5 text-purple-600 mt-0.5 mr-2 sm:mr-3 flex-shrink-0" />
+        <BarChart3 className="w-4 h-4 sm:w-5 sm:h-5 text-primary mt-0.5 mr-2 sm:mr-3 flex-shrink-0" />
         <div>
           <h4 className="text-xs sm:text-sm font-semibold text-gray-900 mb-0.5 sm:mb-1">Integrated Billing & Analytics Platform</h4>
           <p className="text-xs sm:text-sm text-gray-600">Track usage, generate invoices, and analyze patterns in one place. Export to Stripe, QuickBooks, or your billing system. Built-in cost allocation and chargeback support.</p>
@@ -503,7 +503,7 @@ export const FeaturesSection = () => {
     <section id="platform-capabilities" className="py-16 sm:py-20 md:py-28 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-          <span className="inline-block text-xs sm:text-sm uppercase text-blue-600 font-semibold mb-3 sm:mb-4 tracking-wider">
+          <span className="inline-block text-xs sm:text-sm uppercase text-info font-semibold mb-3 sm:mb-4 tracking-wider">
             PLATFORM CAPABILITIES
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
@@ -532,7 +532,7 @@ export const FeaturesSection = () => {
                   }
                 `}
               >
-                <tab.icon className={`w-4 h-4 mb-1 sm:mb-0 sm:mr-2 ${activeTab === tab.value ? 'text-orange-400' : 'text-gray-400'}`} />
+                <tab.icon className={`w-4 h-4 mb-1 sm:mb-0 sm:mr-2 ${activeTab === tab.value ? 'text-brand' : 'text-gray-400'}`} />
                 <span>{tab.label}</span>
               </button>
             ))}

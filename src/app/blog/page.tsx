@@ -64,7 +64,7 @@ export default function BlogPage() {
         {/* Coming Soon Featured Post Style */}
         <div className="relative mb-16 group">
           {/* Background gradient */}
-          <div className="absolute inset-0 bg-gradient-to-r from-orange-100 via-pink-50 to-purple-100 rounded-2xl opacity-60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-brand/10 via-muted/50 to-secondary/30 rounded-2xl opacity-60" />
           
           {/* Main container */}
           <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl overflow-hidden border border-white/50">
@@ -73,7 +73,7 @@ export default function BlogPage() {
               <div className="lg:col-span-3 p-8 md:p-12 lg:p-16">
                 {/* Category & Meta */}
                 <div className="flex items-center gap-4 mb-6">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-orange-600 bg-orange-50 px-3 py-1.5 rounded-full">
+                  <span className="text-xs font-semibold uppercase tracking-wider text-brand bg-brand/10 px-3 py-1.5 rounded-full">
                     Coming Soon
                   </span>
                   <div className="flex items-center gap-4 text-sm text-gray-500">
@@ -114,7 +114,7 @@ export default function BlogPage() {
                       disabled={isSubmitting}
                     />
                     <Button 
-                      className="bg-orange-500 hover:bg-orange-600 text-white font-semibold h-11 px-6 disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="bg-brand hover:bg-brand/90 text-brand-foreground font-semibold h-11 px-6 disabled:opacity-50 disabled:cursor-not-allowed"
                       onClick={handleSubscribe}
                       disabled={isSubmitting}
                     >
@@ -139,14 +139,14 @@ export default function BlogPage() {
                   
                   {/* Status Messages */}
                   {submitStatus === 'success' && (
-                                          <p className="text-sm text-green-600 flex items-center gap-2">
-                        <Check className="w-4 h-4" />
-                        Successfully subscribed! We&apos;ll notify you when we launch.
-                      </p>
+                                                              <p className="text-sm text-success-foreground flex items-center gap-2">
+                      <Check className="w-4 h-4" />
+                      Successfully subscribed! We&apos;ll notify you when we launch.
+                    </p>
                   )}
                   
                   {submitStatus === 'error' && errorMessage && (
-                    <p className="text-sm text-red-600 flex items-center gap-2">
+                    <p className="text-sm text-destructive flex items-center gap-2">
                       <AlertCircle className="w-4 h-4" />
                       {errorMessage}
                     </p>
@@ -164,9 +164,9 @@ export default function BlogPage() {
               <div className="lg:col-span-2 relative h-64 lg:h-auto bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-8 overflow-hidden">
                 {/* Animated background circles */}
                 <div className="absolute inset-0">
-                  <div className="absolute top-10 right-10 w-32 h-32 bg-orange-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob" />
-                  <div className="absolute bottom-10 left-10 w-32 h-32 bg-purple-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000" />
-                  <div className="absolute bottom-20 right-20 w-32 h-32 bg-pink-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000" />
+                  <div className="absolute top-10 right-10 w-32 h-32 bg-brand/20 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob" />
+                  <div className="absolute bottom-10 left-10 w-32 h-32 bg-secondary rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000" />
+                  <div className="absolute bottom-20 right-20 w-32 h-32 bg-accent rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000" />
                 </div>
                 
                 {/* Content Preview Cards */}
@@ -174,8 +174,8 @@ export default function BlogPage() {
                   {/* Preview Card 1 */}
                   <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 shadow-lg transform rotate-3 hover:rotate-0 transition-transform">
                     <div className="flex items-start gap-3">
-                      <div className="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <span className="text-orange-600 font-bold text-xs">01</span>
+                      <div className="w-8 h-8 bg-brand/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <span className="text-brand font-bold text-xs">01</span>
                       </div>
                       <div>
                         <h4 className="text-sm font-semibold text-gray-800 mb-1">MCP Server Deep Dive</h4>
@@ -187,8 +187,8 @@ export default function BlogPage() {
                   {/* Preview Card 2 */}
                   <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 shadow-lg transform -rotate-2 hover:rotate-0 transition-transform">
                     <div className="flex items-start gap-3">
-                      <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <span className="text-purple-600 font-bold text-xs">02</span>
+                      <div className="w-8 h-8 bg-secondary rounded-lg flex items-center justify-center flex-shrink-0">
+                        <span className="text-secondary-foreground font-bold text-xs">02</span>
                       </div>
                       <div>
                         <h4 className="text-sm font-semibold text-gray-800 mb-1">Production Best Practices</h4>
@@ -200,8 +200,8 @@ export default function BlogPage() {
                   {/* Preview Card 3 */}
                   <div className="bg-white/80 backdrop-blur-sm rounded-xl p-4 shadow-lg transform rotate-1 hover:rotate-0 transition-transform">
                     <div className="flex items-start gap-3">
-                      <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <span className="text-green-600 font-bold text-xs">03</span>
+                      <div className="w-8 h-8 bg-muted rounded-lg flex items-center justify-center flex-shrink-0">
+                        <span className="text-muted-foreground font-bold text-xs">03</span>
                       </div>
                       <div>
                         <h4 className="text-sm font-semibold text-gray-800 mb-1">Security & Compliance</h4>
