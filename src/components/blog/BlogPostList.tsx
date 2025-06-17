@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   Table,
   TableBody,
@@ -13,7 +14,7 @@ import { ArrowUpRight } from "lucide-react";
 
 interface Author {
   name: string;
-  avatar: string;
+  avatar?: string;
 }
 
 interface BlogPost {
@@ -34,6 +35,7 @@ const categoryColors: Record<string, { bg: string; text: string; border: string 
   "Engineering": { bg: "bg-muted", text: "text-foreground", border: "border-border" },
   "Product": { bg: "bg-secondary", text: "text-secondary-foreground", border: "border-border" },
   "Security": { bg: "bg-accent", text: "text-accent-foreground", border: "border-border" },
+  "Standards": { bg: "bg-secondary", text: "text-secondary-foreground", border: "border-border" },
   "Company": { bg: "bg-muted", text: "text-muted-foreground", border: "border-border" },
   "Launch Week": { bg: "bg-brand/10", text: "text-brand", border: "border-brand/20" },
 };
@@ -49,14 +51,24 @@ const avatarColors = [
 
 const getAvatarColor = (index: number) => avatarColors[index % avatarColors.length];
 
+// Get initials from name
+const getInitials = (name: string) => {
+  return name
+    .split(' ')
+    .map(n => n[0])
+    .join('')
+    .toUpperCase()
+    .slice(0, 2);
+};
+
 export const BlogPostList = ({ posts }: BlogPostListProps) => {
   // Show coming soon message if no posts
   if (posts.length === 0) {
     return (
       <div className="bg-white/50 backdrop-blur-sm rounded-lg border border-gray-200 p-12 text-center">
         <div className="max-w-md mx-auto">
-                  <div className="w-16 h-16 bg-brand/10 rounded-full flex items-center justify-center mx-auto mb-4">
-          <ArrowUpRight className="w-8 h-8 text-brand" />
+          <div className="w-16 h-16 bg-brand/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <ArrowUpRight className="w-8 h-8 text-brand" />
           </div>
           <h3 className="text-lg font-semibold text-gray-900 mb-2">
             Articles Coming Soon
@@ -103,9 +115,21 @@ export const BlogPostList = ({ posts }: BlogPostListProps) => {
                     {post.authors.slice(0, 2).map((author, index) => (
                       <div
                         key={index}
-                        className={`w-7 h-7 ${getAvatarColor(postIndex + index)} rounded-full flex items-center justify-center text-[10px] font-semibold text-white ring-2 ring-white shadow-sm hover:scale-110 hover:z-10 transition-transform`}
+                        className="relative w-7 h-7 rounded-full ring-2 ring-white shadow-sm hover:scale-110 hover:z-10 transition-transform overflow-hidden"
                       >
-                        {author.avatar}
+                        {author.avatar ? (
+                          <Image
+                            src={author.avatar}
+                            alt={author.name}
+                            width={28}
+                            height={28}
+                            className="object-cover"
+                          />
+                        ) : (
+                          <div className={`w-full h-full ${getAvatarColor(postIndex + index)} flex items-center justify-center text-[10px] font-semibold text-white`}>
+                            {getInitials(author.name)}
+                          </div>
+                        )}
                       </div>
                     ))}
                     {post.authors.length > 2 && (

@@ -265,3 +265,41 @@
 .animation-delay-4000 {
   animation-delay: 4s;
 }
+
+/* Mermaid diagram styles */
+.mermaid-wrapper {
+  @apply my-8 overflow-x-auto bg-gray-50 rounded-lg p-4;
+}
+
+.mermaid-rendered {
+  @apply flex justify-center min-w-0;
+}
+
+.mermaid-rendered svg {
+  @apply max-w-full h-auto;
+}
+
+/* Fix mermaid node styling */
+.mermaid-rendered .node rect,
+.mermaid-rendered .node circle,
+.mermaid-rendered .node ellipse,
+.mermaid-rendered .node polygon {
+  @apply fill-current;
+}
+
+.mermaid-rendered .node {
+  @apply cursor-pointer;
+}
+
+.mermaid-rendered .edgePath .path {
+  @apply stroke-gray-600;
+}
+
+.mermaid-rendered .label {
+  @apply text-sm;
+}
+
+/* Timeline specific styles */
+.mermaid-rendered .timeline-section {
+  @apply font-semibold;
+}

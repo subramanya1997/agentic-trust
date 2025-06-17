@@ -19,7 +19,7 @@ export async function GET() {
       description: post.description,
       authors: post.authors.map(author => ({
         name: author.name,
-        avatar: author.name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2),
+        avatar: author.avatar,
         role: author.role
       })),
       category: post.category,

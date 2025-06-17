@@ -23,11 +23,11 @@
 }
 
 .prose h2 {
-  margin-top: 2em;
-  margin-bottom: 1em;
-  padding-bottom: 0.3em;
-  border-bottom: 1px solid #e1e4e8;
-  font-weight: 600;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: #1a1a1a;
 }
 
 .prose h3 {
@@ -43,6 +43,11 @@
 
 .prose li {
   margin: 0.5em 0;
+}
+
+.prose p {
+  line-height: 1.75;
+  margin: 1.25em 0;
 }
 
 .prose blockquote {
@@ -239,60 +244,69 @@ pre code:not(.hljs) {
   padding: 0.75rem 1rem !important;
 }
 
-/* Reference Links Styling */
-.reference-link {
-  color: #2563eb !important;
-  text-decoration: none !important;
-  font-weight: 500 !important;
-  border-bottom: 1px dotted #2563eb !important;
+
+
+
+
+/* References section styling */
+.blog-content hr {
+  border: none !important;
+  height: 1px !important;
+  background-color: #e5e7eb !important;
+  margin: 3rem 0 2rem 0 !important;
+}
+
+/* Style external links in content */
+.blog-content a[href^="http"] {
+  color: var(--brand) !important;
+  text-decoration: underline !important;
+  text-decoration-style: dotted !important;
+  text-underline-offset: 2px !important;
   transition: all 0.2s ease !important;
 }
 
-.reference-link:hover {
-  color: #1d4ed8 !important;
-  border-bottom-style: solid !important;
+.blog-content a[href^="http"]:hover {
+  text-decoration-style: solid !important;
+  opacity: 0.8 !important;
 }
 
-.reference-source {
-  color: #6b7280 !important;
-  text-decoration: none !important;
-  font-size: 0.875rem !important;
-  display: block !important;
+/* Style the last h2 (References heading) */
+.blog-content h2:last-of-type {
+  margin-top: 3rem !important;
+  padding-bottom: 0.75rem !important;
+  border-bottom: 2px solid #e5e7eb !important;
+}
+
+/* Style reference list */
+.blog-content > ol:last-child,
+.blog-content > ol:last-of-type {
+  list-style: decimal !important;
+  padding-left: 1.5rem !important;
+  margin: 1rem 0 2rem 0 !important;
+}
+
+.blog-content > ol:last-child li,
+.blog-content > ol:last-of-type li {
   margin: 0.5rem 0 !important;
-  transition: color 0.2s ease !important;
+  line-height: 1.6 !important;
+  color: #374151 !important;
 }
 
-.reference-source:hover {
-  color: #2563eb !important;
-  text-decoration: underline !important;
+.blog-content > ol:last-child li em,
+.blog-content > ol:last-of-type li em {
+  font-style: italic !important;
+  color: #6b7280 !important;
+  font-size: 0.95rem !important;
 }
 
-/* Reference styles */
-.blog-content a.reference-link {
-  color: #0ea5e9 !important;
-  text-decoration: none !important;
+/* Style inline citations in content */
+.blog-content sup {
+  color: var(--brand) !important;
   font-weight: 600 !important;
-  transition: color 0.2s ease !important;
-  font-size: 0.9em !important;
-  vertical-align: super !important;
+  font-size: 0.8em !important;
 }
 
-.blog-content a.reference-link:hover {
-  color: #0284c7 !important;
-  text-decoration: underline !important;
-}
 
-.blog-content a.reference-source {
-  color: #0ea5e9 !important;
-  text-decoration: none !important;
-  display: block !important;
-  margin: 4px 0 !important;
-  word-break: break-all !important;
-}
-
-.blog-content a.reference-source:hover {
-  text-decoration: underline !important;
-}
 
 /* Ensure headings have proper spacing for the fixed navigation */
 .blog-content h2[id],
