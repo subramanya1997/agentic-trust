@@ -28,9 +28,8 @@ export const Header = () => {
           <span className="font-bold text-lg text-gray-900">Agentic Trust</span>
         </Link>
         <nav className="hidden md:flex flex-1 items-center justify-center space-x-6 text-sm font-medium text-gray-600">
-          <Link href="/#platform-capabilities" className="hover:text-gray-900 transition-colors">Features</Link>
-          <Link href="/#faq" className="hover:text-gray-900 transition-colors">FAQ</Link>
           <Link href="/blog" className="hover:text-gray-900 transition-colors">Blog</Link>
+          <span className="text-gray-400 cursor-not-allowed">Docs (Coming Soon)</span>
         </nav>
         <div className="flex items-center space-x-2 md:space-x-4">
           <Link href="https://calendly.com/subramanya1997/introduction" target="_blank" rel="noopener noreferrer">

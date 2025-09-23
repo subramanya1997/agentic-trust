@@ -4,12 +4,13 @@ import { Header } from "@/components/landing/Header";
 import { Footer } from "@/components/landing/Footer";
 import { CategoryTabs } from "@/components/blog/CategoryTabs";
 import { BlogPostList } from "@/components/blog/BlogPostList";
-import { useState, useEffect } from "react";
-import { Bell, Sparkles, Check, AlertCircle } from "lucide-react";
+import { useState } from "react";
+import { Bell, Check, AlertCircle } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { submitEmailToGoogleForm } from "@/lib/googleFormSubmit";
-import { BlogPost } from "./blog-data";
+import { BlogPost, Author } from "./blog-data";
+import precompiled from "@/data/precompiled-blog-posts.json";
 
 export default function BlogPage() {
   const [email, setEmail] = useState("");
@@ -17,33 +18,28 @@ export default function BlogPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState("");
-  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
-  const [categories, setCategories] = useState<string[]>(['All']);
-  const [isLoading, setIsLoading] = useState(true);
-  
-  // Fetch blog posts from API
-  useEffect(() => {
-    const fetchBlogPosts = async () => {
-      try {
-        setIsLoading(true);
-        const response = await fetch('/api/blog-posts');
-        if (!response.ok) throw new Error('Failed to fetch blog posts');
-        
-        const data = await response.json();
-        setBlogPosts(data.blogPosts || []);
-        setCategories(data.categories || ['All']);
-      } catch (error) {
-        console.error('Error fetching blog posts:', error);
-        // Keep empty arrays on error
-        setBlogPosts([]);
-        setCategories(['All']);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchBlogPosts();
-  }, []);
+  const pre = precompiled as unknown as { posts: BlogPost[]; categories: string[] };
+  const initialPosts: BlogPost[] = (pre.posts || []).map((post, index) => ({
+    id: index + 1,
+    date: new Date(post.date).toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric'
+    }),
+    readTime: post.readTime,
+    title: post.title,
+    description: post.description,
+    authors: (post.authors || []).map((author: Author) => ({
+      name: author.name,
+      avatar: author.avatar ?? author.name.split(' ').map((n: string) => n[0]).join('').toUpperCase().slice(0, 2),
+      role: author.role,
+    })),
+    category: post.category,
+    slug: post.slug,
+  }));
+  const [blogPosts] = useState<BlogPost[]>(initialPosts);
+  const [categories] = useState<string[]>(pre.categories || ['All']);
+  const [isLoading] = useState(false);
   
   // Filter posts based on selected category
   const filteredPosts = selectedCategory === "All" 
@@ -97,20 +93,7 @@ export default function BlogPage() {
           <div className="relative bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl overflow-hidden border border-white/50">
             <div className="grid lg:grid-cols-5 gap-0">
               {/* Content Section */}
-              <div className="lg:col-span-3 p-8 md:p-12 lg:p-16">
-                {/* Category & Meta */}
-                <div className="flex items-center gap-4 mb-6">
-                  <span className="text-xs font-semibold uppercase tracking-wider text-brand bg-brand/10 px-3 py-1.5 rounded-full">
-                    Coming Soon
-                  </span>
-                  <div className="flex items-center gap-4 text-sm text-gray-500">
-                    <span className="flex items-center gap-1.5">
-                      <Sparkles className="w-3.5 h-3.5" />
-                      Launching June 2025
-                    </span>
-                  </div>
-                </div>
-                
+              <div className="lg:col-span-3 p-8 md:p-12 lg:p-16">                
                 {/* Title */}
                 <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight">
                   Insights from the Future of AI Infrastructure

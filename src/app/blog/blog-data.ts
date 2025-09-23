@@ -1,4 +1,5 @@
 import { getAllBlogPosts, getCategories } from "@/lib/blog";
+import precompiled from "@/data/precompiled-blog-posts.json";
 
 export interface Author {
   name: string;
@@ -18,8 +19,22 @@ export interface BlogPost {
 }
 
 export async function getBlogData() {
-  const posts = await getAllBlogPosts();
-  const categories = await getCategories();
+  // Prefer precompiled data at build time/fallback to runtime generation
+  const pre = precompiled as unknown as {
+    posts: Array<{
+      slug: string;
+      title: string;
+      description: string;
+      date: string;
+      readTime: string;
+      authors: { name: string; avatar?: string; role?: string }[];
+      category: string;
+      coverImage?: string;
+    }>;
+    categories: string[];
+  } | undefined;
+  const posts = pre?.posts ?? (await getAllBlogPosts());
+  const categories = pre?.categories ?? (await getCategories());
   
   // Transform to match the expected format
   const transformedPosts: BlogPost[] = posts.map((post, index) => ({
@@ -34,7 +49,7 @@ export async function getBlogData() {
     description: post.description,
     authors: post.authors.map(author => ({
       name: author.name,
-      avatar: author.name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2),
+      avatar: author.avatar ?? author.name.split(' ').map(n => n[0]).join('').toUpperCase().slice(0, 2),
       role: author.role
     })),
     category: post.category,

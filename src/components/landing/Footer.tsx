@@ -40,25 +40,25 @@ export const Footer = () => {
               <h3 className="text-white font-bold text-lg sm:text-xl">Agentic Trust</h3>
             </div>
             <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
-              Building the next generation of agent-native infrastructure for seamless AI integration.
+              Enterprise-grade access control for AI agents. Connect your IdP, define roles, deploy securely.
             </p>
           </div>
 
           {/* Right Part: Product and Legal Links Side-by-Side */}
           <div className="flex flex-col gap-8 sm:flex-row sm:gap-12 md:gap-16 lg:gap-20">
-            {/* Product Column */}
+            {/* Resources Column */}
             <div>
-              <h4 className="text-white font-semibold mb-2.5 sm:mb-3 uppercase text-[11px] sm:text-xs tracking-wider">Product</h4>
+              <h4 className="text-white font-semibold mb-2.5 sm:mb-3 uppercase text-[11px] sm:text-xs tracking-wider">Resources</h4>
               <ul className="space-y-1.5 sm:space-y-2">
-                <li>
-                  <Link href="#features" className="text-xs sm:text-sm hover:text-white transition-colors">
-                    Features
-                  </Link>
-                </li>
                 <li>
                   <Link href="/blog" className="text-xs sm:text-sm hover:text-white transition-colors">
                     Blog
                   </Link>
+                </li>
+                <li>
+                  <span className="text-xs sm:text-sm text-gray-500 cursor-not-allowed">
+                    Documentation (Coming Soon)
+                  </span>
                 </li>
               </ul>
             </div>
@@ -88,7 +88,7 @@ export const Footer = () => {
         
         {/* Bottom Bar - Keep this part as is */}
         <div className="mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center text-xs sm:text-sm text-gray-500">
-          <p className="text-center md:text-left mb-3 md:mb-0">© 2025 Agentic Trust Technologies Inc. All rights reserved.</p>
+          <p className="text-center md:text-left mb-3 md:mb-0">© 2025 Agentic Labs Inc. All rights reserved.</p>
           <a 
             href="https://subramanya.ai" 
             target="_blank" 

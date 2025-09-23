@@ -88,7 +88,7 @@ export default function TermsOfServicePage() {
             <h2 className="text-2xl font-semibold text-gray-900 mb-4">5. Intellectual Property Rights</h2>
             <h3 className="text-xl font-semibold text-gray-800 mb-3">5.1 Our Intellectual Property</h3>
             <p className="text-gray-700 mb-4">
-              The Service and its original content, features, and functionality are owned by Agentic Trust Technologies Inc. 
+              The Service and its original content, features, and functionality are owned by Agentic Labs Inc. 
               and are protected by international copyright, trademark, patent, trade secret, and other intellectual property laws.
             </p>
             
@@ -202,7 +202,7 @@ export default function TermsOfServicePage() {
               If you have any questions about these Terms, please contact us at:
             </p>
             <div className="bg-gray-50 p-6 rounded-lg">
-              <p className="text-gray-700 font-semibold">Agentic Trust Technologies Inc.</p>
+              <p className="text-gray-700 font-semibold">Agentic Labs Inc.</p>
               <p className="text-gray-700">Website: https://agentictrust.com</p>
             </div>
           </section>

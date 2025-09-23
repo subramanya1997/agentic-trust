@@ -26,7 +26,7 @@ export default function PrivacyPolicyPage() {
           <section className="mb-12">
             <h2 className="text-2xl font-semibold text-gray-900 mb-4">1. Introduction</h2>
             <p className="text-gray-700 mb-4">
-              At Agentic Trust Technologies Inc. (&quot;Agentic Trust&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;), we take your privacy seriously. 
+              At Agentic Labs Inc. (&quot;Agentic Trust&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;), we take your privacy seriously. 
               This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our 
               platform and services.
             </p>
@@ -151,7 +151,7 @@ export default function PrivacyPolicyPage() {
               If you have any questions about this Privacy Policy or our privacy practices, please contact us at:
             </p>
             <div className="bg-gray-50 p-6 rounded-lg">
-              <p className="text-gray-700 font-semibold">Agentic Trust Technologies Inc.</p>
+              <p className="text-gray-700 font-semibold">Agentic Labs Inc.</p>
               <p className="text-gray-700">Website: https://agentictrust.com</p>
             </div>
           </section>
