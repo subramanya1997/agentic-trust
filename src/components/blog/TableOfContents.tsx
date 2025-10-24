@@ -10,31 +10,40 @@ interface TocItem {
 }
 
 interface TableOfContentsProps {
-  htmlContent: string;
+  htmlContent?: string;
+  headings?: TocItem[];
 }
 
-export function TableOfContents({ htmlContent }: TableOfContentsProps) {
-  const [headings, setHeadings] = useState<TocItem[]>([]);
+export function TableOfContents({ htmlContent, headings: initialHeadings }: TableOfContentsProps) {
+  const [headings, setHeadings] = useState<TocItem[]>(initialHeadings || []);
   const [activeId, setActiveId] = useState<string>('');
 
   useEffect(() => {
-    // Parse HTML to extract headings
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(htmlContent, 'text/html');
-    const headingElements = doc.querySelectorAll('h2, h3, h4');
-    
-    const items: TocItem[] = Array.from(headingElements).map((heading, index) => {
-      const id = heading.id || `heading-${index}`;
-      const level = parseInt(heading.tagName.substring(1));
-      return {
-        id,
-        text: heading.textContent || '',
-        level
-      };
-    });
-    
-    setHeadings(items);
-  }, [htmlContent]);
+    // If headings are provided directly, use them
+    if (initialHeadings && initialHeadings.length > 0) {
+      setHeadings(initialHeadings);
+      return;
+    }
+
+    // Otherwise, parse HTML to extract headings
+    if (htmlContent) {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(htmlContent, 'text/html');
+      const headingElements = doc.querySelectorAll('h2, h3, h4');
+      
+      const items: TocItem[] = Array.from(headingElements).map((heading, index) => {
+        const id = heading.id || `heading-${index}`;
+        const level = parseInt(heading.tagName.substring(1));
+        return {
+          id,
+          text: heading.textContent || '',
+          level
+        };
+      });
+      
+      setHeadings(items);
+    }
+  }, [htmlContent, initialHeadings]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(

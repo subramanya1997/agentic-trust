@@ -1,13 +1,18 @@
 import { Header } from "@/components/landing/Header";
 import { Footer } from "@/components/landing/Footer";
-import { getBlogPost, getAllBlogPosts } from "@/lib/blog";
-import { BlogContent } from "@/components/blog/BlogContent";
+import { getBlogPost, getAllBlogPosts } from "@/lib/sanity";
+import { PortableTextContent } from "../../../../sanity/lib/portable-text";
+import { extractHeadings } from "../../../../sanity/lib/extract-headings";
 import { TableOfContents } from "@/components/blog/TableOfContents";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import Script from "next/script";
 import { generateBlogPostingSchema, generateBreadcrumbSchema, absoluteOgImage, absoluteUrl, SITE_CONFIG } from "@/lib/seo";
+
+// Force dynamic rendering for now to avoid build-time prerendering issues
+export const dynamic = 'force-dynamic'
+export const revalidate = 60 // Revalidate every 60 seconds
 
 interface BlogPageProps {
   params: Promise<{
@@ -17,6 +22,7 @@ interface BlogPageProps {
 
 export default async function BlogPostPage({ params }: BlogPageProps) {
   const { slug } = await params;
+  
   const post = await getBlogPost(slug);
 
   if (!post) {
@@ -24,20 +30,26 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
   }
 
   // Generate structured data
+  const postSlug = typeof post.slug === 'object' ? post.slug.current : post.slug;
   const blogPostingSchema = generateBlogPostingSchema({
     title: post.title,
-    description: post.description,
+    description: post.description || ('excerpt' in post ? post.excerpt : ''),
     date: post.date,
     authors: post.authors,
     coverImage: post.coverImage,
-    slug: post.slug,
+    slug: typeof postSlug === 'string' ? postSlug : slug,
   });
 
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: "Home", url: "/" },
     { name: "Blog", url: "/blog" },
-    { name: post.title, url: `/blog/${post.slug}` },
+    { name: post.title, url: `/blog/${postSlug}` },
   ]);
+
+  // Extract headings for TOC
+  const tocHeadings = 'content' in post && Array.isArray(post.content)
+    ? extractHeadings(post.content)
+    : [];
 
   return (
     <div className="min-h-screen bg-gray-50 text-gray-800 font-sans">
@@ -61,7 +73,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
           {/* Left sidebar - Table of Contents */}
           <aside className="hidden lg:block lg:col-span-3">
             <div className="lg:sticky lg:top-24">
-              <TableOfContents htmlContent={post.htmlContent || ""} />
+              {tocHeadings.length > 0 && <TableOfContents headings={tocHeadings} />}
             </div>
           </aside>
 
@@ -103,7 +115,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
                 <>
                   <span>•</span>
                   <span className="bg-brand/10 text-brand px-3 py-1 rounded-full text-xs font-semibold">
-                    {post.category}
+                    {typeof post.category === 'object' ? post.category.title : post.category}
                   </span>
                 </>
               )}
@@ -147,7 +159,7 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
             <hr className="border-gray-200 mb-12" />
 
             {/* Blog content */}
-            <BlogContent htmlContent={post.htmlContent || ""} />
+            <PortableTextContent value={post.content} />
           </article>
 
           {/* Right sidebar - empty for now, can be used for related posts or ads */}
@@ -164,7 +176,9 @@ export default async function BlogPostPage({ params }: BlogPageProps) {
 // Generate static params for SSG
 export async function generateStaticParams() {
   const posts = await getAllBlogPosts();
-  return posts.map((post) => ({ slug: post.slug }));
+  return posts.map((post) => ({ 
+    slug: typeof post.slug === 'object' ? post.slug.current : post.slug 
+  }));
 }
 
 // Generate metadata for SEO
@@ -179,19 +193,19 @@ export async function generateMetadata({ params }: BlogPageProps) {
   
   return {
     title: `${post.title} | Agentic Trust Blog`,
-    description: post.description,
+    description: post.description || ('excerpt' in post ? post.excerpt : ''),
     authors: post.authors?.map(author => ({ name: author.name })),
-    keywords: [post.category, 'AI agents', 'MCP servers', 'infrastructure', ...post.title.split(' ')].filter(Boolean),
+    keywords: [typeof post.category === 'object' ? post.category.title : post.category, 'AI agents', 'MCP servers', 'infrastructure', ...post.title.split(' ')].filter(Boolean),
     openGraph: {
       title: post.title,
-      description: post.description,
+      description: post.description || ('excerpt' in post ? post.excerpt : ''),
       type: 'article',
       publishedTime,
       modifiedTime: publishedTime,
       authors: post.authors?.map(a => a.name),
-      tags: post.category ? [post.category] : undefined,
+      tags: post.category ? [typeof post.category === 'object' ? post.category.title : post.category] : undefined,
       siteName: SITE_CONFIG.name,
-      url: absoluteUrl(`/blog/${slug}`),
+      url: absoluteUrl(`/blog/${typeof post.slug === 'object' ? post.slug.current : post.slug}`),
       images: post.coverImage ? [
         {
           url: absoluteOgImage(post.coverImage),
@@ -211,13 +225,13 @@ export async function generateMetadata({ params }: BlogPageProps) {
     twitter: {
       card: 'summary_large_image',
       title: post.title,
-      description: post.description,
+      description: post.description || ('excerpt' in post ? post.excerpt : ''),
       site: SITE_CONFIG.twitterHandle,
       creator: SITE_CONFIG.twitterHandle,
       images: post.coverImage ? [absoluteOgImage(post.coverImage)] : [absoluteOgImage('/blog/twitter-image')],
     },
     alternates: {
-      canonical: absoluteUrl(`/blog/${slug}`),
+      canonical: absoluteUrl(`/blog/${typeof post.slug === 'object' ? post.slug.current : post.slug}`),
     },
     other: {
       'twitter:image:alt': post.title,

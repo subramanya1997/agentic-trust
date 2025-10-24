@@ -17,13 +17,15 @@ Agentic Trust is a comprehensive platform that simplifies the deployment and man
 - **🔄 Auto-scaling**: Handle any load with automatic scaling
 - **📱 Fully Responsive**: Works seamlessly on desktop, tablet, and mobile devices
 - **🎨 Dynamic Social Images**: Auto-generated Open Graph and Twitter images
-- **📝 Blog (Coming June 2025)**: Technical insights and best practices
+- **📝 Blog System**: Dual support for markdown files and Sanity CMS
+- **✏️ Content Management**: Embedded Sanity Studio with markdown support
 
 ## 🛠️ Tech Stack
 
 - **Framework**: [Next.js 15](https://nextjs.org/) with TypeScript
 - **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
 - **UI Components**: [shadcn/ui](https://ui.shadcn.com/)
+- **CMS**: [Sanity](https://sanity.io/) (optional, with markdown fallback)
 - **Animations**: Framer Motion
 - **Icons**: Lucide React
 - **Font**: Geist (Sans & Mono)
@@ -123,12 +125,15 @@ agentic-trust/
 5. **FAQ Section** - Common questions and answers
 6. **Final CTA** - Newsletter signup
 
-### Blog (Coming June 2025)
+### Blog System
+- **Dual Data Sources**: Markdown files or Sanity CMS (configurable)
+- **Content Management**: Embedded Sanity Studio at `/studio`
+- **Markdown Support**: Import/export with visual and markdown editing modes
+- **Rich Content**: Tables, code blocks, callouts, and embedded media
+- **SEO Optimized**: Auto-generated meta tags, sitemaps, and structured data
+- **Performance**: ISR, caching, and CDN optimization
 - Modern blog layout with category filtering
-- Featured post section
-- Author avatars and metadata
-- Responsive table view for blog posts
-- "Coming Soon" state with early access signup
+- Featured post section with author metadata
 
 ## 🔧 Configuration
 
@@ -137,9 +142,19 @@ agentic-trust/
 Create a `.env.local` file in the root directory:
 
 ```env
-# Add your environment variables here
+# Site Configuration
 NEXT_PUBLIC_SITE_URL=https://agentictrust.com
+
+# Blog Data Source ('markdown' or 'sanity')
+NEXT_PUBLIC_BLOG_DATA_SOURCE=markdown
+
+# Sanity Configuration (optional, see SANITY_INTEGRATION.md)
+NEXT_PUBLIC_SANITY_PROJECT_ID=your-project-id
+NEXT_PUBLIC_SANITY_DATASET=production
+SANITY_API_TOKEN=your-read-token
 ```
+
+For detailed Sanity CMS setup, see [SANITY_INTEGRATION.md](./SANITY_INTEGRATION.md)
 
 ### Metadata Configuration
 

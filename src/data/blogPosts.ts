@@ -25,7 +25,7 @@ export let categories: string[] = ["All", "Product", "Company", "Engineering", "
 
 // Auto-fetch blog posts when this module is loaded on client side
 if (typeof window !== 'undefined') {
-  fetch('/api/blog-posts')
+  fetch('/api/blog')
     .then(response => response.json())
     .then(data => {
       if (data.blogPosts) {
@@ -52,7 +52,7 @@ export function useBlogPosts() {
   useEffect(() => {
     async function fetchPosts() {
       try {
-        const response = await fetch('/api/blog-posts');
+        const response = await fetch('/api/blog');
         if (!response.ok) {
           throw new Error('Failed to fetch blog posts');
         }

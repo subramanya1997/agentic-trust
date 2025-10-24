@@ -1,8 +1,9 @@
 import { NextResponse } from 'next/server';
-import { getAllBlogPosts, getCategories } from '@/lib/blog';
+import { getAllBlogPosts, getCategories } from '@/lib/sanity';
 
 export async function GET() {
   try {
+    // Get posts and categories from Sanity
     const posts = await getAllBlogPosts();
     const categories = await getCategories();
     
@@ -16,19 +17,19 @@ export async function GET() {
       }),
       readTime: post.readTime,
       title: post.title,
-      description: post.description,
+      description: post.description || post.excerpt || '',
       authors: post.authors.map(author => ({
         name: author.name,
         avatar: author.avatar,
         role: author.role
       })),
-      category: post.category,
-      slug: post.slug
+      category: typeof post.category === 'object' ? post.category.title : post.category,
+      slug: typeof post.slug === 'object' ? post.slug.current : post.slug
     }));
     
     return NextResponse.json({
       blogPosts: transformedPosts,
-      categories
+      categories: categories
     });
   } catch (error) {
     console.error('Error fetching blog posts:', error);

@@ -9,8 +9,7 @@ import { Bell, Check, AlertCircle } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { submitEmailToGoogleForm } from "@/lib/googleFormSubmit";
-import { BlogPost, Author } from "./blog-data";
-import precompiled from "@/data/precompiled-blog-posts.json";
+import { useBlogPosts } from "@/data/blogPosts";
 
 export default function BlogPage() {
   const [email, setEmail] = useState("");
@@ -18,28 +17,9 @@ export default function BlogPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState("");
-  const pre = precompiled as unknown as { posts: BlogPost[]; categories: string[] };
-  const initialPosts: BlogPost[] = (pre.posts || []).map((post, index) => ({
-    id: index + 1,
-    date: new Date(post.date).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric'
-    }),
-    readTime: post.readTime,
-    title: post.title,
-    description: post.description,
-    authors: (post.authors || []).map((author: Author) => ({
-      name: author.name,
-      avatar: author.avatar ?? author.name.split(' ').map((n: string) => n[0]).join('').toUpperCase().slice(0, 2),
-      role: author.role,
-    })),
-    category: post.category,
-    slug: post.slug,
-  }));
-  const [blogPosts] = useState<BlogPost[]>(initialPosts);
-  const [categories] = useState<string[]>(pre.categories || ['All']);
-  const [isLoading] = useState(false);
+  
+  // Use the blog posts hook
+  const { posts: blogPosts, categories, loading: isLoading, error } = useBlogPosts();
   
   // Filter posts based on selected category
   const filteredPosts = selectedCategory === "All" 
@@ -238,6 +218,10 @@ export default function BlogPage() {
         {isLoading ? (
           <div className="flex justify-center items-center py-12">
             <div className="w-8 h-8 border-4 border-brand border-t-transparent rounded-full animate-spin" />
+          </div>
+        ) : error ? (
+          <div className="text-center py-12">
+            <p className="text-red-500">Error loading blog posts: {error}</p>
           </div>
         ) : (
           <BlogPostList posts={filteredPosts} />
