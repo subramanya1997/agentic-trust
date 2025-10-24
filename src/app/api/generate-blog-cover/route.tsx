@@ -25,8 +25,7 @@ export async function POST(req: NextRequest) {
 
     // Generate the image using @vercel/og
     const imageResponse = new ImageResponse(
-      (
-        <div
+      <div
           style={{
             width: '100%',
             height: '100%',
@@ -151,8 +150,7 @@ export async function POST(req: NextRequest) {
               }}
             />
           </div>
-        </div>
-      ),
+        </div>,
       {
         width: 1200,
         height: 630,
