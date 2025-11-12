@@ -48,15 +48,14 @@ export const FinalCtaSection = () => {
     <section className="py-16 sm:py-20 md:py-28 bg-gray-900 text-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-1 sm:mb-2">
-            Your agents. Your rules.
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 leading-tight">
+            See your complete AI landscape
+            <br />
+            <span className="text-brand">in 15 minutes</span>
           </h2>
-          <h3 className="text-2xl sm:text-3xl md:text-5xl font-bold mb-6 sm:mb-8">
-            <span className="text-brand">Scale securely.</span>
-          </h3>
-          <p className="text-base sm:text-lg text-gray-300 mb-8 sm:mb-12 leading-relaxed">
-            The only agent management platform that maps your existing identity provider to granular tool permissions. 
-            Built for enterprises running AI agents at scale.
+          <p className="text-base sm:text-lg text-gray-300 mb-8 sm:mb-10 leading-relaxed">
+            Join forward-thinking enterprises measuring AI adoption, proficiency, and ROI. 
+            Start with a personalized demo of your AI landscape.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 max-w-md mx-auto">
@@ -99,7 +98,7 @@ export const FinalCtaSection = () => {
           {submitStatus === 'success' && (
             <p className="mt-4 text-sm text-success flex items-center justify-center gap-2">
               <Check className="w-4 h-4" />
-              Successfully subscribed! We&apos;ll notify you when early access opens.
+              Thanks! We&apos;ll reach out to schedule your demo.
             </p>
           )}
           
@@ -109,6 +108,30 @@ export const FinalCtaSection = () => {
               {errorMessage}
             </p>
           )}
+
+          {/* Trust Signals */}
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-sm text-gray-400">
+            <div className="flex items-center gap-2">
+              <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+              </svg>
+              <span>No credit card required</span>
+            </div>
+            <span className="text-gray-600">•</span>
+            <div className="flex items-center gap-2">
+              <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Deploy in 1 day</span>
+            </div>
+            <span className="text-gray-600">•</span>
+            <div className="flex items-center gap-2">
+              <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Enterprise-grade security</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>

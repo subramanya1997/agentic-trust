@@ -40,7 +40,7 @@ export const Footer = () => {
               <h3 className="text-white font-bold text-lg sm:text-xl">Agentic Trust</h3>
             </div>
             <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
-              Enterprise-grade access control for AI agents. Connect your IdP, define roles, deploy securely.
+              Measure AI usage, proficiency, and impact. Discover shadow AI, track adoption, and optimize your AI investments with enterprise-grade measurement.
             </p>
           </div>
 

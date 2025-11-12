@@ -18,11 +18,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
   title: {
-    default: "Agentic Trust - Enterprise MCP Server Infrastructure",
+    default: "Agentic Trust - AI Usage & Proficiency Measurement",
     template: "%s | Agentic Trust"
   },
   description: SITE_CONFIG.description,
-  keywords: ["MCP server", "AI agents", "infrastructure", "authentication", "monitoring", "deployment", "production", "enterprise"],
+  keywords: ["AI measurement", "AI proficiency", "AI adoption", "shadow AI", "AI ROI", "AI governance", "AI analytics", "enterprise AI", "AI usage tracking", "AI maturity"],
   authors: [{ name: "Agentic Trust Team" }],
   creator: "Agentic Trust",
   publisher: "Agentic Trust",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   },
   manifest: '/manifest.json',
   openGraph: {
-    title: "Agentic Trust - Enterprise MCP Server Infrastructure",
+    title: "Agentic Trust - AI Usage & Proficiency Measurement",
     description: SITE_CONFIG.description,
     type: "website",
     siteName: SITE_CONFIG.name,
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
         url: absoluteOgImage('/opengraph-image'),
         width: 1200,
         height: 630,
-        alt: 'Agentic Trust - Enterprise MCP Server Infrastructure',
+        alt: 'Agentic Trust - AI Usage & Proficiency Measurement',
       }
     ],
   },
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: SITE_CONFIG.twitterHandle,
     creator: SITE_CONFIG.twitterHandle,
-    title: "Agentic Trust - Enterprise MCP Server Infrastructure",
+    title: "Agentic Trust - AI Usage & Proficiency Measurement",
     description: SITE_CONFIG.description,
     images: [absoluteOgImage('/twitter-image')],
   },
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
     canonical: SITE_CONFIG.url,
   },
   other: {
-    'twitter:image:alt': 'Agentic Trust - Enterprise MCP Server Infrastructure',
+    'twitter:image:alt': 'Agentic Trust - AI Usage & Proficiency Measurement',
   },
 };
 

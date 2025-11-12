@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { MobileNav } from "./MobileNav";
 
 export const Header = () => {
   return (
@@ -32,17 +33,12 @@ export const Header = () => {
           <span className="text-gray-400 cursor-not-allowed">Docs (Coming Soon)</span>
         </nav>
         <div className="flex items-center space-x-2 md:space-x-4">
-          <Link href="https://calendly.com/subramanya1997/introduction" target="_blank" rel="noopener noreferrer">
+          <Link href="https://calendly.com/subramanya1997/introduction" target="_blank" rel="noopener noreferrer" className="hidden md:block">
             <Button variant="default" className="bg-black text-white hover:bg-gray-800 px-3 sm:px-4 py-2 text-sm rounded-md">
-              Book a Call
+              Book Demo
             </Button>
           </Link>
-          {/* Placeholder for Hamburger Menu for mobile */}
-          <div className="md:hidden">
-            {/* <Button variant="ghost" size="icon">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/></svg>
-            </Button> */}
-          </div>
+          <MobileNav />
         </div>
       </div>
     </header>

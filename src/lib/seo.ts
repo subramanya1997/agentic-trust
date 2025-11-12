@@ -4,7 +4,7 @@ import { Metadata } from 'next';
 export const SITE_CONFIG = {
   url: 'https://agentictrust.com',
   name: 'Agentic Trust',
-  description: 'The unified MCP server platform for production AI agents. Enterprise-grade authentication, monitoring, and deployment in minutes.',
+  description: 'Measure AI usage, proficiency, and impact across your organization. Track adoption, optimize spend, and quantify ROI with enterprise-grade AI measurement and governance.',
   twitterHandle: '@agentictrust',
 };
 

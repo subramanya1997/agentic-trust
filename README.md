@@ -1,20 +1,21 @@
 # Agentic Trust
 
-The unified MCP server platform for production AI agents. Enterprise-grade authentication, monitoring, and deployment in minutes.
+Measure AI usage, proficiency, and impact across your organization. Track adoption, optimize spend, and quantify ROI with enterprise-grade AI measurement and governance.
 
 ![Agentic Trust](https://agentictrust.com/opengraph-image)
 
 ## 🚀 Overview
 
-Agentic Trust is a comprehensive platform that simplifies the deployment and management of MCP (Model Context Protocol) servers for AI agents in production environments. We provide a unified infrastructure that handles authentication, monitoring, deployment, and security - allowing teams to focus on building great AI experiences.
+Agentic Trust is an enterprise AI measurement and proficiency tracking platform that gives you complete visibility into your AI landscape. Discover every AI tool (including Shadow AI and BYOAI), measure competency across teams, track ROI and time savings, and ensure compliance—all from a single platform.
 
 ## ✨ Key Features
 
-- **🔐 Enterprise Authentication**: Built-in auth for MCP servers with SSO support
-- **📊 Real-time Monitoring**: Track performance, usage, and health metrics
-- **🚀 One-Click Deployment**: Deploy MCP servers to production in minutes
-- **🛡️ Security First**: End-to-end encryption and compliance-ready infrastructure
-- **🔄 Auto-scaling**: Handle any load with automatic scaling
+- **👁️ AI Discovery**: Automatically detect every AI tool in use, including Shadow AI and BYOAI
+- **📊 Proficiency Tracking**: Measure AI competency with maturity scores across teams
+- **💰 ROI Measurement**: Track time savings, productivity gains, and cost optimization
+- **📈 Usage Analytics**: Real-time insights into adoption patterns and tool effectiveness
+- **🛡️ Compliance & Governance**: Enterprise-grade security with audit trails and policy enforcement
+- **🎯 Role-Based Insights**: Tailored dashboards for CFOs, CIOs, CISOs, CAIOs, and CHROs
 - **📱 Fully Responsive**: Works seamlessly on desktop, tablet, and mobile devices
 - **🎨 Dynamic Social Images**: Auto-generated Open Graph and Twitter images
 - **📝 Blog System**: Dual support for markdown files and Sanity CMS
@@ -118,12 +119,14 @@ agentic-trust/
 - Proper favicon configuration
 
 ### Landing Page Sections
-1. **Hero Section** - Eye-catching introduction with animated elements
-2. **Benefits Section** - Key platform benefits
-3. **Features Section** - Detailed platform capabilities with tabs
-4. **Target Audience** - Who should use Agentic Trust
-5. **FAQ Section** - Common questions and answers
-6. **Final CTA** - Newsletter signup
+1. **Hero Section** - Emphasizes AI usage, proficiency, and impact measurement
+2. **Benefits Section** - Discover Shadow AI, measure AI maturity, optimize AI spend
+3. **Features Section** - Tabbed interface showing AI discovery, proficiency, ROI, analytics, and compliance
+4. **Role-Based Insights** - Tailored value propositions for executive leaders (CFO, CIO, CISO, CAIO, CHRO)
+5. **AI Discovery Feed** - Real-time detection of AI tools and Shadow AI
+6. **BYOAI Detection** - Track personally purchased AI tools used at work
+7. **FAQ Section** - AI measurement and proficiency questions
+8. **Final CTA** - Demo request and contact
 
 ### Blog System
 - **Dual Data Sources**: Markdown files or Sanity CMS (configurable)
