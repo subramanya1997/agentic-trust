@@ -12,18 +12,18 @@ export const ToolAccessHeroSection = () => {
         <div className="text-center w-full">
           {/* Small Title */}
           <h2 className="text-lg font-semibold text-brand mb-2">
-            Tool-Based Access Control
+            Identity, Policy & Audit
           </h2>
           
           {/* Main Title */}
           <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 mb leading-tight">
-            Powerful and flexible<br />
-            Permissions for AI agents.
+            Secure AI agent<br />
+            infrastructure.
           </h1>
           
           {/* Tagline */}
           <p className="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">
-            Enterprise-grade authorization for secure and scalable tool access management.
+            Give every agent an identity, least-privilege tool access, and real-time policy decisions—without slowing teams.
           </p>
           
           {/* Visual Element */}
@@ -34,15 +34,15 @@ export const ToolAccessHeroSection = () => {
               </div>
             </div>
             
-            {/* Three Key Features */}
+            {/* Three Pillars */}
             <div className="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-12 max-w-4xl mx-auto">
               <div className="text-center max-w-xs mx-auto group">
                 <div className="w-12 h-12 mx-auto mb-3 flex items-center justify-center transition-all duration-300 group-hover:scale-110">
-                  <Settings2 className="w-8 h-8 text-gray-700 group-hover:text-brand transition-colors duration-300 group-hover:rotate-45" />
+                  <ShieldCheck className="w-8 h-8 text-gray-700 group-hover:text-brand transition-colors duration-300 group-hover:animate-pulse" />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-1">Granular</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-1">Agent Identity</h3>
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  Fine-tuned access control with detailed tool permissions.
+                  Issue, rotate, revoke. Map to org roles.
                 </p>
               </div>
               
@@ -50,21 +50,21 @@ export const ToolAccessHeroSection = () => {
                 <Separator orientation="vertical" className="hidden sm:block absolute -left-6 top-0 h-full" />
                 <Separator orientation="vertical" className="hidden sm:block absolute -right-6 top-0 h-full" />
                 <div className="w-12 h-12 mx-auto mb-3 flex items-center justify-center transition-all duration-300 group-hover:scale-110">
-                  <RefreshCw className="w-8 h-8 text-gray-700 group-hover:text-brand transition-colors duration-300 group-hover:animate-spin" />
+                  <Settings2 className="w-8 h-8 text-gray-700 group-hover:text-brand transition-colors duration-300 group-hover:rotate-45" />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-1">Connected</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-1">Policy & Gateway</h3>
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  Sync tool permissions directly from your identity provider.
+                  Allow/deny/throttle + time-boxing + egress control.
                 </p>
               </div>
               
               <div className="text-center max-w-xs mx-auto group">
                 <div className="w-12 h-12 mx-auto mb-3 flex items-center justify-center transition-all duration-300 group-hover:scale-110">
-                  <ShieldCheck className="w-8 h-8 text-gray-700 group-hover:text-brand transition-colors duration-300 group-hover:animate-pulse" />
+                  <RefreshCw className="w-8 h-8 text-gray-700 group-hover:text-brand transition-colors duration-300 group-hover:animate-spin" />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-1">Secure</h3>
+                <h3 className="text-lg font-semibold text-gray-900 mb-1">Traceability</h3>
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  Enforce least-privilege access with agent-scoped tools.
+                  Rich events and decision explanations.
                 </p>
               </div>
             </div>

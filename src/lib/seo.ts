@@ -4,7 +4,7 @@ import { Metadata } from 'next';
 export const SITE_CONFIG = {
   url: 'https://agentictrust.com',
   name: 'Agentic Trust',
-  description: 'The unified MCP server platform for production AI agents. Enterprise-grade authentication, monitoring, and deployment in minutes.',
+  description: 'Secure AI agent infrastructure. Give every agent an identity, least-privilege tool access, and real-time policy decisions—without slowing teams.',
   twitterHandle: '@agentictrust',
 };
 
@@ -106,6 +106,36 @@ export function generateBreadcrumbSchema(items: Array<{ name: string; url: strin
       name: item.name,
       item: absoluteUrl(item.url),
     })),
+  };
+}
+
+// Generate SoftwareApplication structured data
+export function generateSoftwareApplicationSchema() {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: SITE_CONFIG.name,
+    url: SITE_CONFIG.url,
+    description: SITE_CONFIG.description,
+    applicationCategory: 'SecurityApplication',
+    operatingSystem: 'Any',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+    creator: {
+      '@type': 'Organization',
+      name: SITE_CONFIG.name,
+    },
+    featureList: [
+      'Identity and authentication for AI agents',
+      'Fine-grained tool permissions and access control',
+      'Real-time policy enforcement',
+      'Audit logs and forensics',
+      'IdP integration (SAML, SCIM, OIDC)',
+      'MCP server orchestration',
+    ],
   };
 }
 

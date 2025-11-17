@@ -31,10 +31,10 @@ export const Header = () => {
           <Link href="/blog" className="hover:text-gray-900 transition-colors">Blog</Link>
           <span className="text-gray-400 cursor-not-allowed">Docs (Coming Soon)</span>
         </nav>
-        <div className="flex items-center space-x-2 md:space-x-4">
+        <div className="flex items-center space-x-2 md:space-x-3">
           <Link href="https://calendly.com/subramanya1997/introduction" target="_blank" rel="noopener noreferrer">
-            <Button variant="default" className="bg-black text-white hover:bg-gray-800 px-3 sm:px-4 py-2 text-sm rounded-md">
-              Book a Call
+            <Button variant="default" className="bg-brand text-white hover:bg-brand/90 px-3 sm:px-4 py-2 text-sm rounded-md font-semibold">
+              Book a Demo
             </Button>
           </Link>
           {/* Placeholder for Hamburger Menu for mobile */}

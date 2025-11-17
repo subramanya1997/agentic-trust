@@ -222,6 +222,29 @@
   .bg-info { background-color: var(--info); }
   .border-info { border-color: var(--info); }
   .text-info-foreground { color: var(--info-foreground); }
+  
+  /* Policy state utilities - Security themed */
+  .policy-allowed {
+    @apply bg-green-50 text-green-700 border-green-200;
+  }
+  
+  .policy-denied {
+    @apply bg-red-50 text-red-700 border-red-200;
+  }
+  
+  .policy-pending {
+    @apply bg-yellow-50 text-yellow-700 border-yellow-200;
+  }
+  
+  /* Security section backgrounds - Deep slate */
+  .security-section-bg {
+    background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+  }
+  
+  /* Electric accent for interactive policy states */
+  .policy-active {
+    @apply border-2 border-brand shadow-lg shadow-brand/20;
+  }
 }
 
 /* Custom animations */

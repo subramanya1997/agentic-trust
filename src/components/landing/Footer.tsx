@@ -12,16 +12,16 @@ import Link from "next/link";
 
 export const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-gray-300 py-12 sm:py-16 border-t border-gray-800">
+    <footer className="bg-gray-900 text-gray-300 py-12 border-t border-gray-800">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
-        <div className="flex flex-col md:flex-row md:justify-between gap-8 sm:gap-12 mb-10 sm:mb-12">
+        <div className="flex flex-col md:flex-row md:justify-between gap-8 mb-8">
           {/* Left Part: Company Info */}
-          <div className="md:max-w-xs lg:max-w-sm">
-            <div className="flex items-center gap-2 mb-4">
+          <div className="md:max-w-md">
+            <div className="flex items-center gap-2 mb-3">
               <svg 
                 xmlns="http://www.w3.org/2000/svg" 
-                width="32"
-                height="32"
+                width="28"
+                height="28"
                 viewBox="0 0 24 24" 
                 fill="none" 
                 stroke="#f97316"
@@ -37,48 +37,37 @@ export const Footer = () => {
                 <rect x="14" y="14" width="8" height="8" rx="2"/>
                 <rect x="2" y="2" width="8" height="8" rx="2"/>
               </svg>
-              <h3 className="text-white font-bold text-lg sm:text-xl">Agentic Trust</h3>
+              <h3 className="text-white font-bold text-lg">Agentic Trust</h3>
             </div>
-            <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
-              Enterprise-grade access control for AI agents. Connect your IdP, define roles, deploy securely.
+            <p className="text-sm text-gray-400 leading-relaxed">
+              Secure AI agent infrastructure. Identity, policy, and audit for AI agents.
             </p>
           </div>
 
-          {/* Right Part: Product and Legal Links Side-by-Side */}
-          <div className="flex flex-col gap-8 sm:flex-row sm:gap-12 md:gap-16 lg:gap-20">
-            {/* Resources Column */}
+          {/* Right Part: Links */}
+          <div className="flex gap-12">
+            {/* Resources */}
             <div>
-              <h4 className="text-white font-semibold mb-2.5 sm:mb-3 uppercase text-[11px] sm:text-xs tracking-wider">Resources</h4>
-              <ul className="space-y-1.5 sm:space-y-2">
+              <ul className="space-y-2">
                 <li>
-                  <Link href="/blog" className="text-xs sm:text-sm hover:text-white transition-colors">
+                  <Link href="/blog" className="text-sm text-gray-400 hover:text-white transition-colors">
                     Blog
                   </Link>
                 </li>
-                <li>
-                  <span className="text-xs sm:text-sm text-gray-500 cursor-not-allowed">
-                    Documentation (Coming Soon)
-                  </span>
-                </li>
               </ul>
             </div>
-            {/* Legal Column */}
+            
+            {/* Legal */}
             <div>
-              <h4 className="text-white font-semibold mb-2.5 sm:mb-3 uppercase text-[11px] sm:text-xs tracking-wider">Legal</h4>
-              <ul className="space-y-1.5 sm:space-y-2">
+              <ul className="space-y-2">
                 <li>
-                  <Link href="/privacy" className="text-xs sm:text-sm hover:text-white transition-colors">
-                    Privacy Policy
+                  <Link href="/privacy" className="text-sm text-gray-400 hover:text-white transition-colors">
+                    Privacy
                   </Link>
                 </li>
                 <li>
-                  <Link href="/terms" className="text-xs sm:text-sm hover:text-white transition-colors">
-                    Terms of Service
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/responsible-disclosure" className="text-xs sm:text-sm hover:text-white transition-colors">
-                    Responsible Disclosure
+                  <Link href="/terms" className="text-sm text-gray-400 hover:text-white transition-colors">
+                    Terms
                   </Link>
                 </li>
               </ul>
@@ -86,14 +75,14 @@ export const Footer = () => {
           </div>
         </div>
         
-        {/* Bottom Bar - Keep this part as is */}
-        <div className="mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center text-xs sm:text-sm text-gray-500">
-          <p className="text-center md:text-left mb-3 md:mb-0">© 2025 Agentic Labs Inc. All rights reserved.</p>
+        {/* Bottom Bar */}
+        <div className="pt-6 border-t border-gray-800 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500 gap-2">
+          <p className="text-center sm:text-left">© 2025 Agentic Labs Inc. All rights reserved.</p>
           <a 
             href="https://subramanya.ai" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="text-[10px] sm:text-xs hover:text-white transition-colors"
+            className="hover:text-white transition-colors"
           >
             made by subramanya
           </a>

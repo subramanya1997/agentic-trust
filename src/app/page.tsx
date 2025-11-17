@@ -1,8 +1,8 @@
 import { Header } from "@/components/landing/Header";
 import { ToolAccessHeroSection } from "@/components/landing/ToolAccessHeroSection";
-import { RoleBasedPermissionsSection } from "@/components/landing/RoleBasedPermissionsSection";
-import { AgentToolSyncSection } from "@/components/landing/AgentToolSyncSection";
-import { CustomToolsSection } from "@/components/landing/CustomToolsSection";
+import { DirectoryRegistrySection } from "@/components/landing/DirectoryRegistrySection";
+import { BuiltForTeamsSection } from "@/components/landing/BuiltForTeamsSection";
+import { SecurityGovernanceSection } from "@/components/landing/SecurityGovernanceSection";
 import { FinalCtaSection } from "@/components/landing/FinalCtaSection";
 import { Footer } from "@/components/landing/Footer";
 
@@ -11,9 +11,9 @@ export default function AgenticTrustPage() {
     <div className="min-h-screen bg-white text-gray-800 font-sans">
       <Header />
       <ToolAccessHeroSection />
-      <RoleBasedPermissionsSection />
-      <AgentToolSyncSection />
-      <CustomToolsSection />
+      <DirectoryRegistrySection />
+      <BuiltForTeamsSection />
+      <SecurityGovernanceSection />
       <FinalCtaSection />
       <Footer />
     </div>

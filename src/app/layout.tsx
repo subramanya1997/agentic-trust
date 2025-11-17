@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
-import { absoluteOgImage, generateOrganizationSchema, generateWebSiteSchema, SITE_CONFIG } from "@/lib/seo";
+import { absoluteOgImage, generateOrganizationSchema, generateWebSiteSchema, generateSoftwareApplicationSchema, SITE_CONFIG } from "@/lib/seo";
 import Script from "next/script";
 
 const geistSans = Geist({
@@ -18,11 +18,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
   title: {
-    default: "Agentic Trust - Enterprise MCP Server Infrastructure",
+    default: "Agentic Trust — Secure AI Agent Infrastructure",
     template: "%s | Agentic Trust"
   },
   description: SITE_CONFIG.description,
-  keywords: ["MCP server", "AI agents", "infrastructure", "authentication", "monitoring", "deployment", "production", "enterprise"],
+  keywords: ["AI agent security", "agent identity", "IAM for agents", "MCP security", "agent access control", "policy enforcement", "agent authentication", "AI agent infrastructure", "least privilege agents", "agent audit logs", "not HUMAN Security AgenticTrust"],
   authors: [{ name: "Agentic Trust Team" }],
   creator: "Agentic Trust",
   publisher: "Agentic Trust",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   },
   manifest: '/manifest.json',
   openGraph: {
-    title: "Agentic Trust - Enterprise MCP Server Infrastructure",
+    title: "Agentic Trust — Secure AI Agent Infrastructure",
     description: SITE_CONFIG.description,
     type: "website",
     siteName: SITE_CONFIG.name,
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
         url: absoluteOgImage('/opengraph-image'),
         width: 1200,
         height: 630,
-        alt: 'Agentic Trust - Enterprise MCP Server Infrastructure',
+        alt: 'Agentic Trust — IAM for AI Agents',
       }
     ],
   },
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: SITE_CONFIG.twitterHandle,
     creator: SITE_CONFIG.twitterHandle,
-    title: "Agentic Trust - Enterprise MCP Server Infrastructure",
+    title: "Agentic Trust — Secure AI Agent Infrastructure",
     description: SITE_CONFIG.description,
     images: [absoluteOgImage('/opengraph-image')],
   },
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
     canonical: SITE_CONFIG.url,
   },
   other: {
-    'twitter:image:alt': 'Agentic Trust - Enterprise MCP Server Infrastructure',
+    'twitter:image:alt': 'Agentic Trust — IAM for AI Agents',
   },
 };
 
@@ -99,6 +99,13 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: JSON.stringify(generateWebSiteSchema()),
+          }}
+        />
+        <Script
+          id="software-application-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(generateSoftwareApplicationSchema()),
           }}
         />
       </head>
