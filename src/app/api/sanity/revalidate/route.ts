@@ -45,12 +45,12 @@ export async function POST(req: NextRequest) {
     switch (_type) {
       case 'blogPost':
         // Revalidate post list
-        revalidateTag(CACHE_TAGS.posts)
+        revalidateTag(CACHE_TAGS.posts, 'default')
         revalidatePath('/blog')
         
         // Revalidate specific post
         if (slug?.current) {
-          revalidateTag(CACHE_TAGS.post(slug.current))
+          revalidateTag(CACHE_TAGS.post(slug.current), 'default')
           revalidatePath(`/blog/${slug.current}`)
         }
         
@@ -59,23 +59,23 @@ export async function POST(req: NextRequest) {
         break
         
       case 'author':
-        revalidateTag(CACHE_TAGS.authors)
+        revalidateTag(CACHE_TAGS.authors, 'default')
         if (slug?.current) {
-          revalidateTag(CACHE_TAGS.author(slug.current))
+          revalidateTag(CACHE_TAGS.author(slug.current), 'default')
         }
         revalidatePath('/blog')
         break
         
       case 'category':
-        revalidateTag(CACHE_TAGS.categories)
+        revalidateTag(CACHE_TAGS.categories, 'default')
         if (slug?.current) {
-          revalidateTag(CACHE_TAGS.category(slug.current))
+          revalidateTag(CACHE_TAGS.category(slug.current), 'default')
         }
         revalidatePath('/blog')
         break
         
       case 'settings':
-        revalidateTag(CACHE_TAGS.settings)
+        revalidateTag(CACHE_TAGS.settings, 'default')
         revalidatePath('/', 'layout')
         break
     }

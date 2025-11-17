@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     creator: SITE_CONFIG.twitterHandle,
     title: "Agentic Trust - Enterprise MCP Server Infrastructure",
     description: SITE_CONFIG.description,
-    images: [absoluteOgImage('/twitter-image')],
+    images: [absoluteOgImage('/opengraph-image')],
   },
   alternates: {
     canonical: SITE_CONFIG.url,

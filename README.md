@@ -16,9 +16,8 @@ Agentic Trust is a comprehensive platform that simplifies the deployment and man
 - **🛡️ Security First**: End-to-end encryption and compliance-ready infrastructure
 - **🔄 Auto-scaling**: Handle any load with automatic scaling
 - **📱 Fully Responsive**: Works seamlessly on desktop, tablet, and mobile devices
-- **🎨 Dynamic Social Images**: Auto-generated Open Graph and Twitter images
-- **📝 Blog System**: Dual support for markdown files and Sanity CMS
-- **✏️ Content Management**: Embedded Sanity Studio with markdown support
+- **📝 Blog System**: Sanity CMS integration with rich content support
+- **✏️ Content Management**: Embedded Sanity Studio for content editing
 
 ## 🛠️ Tech Stack
 
@@ -100,15 +99,13 @@ agentic-trust/
 
 ### Responsive Design
 - Mobile-first approach with breakpoints for all screen sizes
-- Hidden navigation elements on mobile with hamburger menu support
 - Responsive typography and spacing
-- Optimized UnifiedContextRouterPreview for desktop viewing
+- Optimized for desktop, tablet, and mobile viewing
 
 ### Dynamic Social Media Images
 - Automatically generated Open Graph images (1200x630)
 - Twitter card images (512x512)
-- Monochromatic dark gray themes with random variations
-- Blog-specific social images with "Coming June 2025" badge
+- Blog-specific social images
 
 ### SEO Optimization
 - Dynamic sitemap generation
@@ -117,23 +114,19 @@ agentic-trust/
 - PWA support with manifest.json
 - Proper favicon configuration
 
-### Landing Page Sections
-1. **Hero Section** - Eye-catching introduction with animated elements
-2. **Benefits Section** - Key platform benefits
-3. **Features Section** - Detailed platform capabilities with tabs
-4. **Target Audience** - Who should use Agentic Trust
-5. **FAQ Section** - Common questions and answers
-6. **Final CTA** - Newsletter signup
+### Landing Page
+- Tool Access Hero Section with animated elements
+- Role-Based Permissions showcase
+- Agent Tool Sync demonstration
+- Custom Tools integration
+- Final CTA with newsletter signup
 
 ### Blog System
-- **Dual Data Sources**: Markdown files or Sanity CMS (configurable)
-- **Content Management**: Embedded Sanity Studio at `/studio`
-- **Markdown Support**: Import/export with visual and markdown editing modes
+- **Content Management**: Sanity CMS with embedded Studio at `/studio`
 - **Rich Content**: Tables, code blocks, callouts, and embedded media
 - **SEO Optimized**: Auto-generated meta tags, sitemaps, and structured data
 - **Performance**: ISR, caching, and CDN optimization
-- Modern blog layout with category filtering
-- Featured post section with author metadata
+- Modern blog layout with category filtering and table of contents
 
 ## 🔧 Configuration
 
@@ -145,16 +138,11 @@ Create a `.env.local` file in the root directory:
 # Site Configuration
 NEXT_PUBLIC_SITE_URL=https://agentictrust.com
 
-# Blog Data Source ('markdown' or 'sanity')
-NEXT_PUBLIC_BLOG_DATA_SOURCE=markdown
-
-# Sanity Configuration (optional, see SANITY_INTEGRATION.md)
+# Sanity Configuration
 NEXT_PUBLIC_SANITY_PROJECT_ID=your-project-id
 NEXT_PUBLIC_SANITY_DATASET=production
 SANITY_API_TOKEN=your-read-token
 ```
-
-For detailed Sanity CMS setup, see [SANITY_INTEGRATION.md](./SANITY_INTEGRATION.md)
 
 ### Metadata Configuration
 
@@ -187,7 +175,8 @@ The project can be deployed to any platform that supports Next.js:
 
 ## 📄 License
 
-This project is proprietary software. All rights reserved.
+This project is proprietary software.  
+© 2024-2025 Agentic Labs Inc. All rights reserved.
 
 ## 🤝 Contributing
 
@@ -196,7 +185,3 @@ We're not currently accepting external contributions, but feel free to report is
 ## 📞 Contact
 
 For enterprise inquiries: enterprise@agentictrust.com
-
----
-
-Built with ❤️ by the Agentic Trust team

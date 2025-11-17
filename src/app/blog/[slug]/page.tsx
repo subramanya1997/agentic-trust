@@ -228,7 +228,7 @@ export async function generateMetadata({ params }: BlogPageProps) {
       description: post.description || ('excerpt' in post ? post.excerpt : ''),
       site: SITE_CONFIG.twitterHandle,
       creator: SITE_CONFIG.twitterHandle,
-      images: post.coverImage ? [absoluteOgImage(post.coverImage)] : [absoluteOgImage('/blog/twitter-image')],
+      images: post.coverImage ? [absoluteOgImage(post.coverImage)] : [absoluteOgImage('/blog/opengraph-image')],
     },
     alternates: {
       canonical: absoluteUrl(`/blog/${typeof post.slug === 'object' ? post.slug.current : post.slug}`),
