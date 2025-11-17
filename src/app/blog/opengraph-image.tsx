@@ -12,7 +12,7 @@ export default async function Image() {
   return new ImageResponse(
     generateBlogOG({
       title: 'Agentic Trust | Blog',
-      subtitle: 'Insights on AI agent infrastructure and production best practices',
+      subtitle: 'Secure AI agent infrastructure insights and best practices',
     }),
     {
       ...size,

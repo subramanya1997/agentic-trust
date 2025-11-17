@@ -12,7 +12,7 @@ export default async function Image() {
   return new ImageResponse(
     generateDemoOG({
       title: 'Live Demo',
-      subtitle: 'Experience the power of Agentic Trust MCP Server Bridge',
+      subtitle: 'Experience secure AI agent infrastructure',
       badge: 'Interactive Demo',
     }),
     {

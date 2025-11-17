@@ -4,7 +4,7 @@ import { generateGenericOG } from '@/lib/og/templates';
 
 export const runtime = 'edge';
 
-export const alt = 'Agentic Trust - Enterprise MCP Server Infrastructure';
+export const alt = 'Agentic Trust - Secure AI agent infrastructure';
 export const size = OG_CONFIG.sizes.og;
 export const contentType = 'image/png';
 
@@ -12,7 +12,7 @@ export default async function Image() {
   return new ImageResponse(
     generateGenericOG({
       title: 'Agentic Trust',
-      subtitle: 'The unified MCP server platform for production AI agents',
+      subtitle: 'Secure AI agent infrastructure',
     }),
     {
       ...size,
