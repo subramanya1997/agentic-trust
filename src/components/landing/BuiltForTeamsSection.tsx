@@ -7,6 +7,10 @@ export const BuiltForTeamsSection = () => {
   return (
     <SectionContainer background="gradient" padding="lg">
       <div className="text-center mb-12">
+        <div className="inline-flex items-center gap-2 bg-blue-50 px-4 py-2 rounded-full mb-4 border border-blue-100">
+          <Wrench className="w-4 h-4 text-blue-600" />
+          <span className="text-sm font-semibold text-blue-600">For Teams</span>
+        </div>
         <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
           Built for Teams
         </h2>

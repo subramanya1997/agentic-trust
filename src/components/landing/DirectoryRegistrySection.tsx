@@ -7,8 +7,12 @@ export const DirectoryRegistrySection = () => {
   return (
     <SectionContainer background="white" padding="lg">
       <div className="text-center mb-16">
+        <div className="inline-flex items-center gap-2 bg-brand/10 px-4 py-2 rounded-full mb-4">
+          <div className="w-2 h-2 bg-brand rounded-full" />
+          <span className="text-sm font-semibold text-brand">Solution</span>
+        </div>
         <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-          Centralized Management
+          Control Center
         </h2>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
           Manage all your agents and tools from a single control plane
