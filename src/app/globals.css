@@ -53,194 +53,212 @@
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(0.995 0.003 60);
-  --foreground: oklch(0.158 0.004 60);
-  --card: oklch(0.995 0.003 60);
-  --card-foreground: oklch(0.158 0.004 60);
-  --popover: oklch(0.995 0.003 60);
-  --popover-foreground: oklch(0.158 0.004 60);
-  --primary: oklch(0.158 0.004 60);
-  --primary-foreground: oklch(0.985 0.001 60);
-  --secondary: oklch(0.966 0.003 60);
-  --secondary-foreground: oklch(0.158 0.004 60);
-  --muted: oklch(0.966 0.003 60);
-  --muted-foreground: oklch(0.556 0.003 60);
-  --accent: oklch(0.966 0.003 60);
-  --accent-foreground: oklch(0.158 0.004 60);
+  /* Default to Dark Theme */
+  --background: oklch(0.05 0.005 286);
+  /* Deep Zinc/Black */
+  --foreground: oklch(0.985 0.001 60);
+
+  --card: oklch(0.10 0.005 286);
+  --card-foreground: oklch(0.985 0.001 60);
+
+  --popover: oklch(0.05 0.005 286);
+  --popover-foreground: oklch(0.985 0.001 60);
+
+  --primary: oklch(0.985 0.001 60);
+  --primary-foreground: oklch(0.05 0.005 286);
+
+  --secondary: oklch(0.15 0.005 286);
+  --secondary-foreground: oklch(0.985 0.001 60);
+
+  --muted: oklch(0.15 0.005 286);
+  --muted-foreground: oklch(0.65 0.005 286);
+
+  --accent: oklch(0.15 0.005 286);
+  --accent-foreground: oklch(0.985 0.001 60);
+
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.924 0.003 60);
-  --input: oklch(0.924 0.003 60);
-  --ring: oklch(0.708 0.003 60);
-  
-  /* Brand color - remains orange */
+
+  --border: oklch(0.20 0.005 286);
+  --input: oklch(0.20 0.005 286);
+  --ring: oklch(0.669 0.192 40.021);
+  /* Brand Orange Ring */
+
+  /* Brand color - Vibrant Orange */
   --brand: oklch(0.669 0.192 40.021);
-  --brand-foreground: oklch(0.985 0.001 60);
-  
-  /* Semantic colors using stone palette */
-  --success: oklch(0.756 0.003 60);
-  --success-foreground: oklch(0.158 0.004 60);
-  --warning: oklch(0.850 0.003 60);
-  --warning-foreground: oklch(0.158 0.004 60);
-  --info: oklch(0.800 0.003 60);
-  --info-foreground: oklch(0.158 0.004 60);
-  
-  /* Chart colors using stone variations */
-  --chart-1: oklch(0.708 0.003 60);
-  --chart-2: oklch(0.600 0.003 60);
-  --chart-3: oklch(0.500 0.003 60);
-  --chart-4: oklch(0.400 0.003 60);
-  --chart-5: oklch(0.300 0.003 60);
-  
-  --sidebar: oklch(0.985 0.003 60);
-  --sidebar-foreground: oklch(0.158 0.004 60);
-  --sidebar-primary: oklch(0.158 0.004 60);
+  --brand-foreground: oklch(0.05 0.005 286);
+
+  /* Semantic colors */
+  --success: oklch(0.65 0.20 145);
+  --success-foreground: oklch(0.985 0.001 60);
+  --warning: oklch(0.75 0.15 85);
+  --warning-foreground: oklch(0.05 0.005 286);
+  --info: oklch(0.65 0.15 245);
+  --info-foreground: oklch(0.985 0.001 60);
+
+  /* Chart colors */
+  --chart-1: oklch(0.669 0.192 40.021);
+  --chart-2: oklch(0.60 0.15 50);
+  --chart-3: oklch(0.55 0.12 60);
+  --chart-4: oklch(0.50 0.10 70);
+  --chart-5: oklch(0.45 0.08 80);
+
+  --sidebar: oklch(0.05 0.005 286);
+  --sidebar-foreground: oklch(0.985 0.001 60);
+  --sidebar-primary: oklch(0.669 0.192 40.021);
   --sidebar-primary-foreground: oklch(0.985 0.001 60);
-  --sidebar-accent: oklch(0.966 0.003 60);
-  --sidebar-accent-foreground: oklch(0.158 0.004 60);
-  --sidebar-border: oklch(0.924 0.003 60);
-  --sidebar-ring: oklch(0.708 0.003 60);
+  --sidebar-accent: oklch(0.15 0.005 286);
+  --sidebar-accent-foreground: oklch(0.985 0.001 60);
+  --sidebar-border: oklch(0.20 0.005 286);
+  --sidebar-ring: oklch(0.669 0.192 40.021);
 }
 
-.dark {
-  --background: oklch(0.135 0.004 60);
-  --foreground: oklch(0.985 0.001 60);
-  --card: oklch(0.135 0.004 60);
-  --card-foreground: oklch(0.985 0.001 60);
-  --popover: oklch(0.135 0.004 60);
-  --popover-foreground: oklch(0.985 0.001 60);
-  --primary: oklch(0.985 0.001 60);
-  --primary-foreground: oklch(0.135 0.004 60);
-  --secondary: oklch(0.205 0.004 60);
-  --secondary-foreground: oklch(0.985 0.001 60);
-  --muted: oklch(0.205 0.004 60);
-  --muted-foreground: oklch(0.708 0.003 60);
-  --accent: oklch(0.205 0.004 60);
-  --accent-foreground: oklch(0.985 0.001 60);
-  --destructive: oklch(0.704 0.191 22.216);
-  --border: oklch(1 0.001 60 / 10%);
-  --input: oklch(1 0.001 60 / 15%);
-  --ring: oklch(0.556 0.003 60);
-  
-  /* Brand color - remains orange */
-  --brand: oklch(0.669 0.192 40.021);
-  --brand-foreground: oklch(0.135 0.004 60);
-  
-  /* Semantic colors using stone palette */
-  --success: oklch(0.556 0.003 60);
-  --success-foreground: oklch(0.985 0.001 60);
-  --warning: oklch(0.456 0.003 60);
-  --warning-foreground: oklch(0.985 0.001 60);
-  --info: oklch(0.356 0.003 60);
-  --info-foreground: oklch(0.985 0.001 60);
-  
-  /* Chart colors using stone variations */
-  --chart-1: oklch(0.556 0.003 60);
-  --chart-2: oklch(0.456 0.003 60);
-  --chart-3: oklch(0.356 0.003 60);
-  --chart-4: oklch(0.256 0.003 60);
-  --chart-5: oklch(0.156 0.003 60);
-  
-  --sidebar: oklch(0.135 0.004 60);
-  --sidebar-foreground: oklch(0.985 0.001 60);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0.001 60);
-  --sidebar-accent: oklch(0.205 0.004 60);
-  --sidebar-accent-foreground: oklch(0.985 0.001 60);
-  --sidebar-border: oklch(1 0.001 60 / 10%);
-  --sidebar-ring: oklch(0.556 0.003 60);
+/* Light Theme (Optional, for reference or toggle) */
+.light {
+  --background: oklch(0.995 0.003 60);
+  --foreground: oklch(0.158 0.004 60);
+  /* ... other light values if needed ... */
 }
 
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
-  
+
   /* Animation for blog subscription loading spinner */
   @keyframes spin {
     to {
       transform: rotate(360deg);
     }
   }
-  
+
   .animate-spin {
     animation: spin 1s linear infinite;
   }
-  
+
   /* Animation for blob shapes in blog coming soon section */
   @keyframes blob {
     0% {
       transform: translate(0px, 0px) scale(1);
     }
+
     33% {
       transform: translate(30px, -50px) scale(1.1);
     }
+
     66% {
       transform: translate(-20px, 20px) scale(0.9);
     }
+
     100% {
       transform: translate(0px, 0px) scale(1);
     }
   }
-  
+
   .animate-blob {
     animation: blob 7s infinite;
   }
-  
+
   .animation-delay-2000 {
     animation-delay: 2s;
   }
-  
+
   .animation-delay-4000 {
     animation-delay: 4s;
   }
 }
 
 @layer utilities {
+
   /* Brand color utilities */
-  .text-brand { color: var(--brand); }
-  .bg-brand { background-color: var(--brand); }
-  .border-brand { border-color: var(--brand); }
-  .text-brand-foreground { color: var(--brand-foreground); }
-  
+  .text-brand {
+    color: var(--brand);
+  }
+
+  .bg-brand {
+    background-color: var(--brand);
+  }
+
+  .border-brand {
+    border-color: var(--brand);
+  }
+
+  .text-brand-foreground {
+    color: var(--brand-foreground);
+  }
+
   /* Success color utilities */
-  .text-success { color: var(--success); }
-  .bg-success { background-color: var(--success); }
-  .border-success { border-color: var(--success); }
-  .text-success-foreground { color: var(--success-foreground); }
-  
+  .text-success {
+    color: var(--success);
+  }
+
+  .bg-success {
+    background-color: var(--success);
+  }
+
+  .border-success {
+    border-color: var(--success);
+  }
+
+  .text-success-foreground {
+    color: var(--success-foreground);
+  }
+
   /* Warning color utilities */
-  .text-warning { color: var(--warning); }
-  .bg-warning { background-color: var(--warning); }
-  .border-warning { border-color: var(--warning); }
-  .text-warning-foreground { color: var(--warning-foreground); }
-  
+  .text-warning {
+    color: var(--warning);
+  }
+
+  .bg-warning {
+    background-color: var(--warning);
+  }
+
+  .border-warning {
+    border-color: var(--warning);
+  }
+
+  .text-warning-foreground {
+    color: var(--warning-foreground);
+  }
+
   /* Info color utilities */
-  .text-info { color: var(--info); }
-  .bg-info { background-color: var(--info); }
-  .border-info { border-color: var(--info); }
-  .text-info-foreground { color: var(--info-foreground); }
-  
+  .text-info {
+    color: var(--info);
+  }
+
+  .bg-info {
+    background-color: var(--info);
+  }
+
+  .border-info {
+    border-color: var(--info);
+  }
+
+  .text-info-foreground {
+    color: var(--info-foreground);
+  }
+
   /* Policy state utilities - Security themed */
   .policy-allowed {
     @apply bg-green-50 text-green-700 border-green-200;
   }
-  
+
   .policy-denied {
     @apply bg-red-50 text-red-700 border-red-200;
   }
-  
+
   .policy-pending {
     @apply bg-yellow-50 text-yellow-700 border-yellow-200;
   }
-  
+
   /* Security section backgrounds - Deep slate */
   .security-section-bg {
     background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
   }
-  
+
   /* Electric accent for interactive policy states */
   .policy-active {
     @apply border-2 border-brand shadow-lg shadow-brand/20;
@@ -252,6 +270,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -266,12 +285,15 @@
   0% {
     transform: translate(0px, 0px) scale(1);
   }
+
   33% {
     transform: translate(30px, -50px) scale(1.1);
   }
+
   66% {
     transform: translate(-20px, 20px) scale(0.9);
   }
+
   100% {
     transform: translate(0px, 0px) scale(1);
   }

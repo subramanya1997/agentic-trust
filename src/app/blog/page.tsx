@@ -63,7 +63,8 @@ export default function BlogPage() {
   return (
     <div className="min-h-screen bg-gray-50 text-gray-800 font-sans">
       <Header />
-      <main className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 max-w-7xl">
+      <main className="pt-24 md:pt-28">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12 max-w-7xl">
         {/* Coming Soon Featured Post Style */}
         <div className="relative mb-16 group">
           {/* Background gradient */}
@@ -226,6 +227,7 @@ export default function BlogPage() {
         ) : (
           <BlogPostList posts={filteredPosts} />
         )}
+        </div>
       </main>
       <Footer />
     </div>

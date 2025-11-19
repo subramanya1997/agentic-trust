@@ -1,26 +1,32 @@
+import React from 'react';
 import Link from 'next/link';
-import { ArrowRight } from "lucide-react";
+import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
 
 export const FinalCtaSection = () => {
   return (
-    <section className="py-20 sm:py-24 bg-gray-900 text-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">
-            Ready to secure your AI agents?
-          </h2>
-          <p className="text-lg sm:text-xl text-gray-300 mb-10 leading-relaxed">
-            Talk to us about deploying secure AI agent infrastructure for your organization.
-          </p>
-          
-          <Link
-            href="https://calendly.com/subramanya1997/introduction"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-brand hover:bg-brand/90 text-white font-semibold rounded-lg shadow-lg hover:shadow-xl transition-all duration-200"
-          >
-            Book a Demo
-            <ArrowRight className="w-5 h-5" />
+    <section className="py-32 bg-white relative overflow-hidden">
+      {/* Background Glows */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand/5 rounded-full blur-[120px] pointer-events-none" />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl relative z-10 text-center">
+        <h2 className="text-5xl sm:text-6xl font-bold text-zinc-900 mb-8 tracking-tight">
+          Ready to secure your<br />
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-orange-600">AI infrastructure?</span>
+        </h2>
+        <p className="text-xl text-zinc-600 mb-12 max-w-2xl mx-auto">
+          Join forward-thinking engineering teams building the next generation of secure AI agents.
+        </p>
+        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Link href="https://calendly.com/subramanya1997/introduction" target="_blank" rel="noopener noreferrer">
+            <Button size="lg" className="bg-zinc-900 text-white hover:bg-zinc-800 rounded-full px-8 h-12 text-lg font-medium shadow-lg hover:shadow-xl transition-all">
+              Book a Demo
+            </Button>
+          </Link>
+          <Link href="/docs">
+            <Button size="lg" variant="outline" className="bg-white text-zinc-900 border-zinc-200 hover:bg-zinc-50 rounded-full px-8 h-12 text-lg font-medium">
+              Read the Docs
+            </Button>
           </Link>
         </div>
       </div>

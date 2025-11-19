@@ -6,7 +6,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Get all blog posts from Sanity
   const blogPosts = await getAllBlogPosts();
-  
+
   // Static pages
   const staticPages: MetadataRoute.Sitemap = [
     {
@@ -21,64 +21,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: 'weekly',
       priority: 0.8,
     },
-    // Product pages
-    {
-      url: `${baseUrl}/product`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/product/access-control`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/product/identity`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/product/observability`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/product/mcp-orchestration`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
     // Solutions pages
     {
-      url: `${baseUrl}/solutions`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/solutions/enterprise`,
+      url: `${baseUrl}/it-teams`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/solutions/regulated`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/solutions/internal-agents`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/solutions/commerce`,
+      url: `${baseUrl}/engineering-teams`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.8,
@@ -116,7 +67,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.5,
     },
   ];
-  
+
   // Dynamic blog post pages
   const blogPostPages: MetadataRoute.Sitemap = blogPosts.map((post) => ({
     url: `${baseUrl}/blog/${typeof post.slug === 'object' ? post.slug.current : post.slug}`,
