@@ -26,7 +26,7 @@ export const ToolAccessHeroSection = () => {
           {/* Main Title */}
           <h1 className="text-6xl sm:text-7xl lg:text-8xl font-bold text-zinc-900 mb-8 leading-[0.9] tracking-tighter">
             The Command and<br />
-            Control Plane for <span className="text-transparent bg-clip-text bg-gradient-to-b from-zinc-900 to-zinc-500">AI Agents.</span>
+            Control Plane for <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-orange-600">AI Agents.</span>
           </h1>
 
           {/* Tagline */}

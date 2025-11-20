@@ -33,9 +33,10 @@ export const Header = () => {
 
           <div className="flex items-center space-x-8">
             <nav className="hidden md:flex items-center space-x-8 text-md font-medium text-zinc-600">
-              <Link href="/blog" className="hover:text-brand transition-colors">Blog</Link>
-              <span className="text-zinc-400 cursor-not-allowed">Docs</span>
-            </nav>
+            <Link href="/about" className="hover:text-brand transition-colors">About</Link>
+            <Link href="/blog" className="hover:text-brand transition-colors">Blog</Link>
+            <span className="text-zinc-400 cursor-not-allowed">Docs</span>
+          </nav>
 
             <Link href="https://calendly.com/subramanya1997/introduction" target="_blank" rel="noopener noreferrer">
               <Button size="lg" className="bg-zinc-900 text-white hover:bg-zinc-800 rounded-full px-4 text-md font-medium h-9 shadow-sm">

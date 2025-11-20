@@ -174,7 +174,7 @@ export const ProblemSection = () => {
           </div>
           <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-zinc-900 leading-[1.1] mb-8 tracking-tight">
             The tools your teams love are<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-red-500 to-orange-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-orange-600">
               leaking data.
             </span>
           </h2>

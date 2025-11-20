@@ -187,18 +187,18 @@ export default function EngineeringTeamsPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {problems.map((problem) => {
                 const Icon = problem.icon;
-                return (
+                  return (
                   <div key={problem.title} className="bg-gradient-to-br from-orange-50 to-red-50 rounded-2xl p-8 border-2 border-orange-200">
                     <div className="w-14 h-14 bg-white rounded-xl flex items-center justify-center mb-6 shadow-sm">
                       <Icon className="w-7 h-7 text-orange-600" />
-                    </div>
+                      </div>
                     <h3 className="text-xl font-bold text-zinc-900 mb-3">{problem.title}</h3>
                     <p className="text-zinc-700 leading-relaxed">{problem.description}</p>
-                  </div>
-                );
-              })}
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-          </div>
         </section>
 
         {/* Solution Flow Section */}
@@ -220,7 +220,7 @@ export default function EngineeringTeamsPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
               {solutionSteps.map((step, index) => {
                 const Icon = step.icon;
-                return (
+                  return (
                   <div key={step.number} className="relative">
                     {index < solutionSteps.length - 1 && (
                       <div className="hidden md:block absolute top-16 left-full w-full h-0.5 bg-gradient-to-r from-brand/30 to-transparent -translate-x-4" />
@@ -235,11 +235,11 @@ export default function EngineeringTeamsPage() {
                       <h3 className="text-xl font-bold text-zinc-900 mb-3">{step.title}</h3>
                       <p className="text-zinc-600 leading-relaxed">{step.description}</p>
                     </div>
-                  </div>
-                );
-              })}
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-          </div>
         </section>
 
         {/* Feature Grid Section */}
@@ -299,8 +299,8 @@ export default function EngineeringTeamsPage() {
               {faqs.map((faq, index) => (
                 <FAQItem key={index} question={faq.question} answer={faq.answer} />
               ))}
-            </div>
-          </div>
+                </div>
+              </div>
         </section>
 
         {/* Final CTA */}

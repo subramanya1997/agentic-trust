@@ -103,7 +103,7 @@ export const DirectoryRegistrySection = () => {
 
               {/* Screenshot */}
               <div className="relative bg-zinc-50">
-                <Image
+            <Image
                   src={currentTab.image}
                   alt={currentTab.label}
                   width={1200}
@@ -141,11 +141,11 @@ export const DirectoryRegistrySection = () => {
                   >
                     <div className="flex-shrink-0 w-7 h-7 rounded-xl bg-gradient-to-br from-purple-500/10 to-blue-500/10 flex items-center justify-center mt-0.5 border border-purple-500/20 group-hover:border-purple-500/40 group-hover:scale-110 transition-all duration-200">
                       <Check className="w-4 h-4 text-purple-600" />
-                    </div>
+                  </div>
                     <span className="leading-relaxed">{item}</span>
-                  </li>
-                ))}
-              </ul>
+                </li>
+              ))}
+            </ul>
             </div>
           </div>
         </div>

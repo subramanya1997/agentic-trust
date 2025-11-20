@@ -43,21 +43,22 @@ export const Footer = () => {
           </div>
 
           <div className="flex gap-16">
-            <div>
+          <div>
               <h4 className="font-semibold text-zinc-900 mb-6">Solutions</h4>
-              <ul className="space-y-4">
+            <ul className="space-y-4">
                 <li><Link href="/it-teams" className="text-zinc-600 hover:text-brand transition-colors">IT Teams</Link></li>
                 <li><Link href="/engineering-teams" className="text-zinc-600 hover:text-brand transition-colors">Engineering Teams</Link></li>
-              </ul>
-            </div>
+            </ul>
+          </div>
 
-            <div>
-              <h4 className="font-semibold text-zinc-900 mb-6">Resources</h4>
-              <ul className="space-y-4">
-                <li><Link href="/blog" className="text-zinc-600 hover:text-brand transition-colors">Blog</Link></li>
+          <div>
+            <h4 className="font-semibold text-zinc-900 mb-6">Resources</h4>
+            <ul className="space-y-4">
+              <li><Link href="/about" className="text-zinc-600 hover:text-brand transition-colors">About</Link></li>
+              <li><Link href="/blog" className="text-zinc-600 hover:text-brand transition-colors">Blog</Link></li>
                 <li><span className="text-zinc-400 cursor-not-allowed">Docs (Coming Soon)</span></li>
-              </ul>
-            </div>
+            </ul>
+          </div>
           </div>
         </div>
 

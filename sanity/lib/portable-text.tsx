@@ -343,12 +343,13 @@ export const portableTextComponents: PortableTextComponents = {
   },
   marks: {
     link: ({ children, value }: any) => {
-      const rel = !value.href?.startsWith('/') ? 'noopener noreferrer' : undefined
-      const target = !value.href?.startsWith('/') && value.blank !== false ? '_blank' : undefined
+      const href = value?.href || '#'
+      const rel = !href.startsWith('/') ? 'noopener noreferrer' : undefined
+      const target = !href.startsWith('/') && value.blank !== false ? '_blank' : undefined
       
       return (
         <Link
-          href={value.href}
+          href={href}
           rel={rel}
           target={target}
           className="text-brand hover:text-brand/80 underline transition-colors"
@@ -358,9 +359,12 @@ export const portableTextComponents: PortableTextComponents = {
       )
     },
     internalLink: ({ children, value }: any) => {
+      const slug = value?.reference?.slug?.current
+      const href = slug ? `/blog/${slug}` : '#'
+      
       return (
         <Link
-          href={`/blog/${value.reference?.slug?.current}`}
+          href={href}
           className="text-brand hover:text-brand/80 underline transition-colors"
         >
           {children}

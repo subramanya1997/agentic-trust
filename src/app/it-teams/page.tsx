@@ -196,18 +196,18 @@ export default function ITTeamsPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {problems.map((problem) => {
                 const Icon = problem.icon;
-                return (
+                  return (
                   <div key={problem.title} className="bg-gradient-to-br from-red-50 to-orange-50 rounded-2xl p-8 border-2 border-red-200">
                     <div className="w-14 h-14 bg-white rounded-xl flex items-center justify-center mb-6 shadow-sm">
                       <Icon className="w-7 h-7 text-red-600" />
-                    </div>
+                      </div>
                     <h3 className="text-xl font-bold text-zinc-900 mb-3">{problem.title}</h3>
                     <p className="text-zinc-700 leading-relaxed">{problem.description}</p>
-                  </div>
-                );
-              })}
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-          </div>
         </section>
 
         {/* Solution Flow Section */}
@@ -229,7 +229,7 @@ export default function ITTeamsPage() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
               {solutionSteps.map((step, index) => {
                 const Icon = step.icon;
-                return (
+                  return (
                   <div key={step.number} className="relative">
                     {index < solutionSteps.length - 1 && (
                       <div className="hidden md:block absolute top-16 left-full w-full h-0.5 bg-gradient-to-r from-brand/30 to-transparent -translate-x-4" />
@@ -244,10 +244,10 @@ export default function ITTeamsPage() {
                       <h3 className="text-xl font-bold text-zinc-900 mb-3">{step.title}</h3>
                       <p className="text-zinc-600 leading-relaxed">{step.description}</p>
                     </div>
-                  </div>
-                );
-              })}
-            </div>
+                    </div>
+                  );
+                })}
+              </div>
           </div>
         </section>
 
@@ -320,7 +320,7 @@ export default function ITTeamsPage() {
                   <li className="flex items-start gap-2 text-zinc-700">
                     <CheckCircle className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
                     <span>Audit trails (for GRC & incident response)</span>
-                  </li>
+                    </li>
                 </ul>
                 <Link href="/trust" className="inline-flex items-center gap-2 text-brand font-semibold hover:gap-3 transition-all">
                   Explore Security Features
@@ -356,7 +356,7 @@ export default function ITTeamsPage() {
                   Explore Engineering Features
                   <ArrowRight className="w-4 h-4" />
                 </Link>
-              </div>
+            </div>
 
               {/* Discovery CTA */}
               <div className="bg-gradient-to-br from-green-50 to-emerald-100 rounded-2xl p-8 border-2 border-green-200">
@@ -372,9 +372,9 @@ export default function ITTeamsPage() {
                     Book a Demo
                   </Button>
                 </Link>
-              </div>
-            </div>
-          </div>
+                  </div>
+                  </div>
+                </div>
         </section>
 
         {/* FAQ Section */}
