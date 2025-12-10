@@ -1,5 +1,5 @@
-import { Header } from '@/components/landing/Header';
-import { Footer } from '@/components/landing/Footer';
+import { Header } from '@/components/layout/Header';
+import { Footer } from '@/components/layout/Footer';
 import { TrustBadge } from '@/components/ui/badge-trust';
 import { Shield, Lock, Eye, CheckCircle, Clock, Server, AlertCircle, FileText } from 'lucide-react';
 import { Metadata } from 'next';

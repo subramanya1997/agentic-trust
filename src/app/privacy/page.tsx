@@ -1,5 +1,5 @@
-import { Header } from "@/components/landing/Header";
-import { Footer } from "@/components/landing/Footer";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 import { Metadata } from "next";
 import { generateMetadata } from "@/lib/seo";
 

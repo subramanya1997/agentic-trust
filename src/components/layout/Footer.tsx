@@ -56,7 +56,6 @@ export const Footer = () => {
             <ul className="space-y-4">
               <li><Link href="/about" className="text-zinc-600 hover:text-brand transition-colors">About</Link></li>
               <li><Link href="/blog" className="text-zinc-600 hover:text-brand transition-colors">Blog</Link></li>
-                <li><span className="text-zinc-400 cursor-not-allowed">Docs (Coming Soon)</span></li>
             </ul>
           </div>
           </div>

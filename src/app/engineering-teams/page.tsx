@@ -1,7 +1,7 @@
 'use client';
 
-import { Header } from '@/components/landing/Header';
-import { Footer } from '@/components/landing/Footer';
+import { Header } from '@/components/layout/Header';
+import { Footer } from '@/components/layout/Footer';
 import { Zap, Code, Terminal, Cpu, Download, CheckCircle, AlertTriangle, Clock, Shield, MousePointerClick, ChevronDown, Users, Settings } from 'lucide-react';
 import { Metadata } from 'next';
 import Link from 'next/link';

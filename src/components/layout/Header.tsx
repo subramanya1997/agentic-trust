@@ -35,7 +35,6 @@ export const Header = () => {
             <nav className="hidden md:flex items-center space-x-8 text-md font-medium text-zinc-600">
             <Link href="/about" className="hover:text-brand transition-colors">About</Link>
             <Link href="/blog" className="hover:text-brand transition-colors">Blog</Link>
-            <span className="text-zinc-400 cursor-not-allowed">Docs</span>
           </nav>
 
             <Link href="https://calendly.com/subramanya1997/introduction" target="_blank" rel="noopener noreferrer">

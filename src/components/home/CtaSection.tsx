@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 
-export const FinalCtaSection = () => {
+export const CtaSection = () => {
   return (
     <section className="py-32 bg-white relative overflow-hidden">
       {/* Background Glows */}
@@ -21,11 +21,6 @@ export const FinalCtaSection = () => {
           <Link href="https://calendly.com/subramanya1997/introduction" target="_blank" rel="noopener noreferrer">
             <Button size="lg" className="bg-zinc-900 text-white hover:bg-zinc-800 rounded-full px-8 h-12 text-lg font-medium shadow-lg hover:shadow-xl transition-all">
               Book a Demo
-            </Button>
-          </Link>
-          <Link href="/docs">
-            <Button size="lg" variant="outline" className="bg-white text-zinc-900 border-zinc-200 hover:bg-zinc-50 rounded-full px-8 h-12 text-lg font-medium">
-              Read the Docs
             </Button>
           </Link>
         </div>

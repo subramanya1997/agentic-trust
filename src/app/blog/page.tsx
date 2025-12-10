@@ -1,7 +1,7 @@
 "use client";
 
-import { Header } from "@/components/landing/Header";
-import { Footer } from "@/components/landing/Footer";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 import { CategoryTabs } from "@/components/blog/CategoryTabs";
 import { BlogPostList } from "@/components/blog/BlogPostList";
 import { useState } from "react";

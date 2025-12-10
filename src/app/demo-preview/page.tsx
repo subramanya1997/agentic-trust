@@ -1,6 +1,6 @@
 import { generateMetadata } from '@/lib/seo';
 import type { Metadata } from 'next';
-import { BridgeDemo } from '@/components/landing/BridgeDemo';
+import { BridgeDemo } from '@/components/features/BridgeDemo';
 
 export const metadata: Metadata = generateMetadata({
   title: 'Live Demo - MCP Server Bridge | Agentic Trust',

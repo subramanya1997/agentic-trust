@@ -1,5 +1,5 @@
-import { Header } from "@/components/landing/Header";
-import { Footer } from "@/components/landing/Footer";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 import { getBlogPost, getAllBlogPosts } from "@/lib/sanity";
 import { PortableTextContent } from "../../../../sanity/lib/portable-text";
 import { extractHeadings } from "../../../../sanity/lib/extract-headings";

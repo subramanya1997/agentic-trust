@@ -24,11 +24,6 @@ export function AboutCTA() {
               Book a Demo
             </Button>
           </Link>
-          <Link href="/docs">
-            <Button size="lg" variant="outline" className="bg-white text-zinc-900 hover:text-zinc-900 border-zinc-200 hover:bg-zinc-50 rounded-full px-8 h-12 text-lg font-medium">
-              Read the Docs
-            </Button>
-          </Link>
         </div>
       </div>
     </section>

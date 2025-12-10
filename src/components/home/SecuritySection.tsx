@@ -134,7 +134,7 @@ const features = [
   }
 ];
 
-export const SecurityGovernanceSection = () => {
+export const SecuritySection = () => {
   return (
     <section className="py-32 bg-gradient-to-b from-white via-zinc-50/50 to-white relative overflow-hidden">
       {/* Grid Background */}

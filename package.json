@@ -7,8 +7,6 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "capture-demo": "node scripts/capture-demo.js",
-    "capture-demo-preset": "node scripts/capture-demo-presets.js",
     "studio": "next dev --turbopack"
   },
   "dependencies": {

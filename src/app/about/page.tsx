@@ -1,5 +1,5 @@
-import { Header } from '@/components/landing/Header';
-import { Footer } from '@/components/landing/Footer';
+import { Header } from '@/components/layout/Header';
+import { Footer } from '@/components/layout/Footer';
 import { AboutHero } from '@/components/about/AboutHero';
 import { MissionSection } from '@/components/about/MissionSection';
 import { BeliefsSection } from '@/components/about/BeliefsSection';

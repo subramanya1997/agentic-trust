@@ -1,7 +1,7 @@
 import React from 'react';
 import { Users, Shield, Terminal, Code2 } from 'lucide-react';
 
-export const BuiltForTeamsSection = () => {
+export const TeamsSection = () => {
   return (
     <section className="py-24 bg-white relative overflow-hidden">
       {/* Grid Background */}

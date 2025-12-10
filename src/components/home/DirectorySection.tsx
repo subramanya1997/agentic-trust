@@ -33,7 +33,7 @@ const tabs = [
   }
 ];
 
-export const DirectoryRegistrySection = () => {
+export const DirectorySection = () => {
   const [activeTab, setActiveTab] = useState('registry');
   const currentTab = tabs.find(tab => tab.id === activeTab) || tabs[0];
   const Icon = currentTab.icon;

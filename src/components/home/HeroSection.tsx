@@ -3,9 +3,9 @@
 import React from 'react';
 import { Settings2, RefreshCw, ShieldCheck } from 'lucide-react';
 import { Separator } from "@/components/ui/separator";
-import { BridgeDemo } from './BridgeDemo';
+import { BridgeDemo } from '@/components/features/BridgeDemo';
 
-export const ToolAccessHeroSection = () => {
+export const HeroSection = () => {
   return (
     <section className="relative bg-white pt-32 pb-20 overflow-hidden min-h-screen flex flex-col justify-center">
       {/* Background Glows */}
