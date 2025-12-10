@@ -202,7 +202,7 @@ export function AboutHero() {
           <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-zinc-900 leading-[1.1] tracking-tight">
             Building the trust layer for<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-orange-600">
-              MCP and AI agents.
+              agentic workflows.
             </span>
           </h1>
           <p className="text-xl sm:text-2xl text-zinc-600 max-w-3xl mx-auto leading-relaxed">

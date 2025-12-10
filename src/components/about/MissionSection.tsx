@@ -55,10 +55,10 @@ export function MissionSection() {
               <Layers className="w-7 h-7 text-zinc-300 group-hover:text-purple-400 transition-colors" />
             </div>
             <h3 className="text-xl font-bold text-white mb-3 group-hover:text-purple-100 transition-colors">
-              Enterprise MCP
+              Enterprise Ready
             </h3>
             <p className="text-zinc-400 leading-relaxed group-hover:text-zinc-300 transition-colors">
-              Scaling the Model Context Protocol with the identity, auth, and
+              Scaling agentic workflows with the identity, auth, and
               governance infrastructure enterprises demand.
             </p>
           </div>

@@ -31,19 +31,19 @@ const solutionSteps = [
     number: '01',
     icon: Key,
     title: 'One-click Identity Integration',
-    description: 'Native Okta and Entra integration: SSO, SCIM provisioning, and conditional access apply to MCP the same way they apply to Slack or GitHub.',
+    description: 'Native Okta and Entra integration: SSO, SCIM provisioning, and conditional access apply to AI agents the same way they apply to Slack or GitHub.',
   },
   {
     number: '02',
     icon: Lock,
     title: 'Attribute-Based Access Control (ABAC)',
-    description: 'Enforce context-aware policies on MCP: scope access by user, device, location, and session without building new auth systems.',
+    description: 'Enforce context-aware policies on AI agents: scope access by user, device, location, and session without building new auth systems.',
   },
   {
     number: '03',
     icon: LayoutDashboard,
     title: 'Unified Access Management',
-    description: 'Manage MCP access in the same dashboard you use for everything else. Provision, audit, and offboard from one place.',
+    description: 'Manage AI agent access in the same dashboard you use for everything else. Provision, audit, and offboard from one place.',
   },
 ];
 
@@ -51,7 +51,7 @@ const enterpriseFeatures = [
   {
     icon: Key,
     title: 'Native IdP Integration',
-    description: 'SSO, SCIM provisioning, and conditional access policies apply to MCP the same way they apply to Slack or GitHub. Automatic user/group sync with MCP access tied to your org chart.',
+    description: 'SSO, SCIM provisioning, and conditional access policies apply to AI agents the same way they apply to Slack or GitHub. Automatic user/group sync with agent access tied to your org chart.',
   },
   {
     icon: Server,
@@ -60,8 +60,8 @@ const enterpriseFeatures = [
   },
   {
     icon: Shield,
-    title: 'Private MCP Registry with Security Eval Scores',
-    description: 'IT controls the catalog. Developers get one-click install. Every MCP server is vetted and scored before it reaches your organization. Support for 18,000+ external servers plus your internal tools. Version control and rollback built in.',
+    title: 'Private Tool Registry with Security Eval Scores',
+    description: 'IT controls the catalog. Developers get one-click install. Every tool and integration is vetted and scored before it reaches your organization. Support for 50+ pre-built integrations plus your internal tools. Version control and rollback built in.',
   },
   {
     icon: Lock,
@@ -71,31 +71,31 @@ const enterpriseFeatures = [
   {
     icon: Activity,
     title: 'Centralized Observability Dashboard',
-    description: 'Complete visibility into MCP usage across all teams and clients. Track tool calls, user activity, security violations, and adoption metrics. Export to Datadog, Honeycomb, or your logging stack via OpenTelemetry.',
+    description: 'Complete visibility into AI agent usage across all teams and clients. Track tool calls, user activity, security violations, and adoption metrics. Export to Datadog, Honeycomb, or your logging stack via OpenTelemetry.',
   },
   {
     icon: Settings,
     title: 'Automated Access Provisioning',
-    description: 'Provision MCP access automatically based on Okta groups, departments, or roles. Onboard new employees with the right tools on day one. Offboard instantly when someone leaves.',
+    description: 'Provision AI agent access automatically based on Okta groups, departments, or roles. Onboard new employees with the right tools on day one. Offboard instantly when someone leaves.',
   },
 ];
 
 const faqs = [
   {
     question: 'What AI clients does Agentic Trust support?',
-    answer: 'All 300+ MCP clients including Cursor, VS Code, Claude Code, GitHub Copilot, ChatGPT, Claude Desktop, Windsurf, and any client that implements MCP.',
+    answer: 'All major AI clients including Cursor, VS Code, Claude Code, GitHub Copilot, ChatGPT, Claude Desktop, Windsurf, and any client that supports agentic workflows.',
   },
   {
     question: 'Do I need to change my workflow or learn new tools?',
     answer: 'No, we work with your existing IDE and AI client with the only difference being authentication through company SSO instead of personal API keys.',
   },
   {
-    question: 'How do I add new MCP servers or tools I need?',
-    answer: 'Request through the catalog: security-approved servers are available immediately with one click, while new servers go through fast-tracked approval in minutes instead of weeks.',
+    question: 'How do I add new tools or integrations I need?',
+    answer: 'Request through the catalog: security-approved tools are available immediately with one click, while new integrations go through fast-tracked approval in minutes instead of weeks.',
   },
   {
-    question: 'Can I use local MCP servers?',
-    answer: 'Yes, with zero installation friction and the same governance/observability as remote servers, plus CLI tools to make local-to-hosted workflows seamless.',
+    question: 'Can I use local tools and integrations?',
+    answer: 'Yes, with zero installation friction and the same governance/observability as remote tools, plus CLI tools to make local-to-hosted workflows seamless.',
   },
   {
     question: 'How does Agentic Trust integrate with our existing security and IT policies?',
@@ -107,15 +107,15 @@ const faqs = [
   },
   {
     question: 'Can I still use my favorite AI tools (Cursor, Claude Code, ChatGPT)?',
-    answer: 'Yes, your development experience stays identical. You just get access to vetted, secure MCP servers instead of random GitHub repos.',
+    answer: 'Yes, your development experience stays identical. You just get access to vetted, secure integrations instead of unvetted third-party tools.',
   },
   {
-    question: 'Can I build custom MCP servers for internal APIs?',
-    answer: 'Yes, we help convert internal APIs into MCP servers that appear in the catalog alongside external ones with identical access controls and observability.',
+    question: 'Can I build custom integrations for internal APIs?',
+    answer: 'Yes, we help convert internal APIs into secure integrations that appear in the catalog alongside external ones with identical access controls and observability.',
   },
   {
-    question: 'What happens to my existing MCP configurations and workflows?',
-    answer: 'Minimal disruption: we import existing configurations and your prompts/workflows remain the same, with most teams starting new servers through Agentic Trust then gradually migrating existing ones.',
+    question: 'What happens to my existing configurations and workflows?',
+    answer: 'Minimal disruption: we import existing configurations and your prompts/workflows remain the same, with most teams starting new integrations through Agentic Trust then gradually migrating existing ones.',
   },
 ];
 
@@ -164,7 +164,7 @@ export default function ITTeamsPage() {
                 Scale AI with Your<br />Existing Identity Stack
               </h1>
               <p className="text-xl sm:text-2xl text-zinc-600 mb-10 max-w-3xl mx-auto leading-relaxed">
-                Agentic Trust extends your existing identity stack to give you the same control over MCP usage that you have over every other application in your organization, without slowing anyone down.
+                Agentic Trust extends your existing identity stack to give you the same control over AI agent usage that you have over every other application in your organization, without slowing anyone down.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link href="https://calendly.com/subramanya1997/introduction" target="_blank" rel="noopener noreferrer">
@@ -186,10 +186,10 @@ export default function ITTeamsPage() {
                 <span className="text-sm font-semibold text-red-600 uppercase tracking-wide">Problem</span>
               </div>
               <h2 className="text-4xl sm:text-5xl font-bold text-zinc-900 mb-6 tracking-tight">
-                MCP Alone Breaks Your<br />Identity Stack
+                AI Agents Break Your<br />Identity Stack
               </h2>
               <p className="text-xl text-zinc-600 max-w-3xl mx-auto leading-relaxed">
-                Your teams are already connecting to thousands of external MCP servers to query databases, update tickets, and automate workflows. This is happening across every industry, completely outside identity and access systems.
+                Your teams are already connecting AI agents to databases, tickets, and automated workflows. This is happening across every industry, completely outside identity and access systems.
               </p>
             </div>
 
@@ -222,7 +222,7 @@ export default function ITTeamsPage() {
                 AI That Works the Way<br />Your Stack Already Does
               </h2>
               <p className="text-xl text-zinc-600 max-w-3xl mx-auto leading-relaxed">
-                MCP is automating workflows that used to take hours or days. Agentic Trust makes MCP work like enterprise apps: same identity providers, same access policies, same deployment model. Enable AI transformation without rebuilding your IAM stack.
+                AI agents are automating workflows that used to take hours or days. Agentic Trust makes agentic workflows work like enterprise apps: same identity providers, same access policies, same deployment model. Enable AI transformation without rebuilding your IAM stack.
               </p>
             </div>
 
@@ -337,7 +337,7 @@ export default function ITTeamsPage() {
                 <ul className="space-y-3 mb-8">
                   <li className="flex items-start gap-2 text-zinc-700">
                     <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span>Support for 300+ MCP clients</span>
+                    <span>Works with all major AI clients</span>
                   </li>
                   <li className="flex items-start gap-2 text-zinc-700">
                     <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
@@ -349,7 +349,7 @@ export default function ITTeamsPage() {
                   </li>
                   <li className="flex items-start gap-2 text-zinc-700">
                     <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-                    <span>Local MCP support</span>
+                    <span>Local tool support</span>
                   </li>
                 </ul>
                 <Link href="/engineering-teams" className="inline-flex items-center gap-2 text-brand font-semibold hover:gap-3 transition-all">
@@ -408,7 +408,7 @@ export default function ITTeamsPage() {
               Agents and Work. Connected.
             </h2>
             <p className="text-xl text-zinc-600 mb-10 leading-relaxed">
-              Agentic Trust makes it easy to create, host, and scale MCP servers across your organization. Local or remote, every server is secure, discoverable, and simple to manage.
+              Agentic Trust makes it easy to build, deploy, and scale agentic workflows across your organization. Local or remote, every tool is secure, discoverable, and simple to manage.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href="https://calendly.com/subramanya1997/introduction" target="_blank" rel="noopener noreferrer">

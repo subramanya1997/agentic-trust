@@ -1,77 +1,72 @@
 "use client";
 
 import React from 'react';
-import { Settings2, RefreshCw, ShieldCheck } from 'lucide-react';
-import { Separator } from "@/components/ui/separator";
-import { BridgeDemo } from '@/components/features/BridgeDemo';
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import { ArrowRight, Shield, Route, Activity } from 'lucide-react';
+import { InteractiveDashboardDemo } from '@/components/dashboard/InteractiveDashboardDemo';
 
 export const HeroSection = () => {
   return (
-    <section className="relative bg-white pt-32 pb-20 overflow-hidden min-h-screen flex flex-col justify-center">
-      {/* Background Glows */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-brand/5 rounded-full blur-[120px] opacity-50 pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-[800px] h-[600px] bg-blue-500/5 rounded-full blur-[100px] pointer-events-none" />
+    <section className="relative bg-white pt-32 pb-24 overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[500px] bg-gradient-to-b from-brand/8 via-orange-500/5 to-transparent rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="container flex max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center w-full">
-          {/* Small Title */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-zinc-200 shadow-sm mb-8">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-brand"></span>
-            </span>
-            <span className="text-sm font-medium text-zinc-600">Enterprise-Ready AI Infrastructure</span>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-6xl relative z-10">
+        <div className="text-center">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 bg-brand/10 px-4 py-2 rounded-full mb-8 border border-brand/20">
+            <span className="text-sm font-semibold text-brand">Secure Agentic Infrastructure</span>
           </div>
 
-          {/* Main Title */}
-          <h1 className="text-6xl sm:text-7xl lg:text-8xl font-bold text-zinc-900 mb-8 leading-[0.9] tracking-tighter">
-            The Command and<br />
-            Control Plane for <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand to-orange-600">AI Agents.</span>
+          {/* Main Headline */}
+          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold text-zinc-900 mb-6 leading-[0.95] tracking-tight">
+            Build AI Agents.{' '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand via-orange-500 to-amber-500">
+              Deploy with Control.
+            </span>
           </h1>
 
-          {/* Tagline */}
-          <p className="text-xl text-zinc-600 mb-12 max-w-2xl mx-auto leading-relaxed">
-            Agentic Trust turns agent security into visibility, control, and trust. Make your AI agents enterprise-ready instantly.
+          <p className="text-xl text-zinc-600 mb-16 max-w-3xl mx-auto leading-relaxed">
+            The secure infrastructure for AI agents. Connect your tools, route to any LLM, and deploy agentic workflows with enterprise-grade identity, routing, and observability.
           </p>
 
-          {/* Visual Element */}
-          <div className="mb-24 relative">
-            <BridgeDemo />
+          {/* Interactive Dashboard Demo */}
+          <div className="relative mb-24">
+            <InteractiveDashboardDemo />
+          </div>
 
-            {/* Three Pillars */}
-            <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-12 max-w-4xl mx-auto">
-              <div className="text-center max-w-xs mx-auto group">
-                <div className="w-12 h-12 mx-auto mb-4 flex items-center justify-center rounded-2xl bg-white border border-zinc-200 shadow-sm group-hover:border-brand/50 transition-all duration-300 group-hover:scale-110">
-                  <ShieldCheck className="w-6 h-6 text-zinc-400 group-hover:text-brand transition-colors duration-300" />
-                </div>
-                <h3 className="text-lg font-semibold text-zinc-900 mb-2">Agent Identity</h3>
-                <p className="text-base text-zinc-500 leading-relaxed">
-                  Issue, rotate, revoke. Map to org roles.
-                </p>
+          {/* Three Pillars */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div className="text-center group">
+              <div className="w-14 h-14 mx-auto mb-4 flex items-center justify-center rounded-2xl bg-zinc-100 border border-zinc-200 group-hover:border-brand/50 group-hover:bg-brand/5 transition-all duration-300">
+                <Shield className="w-7 h-7 text-zinc-500 group-hover:text-brand transition-colors duration-300" />
               </div>
+              <h3 className="text-lg font-semibold text-zinc-900 mb-2">Enterprise Identity</h3>
+              <p className="text-sm text-zinc-500 leading-relaxed">
+                SSO, SCIM, and conditional access. AI agents under your existing Okta or Entra policies.
+              </p>
+            </div>
 
-              <div className="text-center relative max-w-xs mx-auto group">
-                <div className="hidden sm:block absolute -left-6 top-1/2 -translate-y-1/2 w-px h-12 bg-zinc-200" />
-                <div className="hidden sm:block absolute -right-6 top-1/2 -translate-y-1/2 w-px h-12 bg-zinc-200" />
-
-                <div className="w-12 h-12 mx-auto mb-4 flex items-center justify-center rounded-2xl bg-white border border-zinc-200 shadow-sm group-hover:border-brand/50 transition-all duration-300 group-hover:scale-110">
-                  <Settings2 className="w-6 h-6 text-zinc-400 group-hover:text-brand transition-colors duration-300" />
-                </div>
-                <h3 className="text-lg font-semibold text-zinc-900 mb-2">Policy & Gateway</h3>
-                <p className="text-base text-zinc-500 leading-relaxed">
-                  Allow/deny/throttle + time-boxing.
-                </p>
+            <div className="text-center group">
+              <div className="w-14 h-14 mx-auto mb-4 flex items-center justify-center rounded-2xl bg-zinc-100 border border-zinc-200 group-hover:border-brand/50 group-hover:bg-brand/5 transition-all duration-300">
+                <Route className="w-7 h-7 text-zinc-500 group-hover:text-brand transition-colors duration-300" />
               </div>
+              <h3 className="text-lg font-semibold text-zinc-900 mb-2">Smart Routing</h3>
+              <p className="text-sm text-zinc-500 leading-relaxed">
+                Route to any LLM provider. Automatic fallbacks, cost optimization, and latency-based decisions.
+              </p>
+            </div>
 
-              <div className="text-center max-w-xs mx-auto group">
-                <div className="w-12 h-12 mx-auto mb-4 flex items-center justify-center rounded-2xl bg-white border border-zinc-200 shadow-sm group-hover:border-brand/50 transition-all duration-300 group-hover:scale-110">
-                  <RefreshCw className="w-6 h-6 text-zinc-400 group-hover:text-brand transition-colors duration-300" />
-                </div>
-                <h3 className="text-lg font-semibold text-zinc-900 mb-2">Traceability</h3>
-                <p className="text-base text-zinc-500 leading-relaxed">
-                  Rich events and decision explanations.
-                </p>
+            <div className="text-center group">
+              <div className="w-14 h-14 mx-auto mb-4 flex items-center justify-center rounded-2xl bg-zinc-100 border border-zinc-200 group-hover:border-brand/50 group-hover:bg-brand/5 transition-all duration-300">
+                <Activity className="w-7 h-7 text-zinc-500 group-hover:text-brand transition-colors duration-300" />
               </div>
+              <h3 className="text-lg font-semibold text-zinc-900 mb-2">Full Observability</h3>
+              <p className="text-sm text-zinc-500 leading-relaxed">
+                Traces, logs, and metrics for every call. Debug in seconds. Complete audit trails.
+              </p>
             </div>
           </div>
         </div>
@@ -79,3 +74,4 @@ export const HeroSection = () => {
     </section>
   );
 };
+

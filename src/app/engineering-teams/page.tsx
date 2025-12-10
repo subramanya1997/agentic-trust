@@ -22,7 +22,7 @@ const problems = [
   {
     icon: Terminal,
     title: 'Manual Configuration',
-    description: 'Every engineer configures the same MCP servers differently. By the time it\'s working, the task is already done manually.',
+    description: 'Every engineer configures the same tools differently. By the time it\'s working, the task is already done manually.',
   },
 ];
 
@@ -31,7 +31,7 @@ const solutionSteps = [
     number: '01',
     icon: Shield,
     title: 'Pre-Approved by Security',
-    description: 'Every MCP server in your org\'s catalog already passed security review. No waiting. No questionnaires. No manual vetting.',
+    description: 'Every tool in your org\'s catalog already passed security review. No waiting. No questionnaires. No manual vetting.',
   },
   {
     number: '02',
@@ -43,7 +43,7 @@ const solutionSteps = [
     number: '03',
     icon: MousePointerClick,
     title: 'Installed in One Click',
-    description: 'Instant access to MCP servers that have already passed security review. Works with whatever IDE you\'re already using. No JSON editing. No API key management. No workflow changes.',
+    description: 'Instant access to tools that have already passed security review. Works with whatever IDE you\'re already using. No JSON editing. No API key management. No workflow changes.',
   },
 ];
 
@@ -56,7 +56,7 @@ const features = [
   {
     icon: Code,
     title: 'Tool Remixing',
-    description: 'Combine tools across MCP servers into custom workflows. Use Linear + GitHub + Slack in one automated sequence.',
+    description: 'Combine tools across integrations into custom workflows. Use Linear + GitHub + Slack in one automated sequence.',
   },
   {
     icon: Cpu,
@@ -65,12 +65,12 @@ const features = [
   },
   {
     icon: Terminal,
-    title: 'Local MCP Support with Zero Friction',
-    description: 'Run MCP servers locally without installation overhead. Security and performance stay in your control.',
+    title: 'Local Tools with Zero Friction',
+    description: 'Run tools locally without installation overhead. Security and performance stay in your control.',
   },
   {
     icon: Zap,
-    title: 'Support for 300+ MCP Clients',
+    title: 'Works with All Major AI Clients',
     description: 'Connect Cursor, VS Code, Claude Code, GitHub Copilot, ChatGPT, Claude Desktop, Windsurf, and more.',
   },
 ];
@@ -78,19 +78,19 @@ const features = [
 const faqs = [
   {
     question: 'What AI clients does Agentic Trust support?',
-    answer: 'All 300+ MCP clients including Cursor, VS Code, Claude Code, GitHub Copilot, ChatGPT, Claude Desktop, Windsurf, and any client that implements MCP.',
+    answer: 'All major AI clients including Cursor, VS Code, Claude Code, GitHub Copilot, ChatGPT, Claude Desktop, Windsurf, and any client that supports agentic workflows.',
   },
   {
     question: 'Do I need to change my workflow or learn new tools?',
     answer: 'No, we work with your existing IDE and AI client with the only difference being authentication through company SSO instead of personal API keys.',
   },
   {
-    question: 'How do I add new MCP servers or tools I need?',
-    answer: 'Request through the catalog: security-approved servers are available immediately with one click, while new servers go through fast-tracked approval in minutes instead of weeks.',
+    question: 'How do I add new tools or integrations I need?',
+    answer: 'Request through the catalog: security-approved tools are available immediately with one click, while new integrations go through fast-tracked approval in minutes instead of weeks.',
   },
   {
-    question: 'Can I use local MCP servers?',
-    answer: 'Yes, with zero installation friction and the same governance/observability as remote servers, plus CLI tools to make local-to-hosted workflows seamless.',
+    question: 'Can I use local tools and integrations?',
+    answer: 'Yes, with zero installation friction and the same governance/observability as remote tools, plus CLI tools to make local-to-hosted workflows seamless.',
   },
   {
     question: 'How does Agentic Trust integrate with our existing security and IT policies?',
@@ -102,11 +102,11 @@ const faqs = [
   },
   {
     question: 'Can I still use my favorite AI tools (Cursor, Claude Code, ChatGPT)?',
-    answer: 'Yes, your development experience stays identical. You just get access to vetted, secure MCP servers instead of random GitHub repos.',
+    answer: 'Yes, your development experience stays identical. You just get access to vetted, secure integrations instead of unvetted third-party tools.',
   },
   {
-    question: 'Can I build custom MCP servers for internal APIs?',
-    answer: 'Yes, we help convert internal APIs into MCP servers that appear in the catalog alongside external ones with identical access controls and observability.',
+    question: 'Can I build custom integrations for internal APIs?',
+    answer: 'Yes, we help convert internal APIs into secure integrations that appear in the catalog alongside external ones with identical access controls and observability.',
   },
 ];
 
@@ -155,7 +155,7 @@ export default function EngineeringTeamsPage() {
                 Build 3x Faster.<br />Never Leave Your IDE.
               </h1>
               <p className="text-xl sm:text-2xl text-zinc-600 mb-10 max-w-3xl mx-auto leading-relaxed">
-                Agentic Trust is the first enterprise MCP platform to connect AI tools to your entire stack with pre-approved access already configured. One-click install, zero workflow changes, full speed ahead.
+                Agentic Trust is the first secure AI agent platform to connect your tools to your entire stack with pre-approved access already configured. One-click install, zero workflow changes, full speed ahead.
               </p>
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link href="https://calendly.com/subramanya1997/introduction" target="_blank" rel="noopener noreferrer">
@@ -180,7 +180,7 @@ export default function EngineeringTeamsPage() {
                 More Time Configuring AI<br />Than Building with It
               </h2>
               <p className="text-xl text-zinc-600 max-w-3xl mx-auto leading-relaxed">
-                Your team is more productive with AI, but these tools still can't connect to databases, update tickets, or automate workflows without MCP.
+                Your team is more productive with AI, but these tools still can't connect to databases, update tickets, or automate workflows without proper infrastructure.
               </p>
             </div>
 
@@ -250,7 +250,7 @@ export default function EngineeringTeamsPage() {
                 Faster Engineers Without<br />Compromising Security
               </h2>
               <p className="text-xl text-zinc-300 max-w-3xl mx-auto leading-relaxed">
-                Agentic Trust is the first enterprise MCP platform, built for how you actually work with AI today. Work with your existing tools, integrate with your existing identity stack, run locally, build custom MCP servers, and experiment safely.
+                Agentic Trust is the first secure AI agent platform, built for how you actually work with AI today. Work with your existing tools, integrate with your existing identity stack, run locally, build custom integrations, and experiment safely.
               </p>
             </div>
 
@@ -310,7 +310,7 @@ export default function EngineeringTeamsPage() {
               Agents and Work. Connected.
             </h2>
             <p className="text-xl text-zinc-600 mb-10 leading-relaxed">
-              Agentic Trust makes it easy to create, host, and scale MCP servers across your organization. Local or remote, every server is secure, discoverable, and simple to manage.
+              Agentic Trust makes it easy to build, deploy, and scale agentic workflows across your organization. Local or remote, every tool is secure, discoverable, and simple to manage.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href="https://calendly.com/subramanya1997/introduction" target="_blank" rel="noopener noreferrer">

@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     template: "%s | Agentic Trust"
   },
   description: SITE_CONFIG.description,
-  keywords: ["AI agent security", "agent identity", "IAM for agents", "MCP security", "agent access control", "policy enforcement", "agent authentication", "AI agent infrastructure", "least privilege agents", "agent audit logs", "not HUMAN Security AgenticTrust"],
+  keywords: ["AI agent infrastructure", "secure AI agents", "agentic workflows", "enterprise AI platform", "AI agent security", "LLM routing", "agent observability", "AI tool management", "AI agent deployment", "AgenticTrust"],
   authors: [{ name: "Agentic Trust Team" }],
   creator: "Agentic Trust",
   publisher: "Agentic Trust",
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
         url: absoluteOgImage('/opengraph-image'),
         width: 1200,
         height: 630,
-        alt: 'Agentic Trust — IAM for AI Agents',
+        alt: 'Agentic Trust — Build AI Agents, Deploy with Control',
       }
     ],
   },
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
     canonical: SITE_CONFIG.url,
   },
   other: {
-    'twitter:image:alt': 'Agentic Trust — IAM for AI Agents',
+    'twitter:image:alt': 'Agentic Trust — Build AI Agents, Deploy with Control',
   },
 };
 

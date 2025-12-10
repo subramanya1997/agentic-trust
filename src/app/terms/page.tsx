@@ -5,9 +5,9 @@ import { generateMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = generateMetadata({
   title: "Terms of Service | Agentic Trust",
-  description: "Terms of Service for Agentic Trust - Read our terms and conditions for using our MCP server platform and AI infrastructure services.",
+  description: "Terms of Service for Agentic Trust - Read our terms and conditions for using our AI agent infrastructure platform and services.",
   path: "/terms",
-  keywords: ["terms of service", "legal terms", "MCP server terms", "AI infrastructure", "service agreement", "AgenticTrust"],
+  keywords: ["terms of service", "legal terms", "AI agent terms", "AI infrastructure", "service agreement", "AgenticTrust"],
 });
 
 export default function TermsOfServicePage() {
@@ -39,7 +39,7 @@ export default function TermsOfServicePage() {
           <section className="mb-12">
             <h2 className="text-2xl font-semibold text-gray-900 mb-4">2. Description of Service</h2>
             <p className="text-gray-700 mb-4">
-              Agentic Trust provides a unified MCP (Model Context Protocol) server platform for production AI agents, 
+              Agentic Trust provides a secure AI agent infrastructure platform for production AI agents, 
               including but not limited to:
             </p>
             <ul className="list-disc pl-6 mb-6 space-y-2 text-gray-700">

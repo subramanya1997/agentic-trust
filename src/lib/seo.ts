@@ -4,7 +4,7 @@ import { Metadata } from 'next';
 export const SITE_CONFIG = {
   url: 'https://agentictrust.com',
   name: 'Agentic Trust',
-  description: 'Secure AI agent infrastructure. Give every agent an identity, least-privilege tool access, and real-time policy decisions—without slowing teams.',
+  description: 'Secure AI agent infrastructure for teams and partners. Build agentic workflows with enterprise-grade identity, routing, and observability.',
   twitterHandle: '@agentictrust',
 };
 
@@ -134,7 +134,7 @@ export function generateSoftwareApplicationSchema() {
       'Real-time policy enforcement',
       'Audit logs and forensics',
       'IdP integration (SAML, SCIM, OIDC)',
-      'MCP server orchestration',
+      'Tool orchestration and management',
     ],
   };
 }

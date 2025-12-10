@@ -5,9 +5,9 @@ import { generateMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = generateMetadata({
   title: "Privacy Policy | Agentic Trust",
-  description: "Privacy Policy for Agentic Trust - Learn how we collect, use, and protect your data when using our MCP server platform.",
+  description: "Privacy Policy for Agentic Trust - Learn how we collect, use, and protect your data when using our AI agent infrastructure platform.",
   path: "/privacy",
-  keywords: ["privacy policy", "data protection", "MCP server privacy", "AI infrastructure", "AgenticTrust"],
+  keywords: ["privacy policy", "data protection", "AI agent privacy", "AI infrastructure", "AgenticTrust"],
 });
 
 export default function PrivacyPolicyPage() {
